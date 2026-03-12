@@ -4,7 +4,7 @@
 
 Zabbix 离线部署工具，基于 Bun + TypeScript + @clack/prompts 构建交互式 TUI 部署方案。
 目标：在无网络环境下通过交互式终端向导完成 Zabbix 7.0 LTS 全栈部署。
-**所有开发、测试、运行均在 Docker 容器中执行，严禁污染宿主机环境。**
+**依赖安装与测试默认在 Docker 容器中执行；TUI 二进制可直接在宿主机本地构建。**
 
 ## 技术栈
 
@@ -62,7 +62,7 @@ bun run dev                   # 启动 TUI 工具
 ### 构建（编译为单文件可执行二进制）
 
 ```bash
-bun run build                 # 输出到 dist/zabbix-deploy
+bun run build                 # 输出到 build/zabbix-deploy
 ```
 
 ### Lint & 格式化
@@ -177,7 +177,7 @@ try {
 
 ## Docker 开发原则
 
-1. **绝不在宿主机直接运行** `bun install`、`bun test` 等命令，所有操作在容器内执行
+1. `bun install`、`bun test` 等依赖安装与测试操作默认在容器内执行，`bun run build` 可直接在宿主机本地运行
 2. 开发容器挂载项目目录，代码修改实时同步
 3. 开发容器通过 Docker Socket 与宿主 Docker 通信（Docker-in-Docker 模式）
 4. Zabbix 测试栈使用独立 compose 文件，与开发环境解耦

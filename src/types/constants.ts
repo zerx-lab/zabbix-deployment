@@ -1,4 +1,4 @@
-/** Zabbix 离线部署所需的 Docker 镜像清单（与官方 zabbix-docker 7.0 分支对齐） */
+/** Zabbix 离线部署所需的基础 Docker 镜像清单（与官方 zabbix-docker 7.0 分支对齐） */
 export const ZABBIX_IMAGES = [
   'postgres:16-alpine',
   'zabbix/zabbix-server-pgsql:alpine-7.0-latest',
@@ -6,12 +6,16 @@ export const ZABBIX_IMAGES = [
   'zabbix/zabbix-agent2:alpine-7.0-latest',
 ] as const;
 
+/** SNMP Trapper 镜像（SNMP 功能启用时需要） */
+export const SNMP_TRAPS_IMAGE = 'zabbix/zabbix-snmptraps:alpine-7.0-latest' as const;
+
 /** 镜像名称到友好名称的映射 */
 export const IMAGE_LABELS: Record<string, string> = {
   'postgres:16-alpine': 'PostgreSQL 16',
   'zabbix/zabbix-server-pgsql:alpine-7.0-latest': 'Zabbix Server',
   'zabbix/zabbix-web-nginx-pgsql:alpine-7.0-latest': 'Zabbix Web (Nginx)',
   'zabbix/zabbix-agent2:alpine-7.0-latest': 'Zabbix Agent2',
+  'zabbix/zabbix-snmptraps:alpine-7.0-latest': 'Zabbix SNMP Traps',
 };
 
 /**
@@ -42,6 +46,7 @@ export const CONTAINER_NAMES = {
   server: 'zabbix-server',
   web: 'zabbix-web',
   agent: 'zabbix-agent',
+  snmptraps: 'zabbix-snmptraps',
 } as const;
 
 /** 健康检查轮询间隔（毫秒） */

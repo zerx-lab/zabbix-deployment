@@ -20,6 +20,10 @@ export const DeployConfigSchema = z.object({
     listenPort: z.number().default(10051),
     cacheSize: z.string().default('128M'),
     startPollers: z.number().default(5),
+    /** 是否启用 SNMP Trapper 接收 SNMP Trap 消息 */
+    enableSnmpTrapper: z.boolean().default(false),
+    /** SNMP Trap 监听端口（UDP） */
+    snmpTrapperPort: z.number().default(162),
   }),
 
   /** Zabbix Web 前端配置 */
@@ -31,7 +35,8 @@ export const DeployConfigSchema = z.object({
 
   /** Zabbix Agent 配置 */
   agent: z.object({
-    hostname: z.string().default('zabbix-agent'),
+    /** Agent 主机名（必须与 Zabbix Server 中注册的主机名一致） */
+    hostname: z.string().default('Zabbix server'),
     serverHost: z.string().default('zabbix-server'),
     listenPort: z.number().default(10050),
   }),

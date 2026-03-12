@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "bun run src/index.ts",
-    "build": "bun build src/index.ts --compile --outfile dist/zabbix-deploy",
+    "build": "mkdir -p build && bun build src/index.ts --compile --outfile build/zabbix-deploy",
     "lint": "biome lint .",
     "format": "biome format --write .",
     "check": "biome check --write .",
@@ -23,7 +23,7 @@
     "docker:test": "docker compose -f docker/docker-compose.dev.yml exec dev bun test",
     "docker:zabbix": "docker compose -f docker/docker-compose.zabbix.yml up -d",
     "docker:zabbix:down": "docker compose -f docker/docker-compose.zabbix.yml down -v",
-    "clean": "rm -rf dist node_modules"
+    "clean": "rm -rf build dist node_modules"
   },
   "dependencies": {
     "@clack/prompts": "^0.10.0",

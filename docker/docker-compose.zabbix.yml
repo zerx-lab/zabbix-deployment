@@ -62,7 +62,7 @@ services:
     container_name: zabbix-agent
     environment:
       ZBX_SERVER_HOST: zabbix-server
-      ZBX_HOSTNAME: zabbix-agent-local
+      ZBX_HOSTNAME: Zabbix server
     ports:
       - "10050:10050"
     networks:

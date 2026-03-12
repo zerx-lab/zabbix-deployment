@@ -38,17 +38,28 @@ interface ComposeNetwork {
  * 根据部署配置生成 docker-compose.yml 内容
  */
 export function generateComposeYaml(config: DeployConfig): string {
+  const services: Record<string, ComposeService> = {
+    postgres: buildPostgresService(config),
+    'zabbix-server': buildServerService(config),
+    'zabbix-web': buildWebService(config),
+    'zabbix-agent': buildAgentService(config),
+  };
+
+  const volumes: Record<string, ComposeVolume | null> = {
+    'postgres-data': null,
+    'zabbix-server-data': null,
+  };
+
+  // SNMP Trapper 启用时添加 snmptraps 服务和相关卷
+  if (config.server.enableSnmpTrapper) {
+    services['zabbix-snmptraps'] = buildSnmpTrapsService(config);
+    volumes.snmptraps = null;
+    volumes['snmp-mibs'] = null;
+  }
+
   const compose: ComposeFile = {
-    services: {
-      postgres: buildPostgresService(config),
-      'zabbix-server': buildServerService(config),
-      'zabbix-web': buildWebService(config),
-      'zabbix-agent': buildAgentService(config),
-    },
-    volumes: {
-      'postgres-data': null,
-      'zabbix-server-data': null,
-    },
+    services,
+    volumes,
     networks: {
       'zabbix-net': {
         driver: 'bridge',
@@ -85,20 +96,32 @@ function buildPostgresService(config: DeployConfig): ComposeService {
 }
 
 function buildServerService(config: DeployConfig): ComposeService {
+  const environment: Record<string, string | number> = {
+    DB_SERVER_HOST: 'postgres',
+    POSTGRES_USER: config.database.user,
+    POSTGRES_PASSWORD: config.database.password,
+    POSTGRES_DB: config.database.name,
+    ZBX_CACHESIZE: config.server.cacheSize,
+    ZBX_STARTPOLLERS: config.server.startPollers,
+  };
+
+  const ports = [`${config.server.listenPort}:10051`];
+  const volumes = ['zabbix-server-data:/var/lib/zabbix'];
+
+  // SNMP Trapper 配置：Server 需要读取 snmptraps 容器写入的 Trap 日志
+  if (config.server.enableSnmpTrapper) {
+    environment.ZBX_ENABLE_SNMP_TRAPPER = 'true';
+    volumes.push('snmptraps:/var/lib/zabbix/snmptraps');
+    volumes.push('snmp-mibs:/var/lib/zabbix/mibs');
+  }
+
   return {
     image: 'zabbix/zabbix-server-pgsql:alpine-7.0-latest',
     container_name: CONTAINER_NAMES.server,
     restart: 'unless-stopped',
-    environment: {
-      DB_SERVER_HOST: 'postgres',
-      POSTGRES_USER: config.database.user,
-      POSTGRES_PASSWORD: config.database.password,
-      POSTGRES_DB: config.database.name,
-      ZBX_CACHESIZE: config.server.cacheSize,
-      ZBX_STARTPOLLERS: config.server.startPollers,
-    },
-    ports: [`${config.server.listenPort}:10051`],
-    volumes: ['zabbix-server-data:/var/lib/zabbix'],
+    environment,
+    ports,
+    volumes,
     networks: ['zabbix-net'],
     depends_on: {
       postgres: { condition: 'service_healthy' },
@@ -137,5 +160,17 @@ function buildAgentService(config: DeployConfig): ComposeService {
     ports: [`${config.agent.listenPort}:10050`],
     networks: ['zabbix-net'],
     depends_on: ['zabbix-server'],
+  };
+}
+
+function buildSnmpTrapsService(config: DeployConfig): ComposeService {
+  return {
+    image: 'zabbix/zabbix-snmptraps:alpine-7.0-latest',
+    container_name: CONTAINER_NAMES.snmptraps,
+    restart: 'unless-stopped',
+    environment: {},
+    ports: [`${config.server.snmpTrapperPort}:1162/udp`],
+    volumes: ['snmptraps:/var/lib/zabbix/snmptraps', 'snmp-mibs:/var/lib/zabbix/mibs'],
+    networks: ['zabbix-net'],
   };
 }

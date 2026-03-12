@@ -16,6 +16,8 @@ const defaultConfig: DeployConfig = {
     listenPort: 10051,
     cacheSize: '128M',
     startPollers: 5,
+    enableSnmpTrapper: false,
+    snmpTrapperPort: 162,
   },
   web: {
     httpPort: 8080,
@@ -23,7 +25,7 @@ const defaultConfig: DeployConfig = {
     timezone: 'Asia/Shanghai',
   },
   agent: {
-    hostname: 'zabbix-agent',
+    hostname: 'Zabbix server',
     serverHost: 'zabbix-server',
     listenPort: 10050,
   },
@@ -119,5 +121,73 @@ describe('generateComposeYaml', () => {
 
     const server = parsed.services['zabbix-server'];
     expect(server.depends_on.postgres.condition).toBe('service_healthy');
+  });
+
+  it('应设置 Agent hostname 为 Zabbix server', () => {
+    const yaml = generateComposeYaml(defaultConfig);
+    const parsed = parse(yaml);
+
+    const agent = parsed.services['zabbix-agent'];
+    expect(agent.environment.ZBX_HOSTNAME).toBe('Zabbix server');
+  });
+
+  it('默认不启用 SNMP Trapper 时不应包含 snmptraps 服务', () => {
+    const yaml = generateComposeYaml(defaultConfig);
+    const parsed = parse(yaml);
+
+    expect(Object.keys(parsed.services)).toHaveLength(4);
+    expect(parsed.services['zabbix-snmptraps']).toBeUndefined();
+    expect(parsed.services['zabbix-server'].environment.ZBX_ENABLE_SNMP_TRAPPER).toBeUndefined();
+  });
+
+  it('启用 SNMP Trapper 时应包含 snmptraps 服务', () => {
+    const snmpConfig: DeployConfig = {
+      ...defaultConfig,
+      server: {
+        ...defaultConfig.server,
+        enableSnmpTrapper: true,
+        snmpTrapperPort: 162,
+      },
+    };
+
+    const yaml = generateComposeYaml(snmpConfig);
+    const parsed = parse(yaml);
+
+    expect(Object.keys(parsed.services)).toHaveLength(5);
+    expect(parsed.services['zabbix-snmptraps']).toBeDefined();
+    expect(parsed.services['zabbix-snmptraps'].ports).toContain('162:1162/udp');
+  });
+
+  it('启用 SNMP Trapper 时 Server 应设置 ZBX_ENABLE_SNMP_TRAPPER', () => {
+    const snmpConfig: DeployConfig = {
+      ...defaultConfig,
+      server: {
+        ...defaultConfig.server,
+        enableSnmpTrapper: true,
+        snmpTrapperPort: 162,
+      },
+    };
+
+    const yaml = generateComposeYaml(snmpConfig);
+    const parsed = parse(yaml);
+
+    expect(parsed.services['zabbix-server'].environment.ZBX_ENABLE_SNMP_TRAPPER).toBe('true');
+  });
+
+  it('启用 SNMP Trapper 时应添加 snmptraps 和 snmp-mibs 卷', () => {
+    const snmpConfig: DeployConfig = {
+      ...defaultConfig,
+      server: {
+        ...defaultConfig.server,
+        enableSnmpTrapper: true,
+        snmpTrapperPort: 162,
+      },
+    };
+
+    const yaml = generateComposeYaml(snmpConfig);
+    const parsed = parse(yaml);
+
+    expect(parsed.volumes.snmptraps).toBeDefined();
+    expect(parsed.volumes['snmp-mibs']).toBeDefined();
   });
 });

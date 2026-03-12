@@ -133,18 +133,29 @@ export async function composeUp(composeFile: string, projectName: string): Promi
   return true;
 }
 
+/** compose down 选项 */
+export interface ComposeDownOptions {
+  removeVolumes?: boolean;
+  removeImages?: boolean;
+}
+
 /**
  * 停止并清理 compose 服务
  */
 export async function composeDown(
   composeFile: string,
   projectName: string,
-  removeVolumes = false,
+  options: ComposeDownOptions = {},
 ): Promise<boolean> {
   const args = ['docker', 'compose', '-f', composeFile, '-p', projectName, 'down'];
-  if (removeVolumes) {
+  if (options.removeVolumes) {
     args.push('-v');
   }
+  if (options.removeImages) {
+    args.push('--rmi', 'all');
+  }
+  // 清理孤立容器
+  args.push('--remove-orphans');
 
   const result = await exec(args);
   if (result.exitCode !== 0) {
@@ -152,4 +163,104 @@ export async function composeDown(
     return false;
   }
   return true;
+}
+
+/**
+ * 列出 compose 项目关联的 Docker 数据卷
+ */
+export async function listProjectVolumes(projectName: string): Promise<string[]> {
+  const result = await exec([
+    'docker',
+    'volume',
+    'ls',
+    '--filter',
+    `label=com.docker.compose.project=${projectName}`,
+    '--format',
+    '{{.Name}}',
+  ]);
+
+  if (result.exitCode !== 0 || !result.stdout) {
+    return [];
+  }
+
+  return result.stdout
+    .split('\n')
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
+/**
+ * 删除指定的 Docker 数据卷
+ * @returns 成功删除的卷名列表
+ */
+export async function removeVolumes(volumeNames: string[]): Promise<string[]> {
+  if (volumeNames.length === 0) return [];
+
+  const removed: string[] = [];
+  for (const name of volumeNames) {
+    const result = await exec(['docker', 'volume', 'rm', '-f', name]);
+    if (result.exitCode === 0) {
+      removed.push(name);
+    }
+  }
+  return removed;
+}
+
+/** 镜像信息 */
+export interface ImageInfo {
+  name: string;
+  id: string;
+  size: string;
+}
+
+/**
+ * 获取已加载的项目相关镜像信息
+ */
+export async function listProjectImages(imageNames: string[]): Promise<ImageInfo[]> {
+  const images: ImageInfo[] = [];
+  for (const name of imageNames) {
+    const result = await exec([
+      'docker',
+      'image',
+      'inspect',
+      name,
+      '--format',
+      '{{.ID}}\t{{.Size}}',
+    ]);
+    if (result.exitCode === 0 && result.stdout) {
+      const [id, sizeBytes] = result.stdout.split('\t');
+      images.push({
+        name,
+        id: id?.slice(7, 19) ?? '', // 取短 ID
+        size: formatBytes(Number(sizeBytes) || 0),
+      });
+    }
+  }
+  return images;
+}
+
+/**
+ * 删除指定的 Docker 镜像
+ * @returns 成功删除的镜像名列表
+ */
+export async function removeImages(imageNames: string[]): Promise<string[]> {
+  if (imageNames.length === 0) return [];
+
+  const removed: string[] = [];
+  for (const name of imageNames) {
+    const result = await exec(['docker', 'rmi', '-f', name]);
+    if (result.exitCode === 0) {
+      removed.push(name);
+    }
+  }
+  return removed;
+}
+
+/** 字节数格式化为可读字符串 */
+function formatBytes(bytes: number): string {
+  if (bytes === 0) return '0 B';
+  const units = ['B', 'KB', 'MB', 'GB'];
+  const i = Math.floor(Math.log(bytes) / Math.log(1024));
+  const size = bytes / 1024 ** i;
+  return `${size.toFixed(1)} ${units[i]}`;
 }

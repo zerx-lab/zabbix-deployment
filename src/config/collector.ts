@@ -74,6 +74,8 @@ export async function collectDeployConfig(): Promise<{
   let cacheSize = '128M';
   let startPollers = 5;
   let serverPort = 10051;
+  let enableSnmpTrapper = false;
+  let snmpTrapperPort = 162;
 
   if (advancedMode) {
     const cacheSizeInput = await select({
@@ -122,6 +124,35 @@ export async function collectDeployConfig(): Promise<{
       return null;
     }
     serverPort = Number(serverPortInput);
+
+    // SNMP Trapper 配置
+    const snmpTrapperInput = await confirm({
+      message: '是否启用 SNMP Trap 接收？（用于接收网络设备主动上报的 SNMP Trap 消息）',
+      initialValue: false,
+    });
+    if (isCancel(snmpTrapperInput)) {
+      cancel('操作已取消');
+      return null;
+    }
+    enableSnmpTrapper = snmpTrapperInput;
+
+    if (enableSnmpTrapper) {
+      const snmpPortInput = await text({
+        message: 'SNMP Trap 监听端口 (UDP):',
+        placeholder: '162',
+        defaultValue: '162',
+        validate(value) {
+          const port = Number(value);
+          if (Number.isNaN(port) || port < 1 || port > 65535)
+            return '请输入有效端口号 (1-65535)';
+        },
+      });
+      if (isCancel(snmpPortInput)) {
+        cancel('操作已取消');
+        return null;
+      }
+      snmpTrapperPort = Number(snmpPortInput);
+    }
   }
 
   const config: DeployConfig = {
@@ -137,6 +168,8 @@ export async function collectDeployConfig(): Promise<{
       listenPort: serverPort,
       cacheSize,
       startPollers,
+      enableSnmpTrapper,
+      snmpTrapperPort,
     },
     web: {
       httpPort: Number(webPort),
@@ -144,7 +177,7 @@ export async function collectDeployConfig(): Promise<{
       timezone: timezone,
     },
     agent: {
-      hostname: 'zabbix-agent',
+      hostname: 'Zabbix server',
       serverHost: 'zabbix-server',
       listenPort: 10050,
     },
