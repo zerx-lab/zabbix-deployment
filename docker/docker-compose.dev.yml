@@ -1,0 +1,23 @@
+services:
+  dev:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.dev
+    container_name: zabbix-deploy-dev
+    volumes:
+      - ..:/app
+      - /app/node_modules
+      - /var/run/docker.sock:/var/run/docker.sock
+    working_dir: /app
+    stdin_open: true
+    tty: true
+    command: ["sh"]
+    environment:
+      - NODE_ENV=development
+      - BUN_ENV=development
+    networks:
+      - dev-net
+
+networks:
+  dev-net:
+    driver: bridge

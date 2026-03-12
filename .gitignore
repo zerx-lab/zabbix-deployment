@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Bun
+bun.lockb
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Offline packages (large binary files)
+packages/*.tar
+packages/*.tar.gz
+packages/*.rpm
+packages/*.deb
+
+# Docker volumes
+docker/volumes/
+
+# Coverage
+coverage/
+
+# Logs
+*.log

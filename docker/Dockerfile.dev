@@ -1,0 +1,23 @@
+FROM oven/bun:1-alpine
+
+WORKDIR /app
+
+# Install system dependencies needed for development
+RUN apk add --no-cache \
+    git \
+    docker-cli \
+    docker-cli-compose \
+    curl \
+    bash
+
+# Copy package files first for better layer caching
+COPY package.json bunfig.toml ./
+
+# Install dependencies
+RUN bun install
+
+# Copy source code
+COPY . .
+
+# Default command: start dev mode
+CMD ["bun", "run", "dev"]
