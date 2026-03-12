@@ -10,12 +10,13 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PACKAGES_DIR="${SCRIPT_DIR}/../packages"
 
-# Zabbix 7.0 LTS 所需镜像列表
+# Zabbix 7.0 LTS 所需镜像列表（包含所有可选组件）
 IMAGES=(
   "postgres:16-alpine"
   "zabbix/zabbix-server-pgsql:alpine-7.0-latest"
   "zabbix/zabbix-web-nginx-pgsql:alpine-7.0-latest"
   "zabbix/zabbix-agent2:alpine-7.0-latest"
+  "zabbix/zabbix-snmptraps:alpine-7.0-latest"
 )
 
 # 镜像名称转换为文件名（替换 / 和 : 为 -）

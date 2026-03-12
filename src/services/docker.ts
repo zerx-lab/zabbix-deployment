@@ -123,6 +123,8 @@ export async function composeUp(composeFile: string, projectName: string): Promi
     projectName,
     'up',
     '-d',
+    '--pull',
+    'never',
     '--remove-orphans',
   ]);
 

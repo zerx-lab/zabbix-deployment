@@ -73,6 +73,16 @@
           }
         }
       }
+    },
+    {
+      "include": ["src/index.ts", "src/cli/args.ts", "src/cli/main.ts"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noConsole": "off"
+          }
+        }
+      }
     }
   ]
 }

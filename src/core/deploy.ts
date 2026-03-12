@@ -8,7 +8,8 @@ import { loadAllImages } from '../services/image.ts';
 import { postInitZabbix, waitForZabbixApi } from '../services/zabbix-api.ts';
 import type { PostInitResult } from '../services/zabbix-api.ts';
 import type { DeployConfig, DeployOptions } from '../types/config.ts';
-import { COMPOSE_FILE_NAME, COMPOSE_PROJECT_NAME } from '../types/constants.ts';
+import { COMPOSE_FILE_NAME, COMPOSE_PROJECT_NAME, SNMP_TRAPS_IMAGE } from '../types/constants.ts';
+import { getPackagesDir } from '../utils/paths.ts';
 import type { HealthCheckResult, ServiceHealth } from './health.ts';
 import { waitForHealthy } from './health.ts';
 
@@ -133,7 +134,7 @@ export async function deploy(
   callbacks?: DeployCallbacks,
 ): Promise<DeployResult> {
   const { deployDir } = options;
-  const packagesDir = options.packagesDir ?? resolve(import.meta.dir, '../../packages');
+  const packagesDir = options.packagesDir ?? getPackagesDir();
   const composeFilePath = resolve(deployDir, COMPOSE_FILE_NAME);
 
   // 1. 环境预检
@@ -147,10 +148,12 @@ export async function deploy(
 
   // 2. 加载离线镜像
   callbacks?.onStepStart?.('load-images', '加载离线镜像...');
+  const extraImages = config.server.enableSnmpTrapper ? [SNMP_TRAPS_IMAGE] : [];
   const loadResults = await loadAllImages(
     packagesDir,
     options.skipExistingImages ?? true,
     callbacks?.onImageProgress,
+    extraImages,
   );
   const failedImages = loadResults.filter((r) => !r.success);
   if (failedImages.length > 0) {

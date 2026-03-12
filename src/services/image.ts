@@ -18,11 +18,17 @@ export interface ImageStatus {
 
 /**
  * 扫描所有必需镜像的状态
+ * @param packagesDir 离线包目录
+ * @param extraImages 额外需要加载的镜像列表（如 SNMP Trapper）
  */
-export async function scanImageStatus(packagesDir: string): Promise<ImageStatus[]> {
+export async function scanImageStatus(
+  packagesDir: string,
+  extraImages: string[] = [],
+): Promise<ImageStatus[]> {
   const results: ImageStatus[] = [];
+  const allImages = [...ZABBIX_IMAGES, ...extraImages];
 
-  for (const image of ZABBIX_IMAGES) {
+  for (const image of allImages) {
     const tarName = imageToTarName(image);
     const tarPath = resolve(packagesDir, tarName);
     const tarFileExists = await Bun.file(tarPath).exists();
@@ -54,13 +60,15 @@ export interface LoadResult {
  * @param packagesDir 离线包目录
  * @param skipExisting 是否跳过已加载的镜像
  * @param onProgress 每加载完一个镜像时的回调
+ * @param extraImages 额外需要加载的镜像列表（如 SNMP Trapper）
  */
 export async function loadAllImages(
   packagesDir: string,
   skipExisting: boolean,
   onProgress?: (result: LoadResult, index: number, total: number) => void,
+  extraImages: string[] = [],
 ): Promise<LoadResult[]> {
-  const statuses = await scanImageStatus(packagesDir);
+  const statuses = await scanImageStatus(packagesDir, extraImages);
   const results: LoadResult[] = [];
 
   for (let i = 0; i < statuses.length; i++) {

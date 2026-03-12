@@ -23,6 +23,9 @@
     "docker:test": "docker compose -f docker/docker-compose.dev.yml exec dev bun test",
     "docker:zabbix": "docker compose -f docker/docker-compose.zabbix.yml up -d",
     "docker:zabbix:down": "docker compose -f docker/docker-compose.zabbix.yml down -v",
+    "download:docker": "bash scripts/download-docker.sh",
+    "download:images": "bash scripts/save-images.sh",
+    "download:all": "bash scripts/download-docker.sh && bash scripts/save-images.sh",
     "clean": "rm -rf build dist node_modules"
   },
   "dependencies": {

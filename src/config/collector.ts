@@ -143,8 +143,7 @@ export async function collectDeployConfig(): Promise<{
         defaultValue: '162',
         validate(value) {
           const port = Number(value);
-          if (Number.isNaN(port) || port < 1 || port > 65535)
-            return '请输入有效端口号 (1-65535)';
+          if (Number.isNaN(port) || port < 1 || port > 65535) return '请输入有效端口号 (1-65535)';
         },
       });
       if (isCancel(snmpPortInput)) {

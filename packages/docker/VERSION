@@ -1,0 +1,7 @@
+# Docker 离线安装包版本信息
+# 由 download-docker.sh 自动生成
+
+DOCKER_VERSION=27.5.1
+COMPOSE_VERSION=v2.35.1
+ARCH=x86_64
+DOWNLOAD_DATE=2026-03-12 12:41:07

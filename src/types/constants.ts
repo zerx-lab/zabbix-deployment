@@ -57,3 +57,65 @@ export const HEALTH_CHECK_TIMEOUT_MS = 180_000;
 
 /** 应用版本 */
 export const APP_VERSION = '0.1.0';
+
+// ─── Docker 离线安装相关常量 ──────────────────────────────
+
+/** Docker 静态二进制版本（与 download-docker.sh 保持一致） */
+export const DOCKER_VERSION = '27.5.1';
+
+/** Docker Compose 插件版本（与 download-docker.sh 保持一致） */
+export const COMPOSE_VERSION = 'v2.35.1';
+
+/** Docker 离线安装包目录名 */
+export const DOCKER_PACKAGES_DIR = 'docker';
+
+/** Docker 二进制文件安装目标目录 */
+export const DOCKER_BIN_DIR = '/usr/local/bin';
+
+/** Docker Compose 插件安装目标目录 */
+export const DOCKER_CLI_PLUGINS_DIR = '/usr/local/lib/docker/cli-plugins';
+
+/** dockerd systemd 服务文件路径 */
+export const DOCKER_SERVICE_PATH = '/etc/systemd/system/docker.service';
+
+/** Docker socket 文件路径 */
+export const DOCKER_SOCKET_PATH = '/var/run/docker.sock';
+
+/** containerd systemd 服务文件路径 */
+export const CONTAINERD_SERVICE_PATH = '/etc/systemd/system/containerd.service';
+
+/** Docker 安装步骤 */
+export type DockerInstallStep =
+  | 'check-existing'
+  | 'extract-binaries'
+  | 'create-group'
+  | 'create-service'
+  | 'start-docker'
+  | 'install-compose'
+  | 'verify';
+
+/** Docker 安装步骤名称映射 */
+export const DOCKER_INSTALL_STEP_LABELS: Record<DockerInstallStep, string> = {
+  'check-existing': '检查现有安装',
+  'extract-binaries': '安装 Docker 二进制文件',
+  'create-group': '创建 docker 用户组',
+  'create-service': '创建 systemd 服务',
+  'start-docker': '启动 Docker 服务',
+  'install-compose': '安装 Docker Compose',
+  verify: '验证安装',
+};
+
+/**
+ * Docker 二进制包中包含的文件列表
+ * 解压 docker-VERSION.tgz 后的 docker/ 目录中的文件
+ */
+export const DOCKER_BINARIES = [
+  'containerd',
+  'containerd-shim-runc-v2',
+  'ctr',
+  'docker',
+  'docker-init',
+  'docker-proxy',
+  'dockerd',
+  'runc',
+] as const;
