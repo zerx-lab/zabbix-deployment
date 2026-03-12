@@ -6,7 +6,6 @@ services:
     container_name: zabbix-deploy-dev
     volumes:
       - ..:/app
-      - /app/node_modules
       - /var/run/docker.sock:/var/run/docker.sock
     working_dir: /app
     stdin_open: true

@@ -17,7 +17,7 @@
     "test": "bun test",
     "test:watch": "bun test --watch",
     "test:coverage": "bun test --coverage",
-    "docker:dev": "docker compose -f docker/docker-compose.dev.yml up --build",
+    "docker:dev": "docker compose -f docker/docker-compose.dev.yml up --build -d",
     "docker:dev:down": "docker compose -f docker/docker-compose.dev.yml down",
     "docker:shell": "docker compose -f docker/docker-compose.dev.yml exec dev sh",
     "docker:test": "docker compose -f docker/docker-compose.dev.yml exec dev bun test",

@@ -10,13 +10,7 @@ RUN apk add --no-cache \
     curl \
     bash
 
-# Copy package files first for better layer caching
-COPY package.json bunfig.toml ./
-
-# Install dependencies
-RUN bun install
-
-# Copy source code
+# Copy source code (node_modules mounted from host via docker-compose)
 COPY . .
 
 # Default command: start dev mode
