@@ -738,6 +738,7 @@ func runCli() {
 					huh.NewOption("停止服务        停止所有容器，保留数据和镜像", string(ActionStop)),
 					huh.NewOption("彻底清理        停止服务并删除所有数据、镜像、部署文件", string(ActionUninstall)),
 					huh.NewOption("导入监控模板    将内嵌模板导入到 Zabbix", string(ActionImportTemplates)),
+					huh.NewOption("创建仪表盘      创建服务器硬件巡检总览仪表盘", string(ActionCreateDashboard)),
 					huh.NewOption("列出内嵌模板    显示二进制中内嵌的所有监控模板", string(ActionListTemplates)),
 					huh.NewOption("退出", string(ActionQuit)),
 				).
@@ -779,6 +780,8 @@ func runAction(action Action, ctx CliContext) {
 		handleUninstall(ctx)
 	case ActionImportTemplates:
 		handleImportTemplates(ctx)
+	case ActionCreateDashboard:
+		handleCreateDashboard(ctx)
 	case ActionListTemplates:
 		handleListTemplates()
 	case ActionQuit:
@@ -791,6 +794,172 @@ func runAction(action Action, ctx CliContext) {
 // handleListTemplates 列出二进制中内嵌的所有监控模板
 func handleListTemplates() {
 	PrintEmbeddedTemplateList()
+}
+
+// ─── 仪表盘创建 ────────────────────────────────────────────
+
+// handleCreateDashboard 创建「服务器硬件巡检总览」仪表盘
+func handleCreateDashboard(ctx CliContext) {
+	cdArgs := ctx.CreateDashboardArgs
+
+	opts := CreateDashboardOptions{
+		APIURL:   cdArgs.APIURL,
+		WebPort:  cdArgs.WebPort,
+		Username: cdArgs.Username,
+		Password: cdArgs.Password,
+		Force:    cdArgs.Force,
+	}
+
+	// 补全默认值
+	if opts.WebPort == 0 {
+		opts.WebPort = 8080
+	}
+	if opts.Username == "" {
+		opts.Username = defaultZabbixUsername
+	}
+	if opts.Password == "" {
+		opts.Password = defaultZabbixPassword
+	}
+
+	// TUI 模式下交互式收集配置
+	if !ctx.AutoConfirm && opts.APIURL == "" {
+		collected, err := collectCreateDashboardConfig(opts)
+		if err != nil {
+			logError(fmt.Sprintf("收集配置失败: %v", err))
+			return
+		}
+		if collected == nil {
+			printCancel("操作已取消")
+			return
+		}
+		opts = *collected
+	}
+
+	// 打印目标信息
+	apiDisplay := opts.APIURL
+	if apiDisplay == "" {
+		apiDisplay = fmt.Sprintf("http://localhost:%d/api_jsonrpc.php（自动构建）", opts.WebPort)
+	}
+	logInfo(fmt.Sprintf("目标 Zabbix API : %s", apiDisplay))
+	logInfo(fmt.Sprintf("登录用户        : %s", opts.Username))
+	if opts.Force {
+		logInfo("创建模式        : 强制重建（--force）")
+	} else {
+		logInfo("创建模式        : 跳过已存在（使用 --force 强制重建）")
+	}
+	fmt.Println()
+
+	progress := newProgress()
+	progress.Start("正在连接 Zabbix API...")
+
+	result := CreateServerDashboard(opts)
+
+	switch {
+	case !result.Success:
+		progress.Stop(redText("✗  仪表盘创建失败"))
+		logError(fmt.Sprintf("错误: %s", result.Error))
+
+	case result.Skipped:
+		progress.Stop(yellowText(fmt.Sprintf(
+			"⏭  仪表盘已存在（ID: %s），跳过创建", result.DashboardID,
+		)))
+		logWarn("如需重建，请使用 --force 参数")
+
+	default:
+		progress.Stop(greenText(fmt.Sprintf(
+			"✓  仪表盘创建成功（ID: %s）", result.DashboardID,
+		)))
+		fmt.Println()
+
+		// 构建访问 URL（尽力提示，优先从 APIURL 提取 host）
+		webURL := buildDashboardURL(opts, result.DashboardID)
+		if webURL != "" {
+			logSuccess(fmt.Sprintf("访问地址: %s", webURL))
+		}
+
+		fmt.Println()
+		logInfo("仪表盘包含以下页面：")
+		pages := []string{
+			"  1. 综合概览      — 主机可用性 / CPU & 内存 Top / 告警分布",
+			"  2. CPU & 内存    — CPU各维度利用率 / 内存 & Swap 详情",
+			"  3. 网络 & PING   — ICMP Ping / 丢包率 / SNMP可用性 / 主机基本信息",
+			"  4. 硬盘 & 文件系统 — 硬件型号/序列号/BIOS / 存储告警",
+			"  5. 电源 & 风扇   — 硬件告警 / 整体健康状态",
+		}
+		for _, p := range pages {
+			fmt.Println(p)
+		}
+	}
+}
+
+// buildDashboardURL 根据 opts 构建仪表盘访问 URL
+func buildDashboardURL(opts CreateDashboardOptions, dashboardID string) string {
+	if opts.APIURL != "" {
+		// 从 http://host:port/api_jsonrpc.php 提取 http://host:port
+		idx := strings.LastIndex(opts.APIURL, "/api_jsonrpc.php")
+		if idx > 0 {
+			base := opts.APIURL[:idx]
+			return fmt.Sprintf("%s/zabbix.php?action=dashboard.view&dashboardid=%s", base, dashboardID)
+		}
+	}
+	return fmt.Sprintf("http://localhost:%d/zabbix.php?action=dashboard.view&dashboardid=%s",
+		opts.WebPort, dashboardID)
+}
+
+// collectCreateDashboardConfig 在 TUI 模式下交互式收集仪表盘创建配置
+func collectCreateDashboardConfig(defaults CreateDashboardOptions) (*CreateDashboardOptions, error) {
+	apiURL := defaults.APIURL
+	username := defaults.Username
+	password := defaults.Password
+
+	defaultAPIURL := fmt.Sprintf("http://localhost:%d/api_jsonrpc.php", defaults.WebPort)
+	if apiURL == "" {
+		apiURL = defaultAPIURL
+	}
+
+	form := huh.NewForm(
+		huh.NewGroup(
+			huh.NewInput().
+				Title("Zabbix API 地址").
+				Description("例如: http://192.168.1.10:8080/api_jsonrpc.php").
+				Placeholder(defaultAPIURL).
+				Value(&apiURL),
+			huh.NewInput().
+				Title("登录用户名").
+				Placeholder(defaultZabbixUsername).
+				Value(&username),
+			huh.NewInput().
+				Title("登录密码").
+				EchoMode(huh.EchoModePassword).
+				Placeholder("（留空使用默认值 zabbix）").
+				Value(&password),
+		),
+	)
+
+	if err := form.Run(); err != nil {
+		if errors.Is(err, huh.ErrUserAborted) {
+			return nil, nil
+		}
+		return nil, err
+	}
+
+	if apiURL == "" {
+		apiURL = defaultAPIURL
+	}
+	if username == "" {
+		username = defaultZabbixUsername
+	}
+	if password == "" {
+		password = defaultZabbixPassword
+	}
+
+	return &CreateDashboardOptions{
+		APIURL:   apiURL,
+		WebPort:  defaults.WebPort,
+		Username: username,
+		Password: password,
+		Force:    defaults.Force,
+	}, nil
 }
 
 // handleImportTemplates 将内嵌的 Zabbix 监控模板导入到目标 Zabbix 实例

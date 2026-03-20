@@ -20,6 +20,7 @@ const helpText = `Zabbix 离线部署工具
   uninstall            彻底清理
   import-templates     将内嵌的 Zabbix 监控模板导入到指定 Zabbix 实例
   list-templates       列出二进制中内嵌的所有监控模板
+  create-dashboard     在 Zabbix 中创建「服务器硬件巡检总览」仪表盘
 
 通用选项:
   -y, --yes            自动确认所有操作（跳过确认提示）
@@ -44,6 +45,15 @@ Import-Templates 选项:
   --zabbix-user <user>       Zabbix 登录用户名（默认 Admin）
   --zabbix-password <pass>   Zabbix 登录密码（默认 zabbix）
   --force                    强制覆盖已存在的模板（默认：已存在则跳过）
+
+Create-Dashboard 选项:
+  --api-url <url>            Zabbix API 完整地址
+                             例如: http://192.168.1.10:8080/api_jsonrpc.php
+                             若不指定则根据 --web-port 自动构建（指向 localhost）
+  --web-port <port>          Zabbix Web 端口（当 --api-url 未指定时使用，默认 8080）
+  --zabbix-user <user>       Zabbix 登录用户名（默认 Admin）
+  --zabbix-password <pass>   Zabbix 登录密码（默认 zabbix）
+  --force                    若仪表盘已存在则删除重建（默认：已存在则跳过）
 
 示例:
   # 交互式 TUI 模式
@@ -74,7 +84,16 @@ Import-Templates 选项:
   ./zabbix-deploy import-templates --api-url http://192.168.1.10:8080/api_jsonrpc.php --zabbix-user Admin --zabbix-password mypassword
 
   # 导入模板并强制覆盖已有对象
-  ./zabbix-deploy import-templates --force`
+  ./zabbix-deploy import-templates --force
+
+  # 创建服务器硬件巡检总览仪表盘（默认端口 8080）
+  ./zabbix-deploy create-dashboard
+
+  # 创建仪表盘到指定 Zabbix 实例
+  ./zabbix-deploy create-dashboard --api-url http://192.168.1.10:8080/api_jsonrpc.php
+
+  # 若仪表盘已存在则强制删除重建
+  ./zabbix-deploy create-dashboard --force`
 
 // showHelp 打印帮助信息
 func showHelp() {
@@ -91,6 +110,7 @@ var validCommands = map[string]Action{
 	"uninstall":        ActionUninstall,
 	"import-templates": ActionImportTemplates,
 	"list-templates":   ActionListTemplates,
+	"create-dashboard": ActionCreateDashboard,
 }
 
 // ─── parseArgs 解析命令行参数 ──────────────────────────────
@@ -115,6 +135,12 @@ func parseArgs(argv []string) ParsedArgs {
 			DeployDir:       DefaultDeployDir,
 		},
 		ImportTemplatesArgs: ImportTemplatesArgs{
+			WebPort:  8080,
+			Username: defaultZabbixUsername,
+			Password: defaultZabbixPassword,
+			Force:    false,
+		},
+		CreateDashboardArgs: CreateDashboardArgs{
 			WebPort:  8080,
 			Username: defaultZabbixUsername,
 			Password: defaultZabbixPassword,
@@ -193,29 +219,37 @@ func parseArgs(argv []string) ParsedArgs {
 			result.HasDeployArgs = true
 			i++
 
-		// ── 共用选项（deploy + import-templates 均可使用） ─
+		// ── 共用选项（deploy + import-templates + create-dashboard 均可使用） ─
 		case "--web-port":
 			port := requirePort(args, i, arg)
 			result.DeployArgs.WebPort = port
 			result.ImportTemplatesArgs.WebPort = port
+			result.CreateDashboardArgs.WebPort = port
 			result.HasDeployArgs = true
 			i++
 
-		// ── import-templates 专属选项 ─────────────────────
+		// ── import-templates / create-dashboard 共用选项 ──
 		case "--api-url":
-			result.ImportTemplatesArgs.APIURL = requireValue(args, i, arg)
+			val := requireValue(args, i, arg)
+			result.ImportTemplatesArgs.APIURL = val
+			result.CreateDashboardArgs.APIURL = val
 			i++
 
 		case "--zabbix-user":
-			result.ImportTemplatesArgs.Username = requireValue(args, i, arg)
+			val := requireValue(args, i, arg)
+			result.ImportTemplatesArgs.Username = val
+			result.CreateDashboardArgs.Username = val
 			i++
 
 		case "--zabbix-password":
-			result.ImportTemplatesArgs.Password = requireValue(args, i, arg)
+			val := requireValue(args, i, arg)
+			result.ImportTemplatesArgs.Password = val
+			result.CreateDashboardArgs.Password = val
 			i++
 
 		case "--force":
 			result.ImportTemplatesArgs.Force = true
+			result.CreateDashboardArgs.Force = true
 
 		default:
 			fmt.Fprintf(os.Stderr, "未知选项: %s\n", arg)

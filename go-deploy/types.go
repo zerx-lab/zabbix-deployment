@@ -416,8 +416,26 @@ const (
 	ActionUninstall       Action = "uninstall"
 	ActionImportTemplates Action = "import-templates"
 	ActionListTemplates   Action = "list-templates"
+	ActionCreateDashboard Action = "create-dashboard"
 	ActionQuit            Action = "quit"
 )
+
+// ─── CLI CreateDashboardArgs ───────────────────────────────
+
+// CreateDashboardArgs 保存 create-dashboard 命令的 CLI 参数
+type CreateDashboardArgs struct {
+	// APIURL 完整的 Zabbix API 地址，例如 http://192.168.1.10:8080/api_jsonrpc.php
+	// 若不指定则根据 --web-port 自动构建（默认指向 localhost）
+	APIURL string
+	// WebPort 当 APIURL 为空时使用（默认 8080）
+	WebPort int
+	// Username Zabbix 用户名（默认 Admin）
+	Username string
+	// Password Zabbix 密码（默认 zabbix）
+	Password string
+	// Force 若仪表盘已存在则强制删除重建（默认 false：已存在则跳过）
+	Force bool
+}
 
 // ─── CLI ImportTemplatesArgs ───────────────────────────────
 
@@ -460,6 +478,7 @@ type ParsedArgs struct {
 	// HasDeployArgs 为 true 表示至少有一个 deploy 参数被显式传入（与 TS 的 Object.keys(deployArgs).length > 0 等价）
 	HasDeployArgs       bool
 	ImportTemplatesArgs ImportTemplatesArgs
+	CreateDashboardArgs CreateDashboardArgs
 }
 
 // ─── CliContext ────────────────────────────────────────────
@@ -470,6 +489,7 @@ type CliContext struct {
 	// HasDeployArgs 为 true 表示至少有一个 deploy 参数被显式传入
 	HasDeployArgs       bool
 	ImportTemplatesArgs ImportTemplatesArgs
+	CreateDashboardArgs CreateDashboardArgs
 }
 
 // ─── ComposeDownOptions ────────────────────────────────────
