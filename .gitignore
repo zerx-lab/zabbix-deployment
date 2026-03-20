@@ -1,6 +1,12 @@
 # Dependencies
 node_modules/
 
+# go-deploy/templates/ 是 output/zabbix-templates/ 的真实拷贝（非符号链接）
+# Go embed 不支持嵌入符号链接目录，因此需将模板文件复制到此处
+# 当 output/zabbix-templates/ 有变更时，需同步执行：
+#   cp -r output/zabbix-templates/. go-deploy/templates/
+# 该目录需提交到 Git（不应被忽略）
+
 # Build output
 build/
 dist/

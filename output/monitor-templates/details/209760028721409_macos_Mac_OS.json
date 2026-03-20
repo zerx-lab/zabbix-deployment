@@ -1,0 +1,1411 @@
+{
+  "nameEn": "Mac OS",
+  "thresholds": [
+    {
+      "id": 10000287,
+      "templateId": 209760028721409,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "Multistage",
+      "conditions": [
+        {
+          "id": 288,
+          "type": "macos",
+          "unit": "cpu",
+          "field": "CpuUtilization",
+          "valueType": 0,
+          "operator": "GE",
+          "threshold": [
+            {
+              "level": 1,
+              "value": "80",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 2,
+              "value": "90",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 3,
+              "value": "",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 4,
+              "value": "80",
+              "enable": true,
+              "trigger": 3
+            },
+            {
+              "level": 5,
+              "value": "90",
+              "enable": true,
+              "trigger": 3
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "%",
+          "range": "[0,#]"
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "4": {
+          "level": 4,
+          "value": {
+            "288": "80"
+          },
+          "trigger": 3
+        },
+        "5": {
+          "level": 5,
+          "value": {
+            "288": "90"
+          },
+          "trigger": 3
+        }
+      },
+      "regionId": 1761206917732
+    },
+    {
+      "id": 10000288,
+      "templateId": 209760028721409,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "Multistage",
+      "conditions": [
+        {
+          "id": 289,
+          "type": "macos",
+          "unit": "disk",
+          "field": "DiskUtilization",
+          "valueType": 0,
+          "operator": "GE",
+          "threshold": [
+            {
+              "level": 1,
+              "value": "80",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 2,
+              "value": "90",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 3,
+              "value": "",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 4,
+              "value": "80",
+              "enable": true,
+              "trigger": 3
+            },
+            {
+              "level": 5,
+              "value": "90",
+              "enable": true,
+              "trigger": 3
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "%",
+          "range": "[#,#]"
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "4": {
+          "level": 4,
+          "value": {
+            "289": "80"
+          },
+          "trigger": 3
+        },
+        "5": {
+          "level": 5,
+          "value": {
+            "289": "90"
+          },
+          "trigger": 3
+        }
+      },
+      "regionId": 1761206917732
+    },
+    {
+      "id": 10000289,
+      "templateId": 209760028721409,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "Multistage",
+      "conditions": [
+        {
+          "id": 290,
+          "type": "macos",
+          "unit": "memory",
+          "field": "PhysicalMemoryUtilization",
+          "valueType": 0,
+          "operator": "GE",
+          "threshold": [
+            {
+              "level": 1,
+              "value": "70",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 2,
+              "value": "85",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 3,
+              "value": "",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 4,
+              "value": "70",
+              "enable": true,
+              "trigger": 3
+            },
+            {
+              "level": 5,
+              "value": "85",
+              "enable": true,
+              "trigger": 3
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "%",
+          "range": "[#,#]"
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "4": {
+          "level": 4,
+          "value": {
+            "290": "70"
+          },
+          "trigger": 3
+        },
+        "5": {
+          "level": 5,
+          "value": {
+            "290": "85"
+          },
+          "trigger": 3
+        }
+      },
+      "regionId": 1761206917732
+    },
+    {
+      "id": 10000290,
+      "templateId": 209760028721409,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "Multistage",
+      "conditions": [
+        {
+          "id": 291,
+          "type": "macos",
+          "unit": "memory",
+          "field": "VirtualMemoryUtilization",
+          "valueType": 0,
+          "operator": "GE",
+          "threshold": [
+            {
+              "level": 1,
+              "value": "30",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 2,
+              "value": "70",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 3,
+              "value": "",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 4,
+              "value": "",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 5,
+              "value": "",
+              "enable": false,
+              "trigger": 3
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "%",
+          "range": "[#,#]"
+        }
+      ],
+      "desc": null,
+      "thresholds": {},
+      "regionId": 1761206917732
+    },
+    {
+      "id": 10000291,
+      "templateId": 209760028721409,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "SingleStage",
+      "conditions": [
+        {
+          "id": 292,
+          "type": "general",
+          "unit": "AvailableData",
+          "field": "AvailabilityData",
+          "valueType": 1,
+          "operator": "EQ",
+          "threshold": [
+            {
+              "level": 1,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 2,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 3,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 4,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 5,
+              "value": "无法连接",
+              "enable": true,
+              "trigger": 2
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "",
+          "range": ""
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "5": {
+          "level": 5,
+          "value": {
+            "292": "无法连接"
+          },
+          "trigger": 2
+        }
+      },
+      "regionId": 1761206917732
+    }
+  ],
+  "def": true,
+  "tenantId": "abd2d9f6-36d9-45b8-b7e3-7a793b3a6f2c",
+  "uuid": 209760028721409,
+  "regionId": 1761206917732,
+  "regionPermission": true,
+  "version": 1,
+  "templateId": 209760028721409,
+  "name": "Mac OS",
+  "type": "macos",
+  "scene": "MONITOR",
+  "typeLabel": {
+    "zh": "Mac OS",
+    "en": "Mac OS",
+    "label": "Mac OS"
+  },
+  "describe": null,
+  "custom": false,
+  "operationIds": [
+    801,
+    802,
+    803,
+    804,
+    805,
+    806,
+    807,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    28402,
+    28403
+  ],
+  "resGroup": [],
+  "unitList": [
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "macos",
+      "unit": "cpu",
+      "nameZh": "CPU",
+      "nameEn": "CPU",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "row",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7585,
+          "type": "macos",
+          "unit": "cpu",
+          "field": "CpuUtilization",
+          "appname": "apm",
+          "nameZh": "CPU利用率",
+          "nameEn": "CPU Usage Ratio",
+          "explainZh": "指Mac OS服务器CPU的当前利用率。",
+          "explainEn": "CPU usage of the Mac OS server.",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "macos",
+      "unit": "disk",
+      "nameZh": "文件系统",
+      "nameEn": "File System",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "table",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7589,
+          "type": "macos",
+          "unit": "disk",
+          "field": "DiskFreeSpace",
+          "appname": "apm",
+          "nameZh": "空闲空间",
+          "nameEn": "Free Space",
+          "explainZh": "指Mac OS服务器某个文件系统空闲空间大小。",
+          "explainEn": "Free space of a file system on the Mac OS server.",
+          "fieldUnit": "KB",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": -1,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7590,
+          "type": "macos",
+          "unit": "disk",
+          "field": "DiskName",
+          "appname": "apm",
+          "nameZh": "名称",
+          "nameEn": "Name",
+          "explainZh": "指Mac OS服务器的某个文件系统的名称。",
+          "explainEn": "Name of a file system on the Mac OS server.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "IC,EC,NEQ,RULE,EQ",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7591,
+          "type": "macos",
+          "unit": "disk",
+          "field": "DiskSize",
+          "appname": "apm",
+          "nameZh": "容量",
+          "nameEn": "Size",
+          "explainZh": "指文件系统的容量。",
+          "explainEn": "Size of system file.",
+          "fieldUnit": "KB",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7592,
+          "type": "macos",
+          "unit": "disk",
+          "field": "DiskUsed",
+          "appname": "apm",
+          "nameZh": "已用空间",
+          "nameEn": "In Use",
+          "explainZh": "指Mac OS服务器某个文件系统已用空间大小。",
+          "explainEn": "Used space of a file system on the Mac OS server.",
+          "fieldUnit": "KB",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7593,
+          "type": "macos",
+          "unit": "disk",
+          "field": "DiskUtilization",
+          "appname": "apm",
+          "nameZh": "文件系统利用率",
+          "nameEn": "File System Usage Ratio",
+          "explainZh": "指Mac OS服务器某个文件系统的空间利用率。",
+          "explainEn": "Ratio of the file system usage.",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "macos",
+      "unit": "memory",
+      "nameZh": "内存",
+      "nameEn": "Memory",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "row",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7607,
+          "type": "macos",
+          "unit": "memory",
+          "field": "PhysicalMemoryTotal",
+          "appname": "apm",
+          "nameZh": "物理内存容量",
+          "nameEn": "Physical Memory Total",
+          "explainZh": "物理内存容量。",
+          "explainEn": "Physical memory information of the Mac OS server.",
+          "fieldUnit": "MB",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7608,
+          "type": "macos",
+          "unit": "memory",
+          "field": "PhysicalMemoryUsed",
+          "appname": "apm",
+          "nameZh": "已用物理内存",
+          "nameEn": "Physical Memory In Use",
+          "explainZh": "已用物理内存。",
+          "explainEn": "Physical memory information of the Mac OS server.",
+          "fieldUnit": "MB",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7609,
+          "type": "macos",
+          "unit": "memory",
+          "field": "PhysicalMemoryUtilization",
+          "appname": "apm",
+          "nameZh": "物理内存利用率",
+          "nameEn": "Physical Memory Usage Ratio",
+          "explainZh": "物理内存利用率。",
+          "explainEn": "Physical memory information of the Mac OS server.",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7610,
+          "type": "macos",
+          "unit": "memory",
+          "field": "VirtualMemoryTotal",
+          "appname": "apm",
+          "nameZh": "交换内存容量",
+          "nameEn": "Swap Total",
+          "explainZh": "交换内存容量。",
+          "explainEn": "Swap memory information of the Mac OS server.",
+          "fieldUnit": "MB",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7611,
+          "type": "macos",
+          "unit": "memory",
+          "field": "VirtualMemoryUsed",
+          "appname": "apm",
+          "nameZh": "已用交换内存",
+          "nameEn": "Swap In Use",
+          "explainZh": "已用交换内存。",
+          "explainEn": "Swap memory information of the Mac OS server.",
+          "fieldUnit": "MB",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7612,
+          "type": "macos",
+          "unit": "memory",
+          "field": "VirtualMemoryUtilization",
+          "appname": "apm",
+          "nameZh": "交换内存利用率",
+          "nameEn": "Swap Usage Ratio",
+          "explainZh": "交换内存利用率。",
+          "explainEn": "Swap memory information of the Mac OS server.",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "macos",
+      "unit": "ping",
+      "nameZh": "Ping测试",
+      "nameEn": "Ping Test",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "row",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7613,
+          "type": "macos",
+          "unit": "ping",
+          "field": "connected",
+          "appname": "apm",
+          "nameZh": "连接",
+          "nameEn": "Connected",
+          "explainZh": "连接。",
+          "explainEn": "Connected.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "IC,EC,NEQ,RULE,EQ,CHG",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7614,
+          "type": "macos",
+          "unit": "ping",
+          "field": "recvPackageNum",
+          "appname": "apm",
+          "nameZh": "接收包数",
+          "nameEn": "Packets Received",
+          "explainZh": "指Mac OS服务器进行Ping测试接收的包的数量。",
+          "explainEn": "The number of packets received during the ping test.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7615,
+          "type": "macos",
+          "unit": "ping",
+          "field": "replytime",
+          "appname": "apm",
+          "nameZh": "响应时间",
+          "nameEn": "Response Time",
+          "explainZh": "指Mac OS服务器进行Ping测试的响应时间。",
+          "explainEn": "Response time of the ping test.",
+          "fieldUnit": "ms",
+          "unitGroup": {
+            "name": "Time",
+            "label": {
+              "zh": "时间",
+              "en": "Time",
+              "label": "时间"
+            },
+            "items": [
+              {
+                "name": "Time",
+                "origin": "ms",
+                "destination": "s",
+                "multiplier": 1000.0
+              }
+            ],
+            "units": [
+              "ms",
+              "s"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7616,
+          "type": "macos",
+          "unit": "ping",
+          "field": "sendPackageNum",
+          "appname": "apm",
+          "nameZh": "发送包数",
+          "nameEn": "Packets Sent",
+          "explainZh": "指Mac OS服务器进行Ping测试发送的包的数量。",
+          "explainEn": "The number of packets sent during the ping test.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "macos",
+      "unit": "sysload",
+      "nameZh": "系统负载",
+      "nameEn": "System Load",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "row",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7624,
+          "type": "macos",
+          "unit": "sysload",
+          "field": "FifteenMinuteLoad",
+          "appname": "apm",
+          "nameZh": "15分钟系统平均负载",
+          "nameEn": "System Loads/15 Min",
+          "explainZh": "指MacOS服务器最近十五分钟的系统平均负载。",
+          "explainEn": "Number of tasks in average running on the Mac OS server in the last 15 minutes.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7625,
+          "type": "macos",
+          "unit": "sysload",
+          "field": "FiveMinuteLoad",
+          "appname": "apm",
+          "nameZh": "5分钟系统平均负载",
+          "nameEn": "System Loads/5 Min",
+          "explainZh": "指MacOS服务器最近五分钟的系统平均负载。",
+          "explainEn": "Number of tasks in average running on the Mac OS server in the last five minutes.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7626,
+          "type": "macos",
+          "unit": "sysload",
+          "field": "OneMinuteLoad",
+          "appname": "apm",
+          "nameZh": "1分钟系统平均负载",
+          "nameEn": "System Loads/Min",
+          "explainZh": "指MacOS服务器最近一分钟的系统平均负载。",
+          "explainEn": "Number of tasks in average running on the Mac OS server in the last minute.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": [
+        "AvailabilityData"
+      ],
+      "allField": false,
+      "operations": null,
+      "enableDelete": false,
+      "type": "general",
+      "unit": "AvailableData",
+      "nameZh": "可用性",
+      "nameEn": "Availability",
+      "appname": "apm",
+      "collectTime": 60,
+      "scope": 3,
+      "defaultUsed": true,
+      "defaultCp": true,
+      "enableCollectTime": true,
+      "dataType": "",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 19916,
+          "type": "general",
+          "unit": "AvailableData",
+          "field": "AvailabilityData",
+          "appname": "apm",
+          "nameZh": "协议连接",
+          "nameEn": "Protocol Connection",
+          "explainZh": "测试IP对应资源的协议连接。",
+          "explainEn": "Test the protocol connections of the resource corresponding to an IP address.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "EQ",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    }
+  ]
+}

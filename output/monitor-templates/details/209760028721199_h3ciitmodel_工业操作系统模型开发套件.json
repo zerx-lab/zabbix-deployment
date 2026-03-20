@@ -1,0 +1,641 @@
+{
+  "nameEn": "工业操作系统模型开发套件",
+  "thresholds": [
+    {
+      "id": 10000042,
+      "templateId": 209760028721199,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "Multistage",
+      "conditions": [
+        {
+          "id": 43,
+          "type": "h3ciitmodel",
+          "unit": "cpuInfo",
+          "field": "cpuUsage",
+          "valueType": 0,
+          "operator": "GT",
+          "threshold": [
+            {
+              "level": 4,
+              "value": "80",
+              "enable": true,
+              "trigger": 3
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "%",
+          "range": "[0,100]"
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "4": {
+          "level": 4,
+          "value": {
+            "43": "80"
+          },
+          "trigger": 3
+        }
+      },
+      "regionId": 1761206917732
+    },
+    {
+      "id": 10000043,
+      "templateId": 209760028721199,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "Multistage",
+      "conditions": [
+        {
+          "id": 44,
+          "type": "h3ciitmodel",
+          "unit": "memoryInfo",
+          "field": "jvmMemUsage",
+          "valueType": 0,
+          "operator": "GT",
+          "threshold": [
+            {
+              "level": 4,
+              "value": "80",
+              "enable": true,
+              "trigger": 3
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "%",
+          "range": "[0,100]"
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "4": {
+          "level": 4,
+          "value": {
+            "44": "80"
+          },
+          "trigger": 3
+        }
+      },
+      "regionId": 1761206917732
+    },
+    {
+      "id": 10000044,
+      "templateId": 209760028721199,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "SingleStage",
+      "conditions": [
+        {
+          "id": 45,
+          "type": "general",
+          "unit": "AvailableData",
+          "field": "AvailabilityData",
+          "valueType": 1,
+          "operator": "EQ",
+          "threshold": [
+            {
+              "level": 1,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 2,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 3,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 4,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 5,
+              "value": "无法连接",
+              "enable": true,
+              "trigger": 2
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "",
+          "range": ""
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "5": {
+          "level": 5,
+          "value": {
+            "45": "无法连接"
+          },
+          "trigger": 2
+        }
+      },
+      "regionId": 1761206917732
+    }
+  ],
+  "def": true,
+  "tenantId": "abd2d9f6-36d9-45b8-b7e3-7a793b3a6f2c",
+  "uuid": 209760028721199,
+  "regionId": 1761206917732,
+  "regionPermission": true,
+  "version": 1,
+  "templateId": 209760028721199,
+  "name": "工业操作系统模型开发套件",
+  "type": "h3ciitmodel",
+  "scene": "MONITOR",
+  "typeLabel": {
+    "zh": "工业操作系统模型开发套件",
+    "en": "IIoTOS-MODEL",
+    "label": "工业操作系统模型开发套件"
+  },
+  "describe": null,
+  "custom": false,
+  "operationIds": [
+    801,
+    802,
+    803,
+    804,
+    805,
+    806,
+    807,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    28402,
+    28403
+  ],
+  "resGroup": [],
+  "unitList": [
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "h3ciitmodel",
+      "unit": "serviceStatus",
+      "nameZh": "服务状态",
+      "nameEn": "Service Status",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "row",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 659,
+          "type": "h3ciitmodel",
+          "unit": "serviceStatus",
+          "field": "serviceStatus",
+          "appname": "apm",
+          "nameZh": "服务状态",
+          "nameEn": "Service Status",
+          "explainZh": "服务健康状态。UP：表示服务健康状态良好。DOWN：表示应用程序存在故障或异常。OUT_OF_SERVICE：表示服务处于停机维护状态，无法提供服务。UNKNOWN：表示应用程序的健康状态无法确定。",
+          "explainEn": "\"Indicates whether the application is running or not.UP: Indicates that the service is in good health.DOWN: Indicates that the application has faults or abnormalities.OUT_OF_SERVICE: Indicates that the service is in maintenance mode and unable to provide services.UNKNOWN: Indicates that the health status of the application cannot be determined.\"",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "IC,EC,NEQ,RULE,EQ,CHG",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "h3ciitmodel",
+      "unit": "cpuInfo",
+      "nameZh": "CPU信息",
+      "nameEn": "CPU Info",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "row",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 660,
+          "type": "h3ciitmodel",
+          "unit": "cpuInfo",
+          "field": "cpuUsage",
+          "appname": "apm",
+          "nameZh": "CPU利用率",
+          "nameEn": "CPU Usage",
+          "explainZh": "系统的cpu使用率。",
+          "explainEn": "The usage for the CPU.",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,100]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "h3ciitmodel",
+      "unit": "memoryInfo",
+      "nameZh": "内存信息",
+      "nameEn": "Memory Info",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "row",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 661,
+          "type": "h3ciitmodel",
+          "unit": "memoryInfo",
+          "field": "jvmMemMax",
+          "appname": "apm",
+          "nameZh": "JVM最大内存",
+          "nameEn": "JVM Max Memory",
+          "explainZh": "JVM可用的最大内存量。",
+          "explainEn": "The maximum amount of memory in bytes that can be used for memory management.",
+          "fieldUnit": "B",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 662,
+          "type": "h3ciitmodel",
+          "unit": "memoryInfo",
+          "field": "jvmMemUsed",
+          "appname": "apm",
+          "nameZh": "JVM已使用内存",
+          "nameEn": "JVM Used Memory",
+          "explainZh": "JVM当前已使用的内存量。",
+          "explainEn": "The amount of used memory.",
+          "fieldUnit": "B",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 663,
+          "type": "h3ciitmodel",
+          "unit": "memoryInfo",
+          "field": "jvmRunTime",
+          "appname": "apm",
+          "nameZh": "JVM正常运行时间",
+          "nameEn": "JVM Run Time",
+          "explainZh": "JVM正常运行时间。",
+          "explainEn": "The uptime of the Java virtual machine.",
+          "fieldUnit": "s",
+          "unitGroup": {
+            "name": "Time",
+            "label": {
+              "zh": "时间",
+              "en": "Time",
+              "label": "时间"
+            },
+            "items": [
+              {
+                "name": "Time",
+                "origin": "ms",
+                "destination": "s",
+                "multiplier": 1000.0
+              }
+            ],
+            "units": [
+              "ms",
+              "s"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 664,
+          "type": "h3ciitmodel",
+          "unit": "memoryInfo",
+          "field": "jvmMemUsage",
+          "appname": "apm",
+          "nameZh": "JVM内存使用率",
+          "nameEn": "JVM Memory Usage",
+          "explainZh": "JVM内存使用率。",
+          "explainEn": "The memory usage for the JVM.",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,100]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "h3ciitmodel",
+      "unit": "sessionInfo",
+      "nameZh": "Session信息",
+      "nameEn": "Session Information",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "row",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 665,
+          "type": "h3ciitmodel",
+          "unit": "sessionInfo",
+          "field": "sessionCount",
+          "appname": "apm",
+          "nameZh": "TOMCAT拒绝session数",
+          "nameEn": "TOMCAT Refused Session Count",
+          "explainZh": "TOMCAT拒绝session数目，服务最近一次启动后的累计值。",
+          "explainEn": "The number of sessions that have been rejected due to the maximum number of sessions being reached.The cumulative value since the most recent startup of the service.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": [
+        "AvailabilityData"
+      ],
+      "allField": false,
+      "operations": null,
+      "enableDelete": false,
+      "type": "general",
+      "unit": "AvailableData",
+      "nameZh": "可用性",
+      "nameEn": "Availability",
+      "appname": "apm",
+      "collectTime": 60,
+      "scope": 3,
+      "defaultUsed": true,
+      "defaultCp": true,
+      "enableCollectTime": true,
+      "dataType": "",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 19916,
+          "type": "general",
+          "unit": "AvailableData",
+          "field": "AvailabilityData",
+          "appname": "apm",
+          "nameZh": "协议连接",
+          "nameEn": "Protocol Connection",
+          "explainZh": "测试IP对应资源的协议连接。",
+          "explainEn": "Test the protocol connections of the resource corresponding to an IP address.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "EQ",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    }
+  ]
+}

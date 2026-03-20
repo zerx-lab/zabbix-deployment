@@ -1,0 +1,3442 @@
+{
+  "exact_field_map": {
+    "linux.AvailableData.AvailabilityData": {
+      "zabbix_key": "agent.ping",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Linux agent 可用性用 agent.ping 检测"
+    },
+    "general.AvailableData.AvailabilityData": {
+      "zabbix_key": "icmpping",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "通用可用性探测"
+    },
+    "linux.cpu.CpuUtilization": {
+      "zabbix_key": "system.cpu.util",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "CPU 总利用率，Dependent item 由 system.cpu.util[,*] 计算得出"
+    },
+    "linux.cpuinfo_stat.IdlePercentage": {
+      "zabbix_key": "system.cpu.util[,idle]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "CPU 空闲时间百分比"
+    },
+    "linux.cpuinfo_stat.IOwaitPercentage": {
+      "zabbix_key": "system.cpu.util[,iowait]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "CPU IO 等待时间百分比"
+    },
+    "linux.cpuinfo_stat.UserPercentage": {
+      "zabbix_key": "system.cpu.util[,user]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "用户态 CPU 时间"
+    },
+    "linux.cpuinfo_stat.SystemPercentage": {
+      "zabbix_key": "system.cpu.util[,system]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "内核态 CPU 时间"
+    },
+    "linux.cpuinfo_stat.NicePercentage": {
+      "zabbix_key": "system.cpu.util[,nice]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "nice CPU 时间"
+    },
+    "linux.cpuinfo_stat.SoftirqPercentage": {
+      "zabbix_key": "system.cpu.util[,softirq]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "软中断 CPU 时间"
+    },
+    "linux.cpuinfo_stat.StealPercentage": {
+      "zabbix_key": "system.cpu.util[,steal]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "steal CPU 时间（虚拟机环境）"
+    },
+    "linux.cpuinfo_stat.GuestPercentage": {
+      "zabbix_key": "system.cpu.util[,guest]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "guest CPU 时间"
+    },
+    "linux.cpuinfo_stat.CpuCoreNumber": {
+      "zabbix_key": "system.cpu.num",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "CPU 核心数"
+    },
+    "linux.cpuinfo_stat.InterruptPerSecond": {
+      "zabbix_key": "system.cpu.intr",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "每秒中断次数"
+    },
+    "linux.cpuinfo_stat.ContextSwitchPerSecond": {
+      "zabbix_key": "system.cpu.switches",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "每秒上下文切换次数"
+    },
+    "linux.load.CpuLoad1": {
+      "zabbix_key": "system.cpu.load[all,avg1]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "1 分钟平均负载"
+    },
+    "linux.load.CpuLoad5": {
+      "zabbix_key": "system.cpu.load[all,avg5]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "5 分钟平均负载"
+    },
+    "linux.load.CpuLoad15": {
+      "zabbix_key": "system.cpu.load[all,avg15]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "15 分钟平均负载"
+    },
+    "linux.memory.MemTotal": {
+      "zabbix_key": "vm.memory.size[total]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "总内存"
+    },
+    "linux.memory.MemFree": {
+      "zabbix_key": "vm.memory.size[available]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "可用内存（Zabbix 用 available，含 buffers/cache）"
+    },
+    "linux.memory.MemUtilization": {
+      "zabbix_key": "vm.memory.utilization",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "内存利用率百分比（Dependent item）"
+    },
+    "linux.memory.MemAvailable": {
+      "zabbix_key": "vm.memory.size[pavailable]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "可用内存百分比"
+    },
+    "linux.memory.SwapTotal": {
+      "zabbix_key": "system.swap.size[,total]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Swap 总大小"
+    },
+    "linux.memory.SwapFree": {
+      "zabbix_key": "system.swap.size[,free]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Swap 剩余"
+    },
+    "linux.memory.SwapUtilization": {
+      "zabbix_key": "system.swap.size[,pfree]",
+      "is_prototype": false,
+      "confidence": "medium",
+      "notes": "Swap 利用率（Zabbix 为 pfree=剩余百分比，需转换）"
+    },
+    "linux.filesystem.TotalSpace": {
+      "zabbix_key": "vfs.fs.dependent.size[{#FSNAME},total]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "文件系统总空间（LLD）"
+    },
+    "linux.filesystem.FreeSpace": {
+      "zabbix_key": "vfs.fs.dependent.size[{#FSNAME},free]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "文件系统剩余空间（LLD）"
+    },
+    "linux.filesystem.UsedSpace": {
+      "zabbix_key": "vfs.fs.dependent.size[{#FSNAME},used]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "文件系统已用空间（LLD）"
+    },
+    "linux.filesystem.Utilization": {
+      "zabbix_key": "vfs.fs.dependent.size[{#FSNAME},pused]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "文件系统利用率（LLD）"
+    },
+    "linux.filesystem.FsName": {
+      "zabbix_key": "vfs.fs.dependent.discovery",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "文件系统名称（LLD 发现规则本身）"
+    },
+    "linux.inode.InodesUsed": {
+      "zabbix_key": "vfs.fs.dependent.inode[{#FSNAME},pfree]",
+      "is_prototype": true,
+      "confidence": "medium",
+      "notes": "Zabbix 存 inode 剩余百分比，华三存已用；含义相反但同一数据"
+    },
+    "linux.interface.InterfaceName": {
+      "zabbix_key": "net.if.discovery",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "网络接口发现规则，对应接口名称标识字段"
+    },
+    "linux.interface.rxPerSec": {
+      "zabbix_key": "net.if.in[\"{#IFNAME}\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口接收速率（bps）"
+    },
+    "linux.interface.txPerSec": {
+      "zabbix_key": "net.if.out[\"{#IFNAME}\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口发送速率（bps）"
+    },
+    "linux.interface.rxErrors": {
+      "zabbix_key": "net.if.in[\"{#IFNAME}\",errors]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口接收错误"
+    },
+    "linux.interface.txErrors": {
+      "zabbix_key": "net.if.out[\"{#IFNAME}\",errors]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口发送错误"
+    },
+    "linux.interface.rxDropped": {
+      "zabbix_key": "net.if.in[\"{#IFNAME}\",dropped]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口接收丢包"
+    },
+    "linux.interface.txDropped": {
+      "zabbix_key": "net.if.out[\"{#IFNAME}\",dropped]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口发送丢包"
+    },
+    "linux.interface.InterfaceSpeed": {
+      "zabbix_key": "vfs.file.contents[\"/sys/class/net/{#IFNAME}/speed\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口速率"
+    },
+    "linux.interface.InterfaceStatus": {
+      "zabbix_key": "vfs.file.contents[\"/sys/class/net/{#IFNAME}/operstate\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口状态（up/down）"
+    },
+    "linux.disk.DiskReadRate": {
+      "zabbix_key": "vfs.dev.read.rate[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘读速率"
+    },
+    "linux.disk.DiskWriteRate": {
+      "zabbix_key": "vfs.dev.write.rate[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘写速率"
+    },
+    "linux.disk.DiskReadAwait": {
+      "zabbix_key": "vfs.dev.read.await[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘读等待时间（ms）"
+    },
+    "linux.disk.DiskWriteAwait": {
+      "zabbix_key": "vfs.dev.write.await[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘写等待时间（ms）"
+    },
+    "linux.disk.DiskUtilization": {
+      "zabbix_key": "vfs.dev.util[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘利用率"
+    },
+    "linux.hostname.HostName": {
+      "zabbix_key": "system.hostname",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "主机名"
+    },
+    "linux.version.OsVersion": {
+      "zabbix_key": "system.sw.os",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "操作系统版本"
+    },
+    "linux.ntp.NtpOffset": {
+      "zabbix_key": "system.localtime",
+      "is_prototype": false,
+      "confidence": "medium",
+      "notes": "NTP 时间（Zabbix 获取本地时间，需外部计算偏差）"
+    },
+    "linux.process.ProcessNum": {
+      "zabbix_key": "proc.num",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "进程总数"
+    },
+    "linux.process.RunningProcessNum": {
+      "zabbix_key": "proc.num[,,run]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "运行中进程数"
+    },
+    "winsvr.AvailableData.AvailabilityData": {
+      "zabbix_key": "agent.ping",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Windows agent 可用性"
+    },
+    "winsvr.cpu.CpuUtilization": {
+      "zabbix_key": "system.cpu.util",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Windows CPU 总利用率"
+    },
+    "winsvr.cpu.CpuLoad1": {
+      "zabbix_key": "system.cpu.load[all,avg1]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "1 分钟负载"
+    },
+    "winsvr.memory.MemTotal": {
+      "zabbix_key": "vm.memory.size[total]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "总内存"
+    },
+    "winsvr.memory.MemUtilization": {
+      "zabbix_key": "vm.memory.utilization",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "内存利用率"
+    },
+    "winsvr.disk.DiskName": {
+      "zabbix_key": "vfs.fs.discovery",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "磁盘分区发现规则"
+    },
+    "winsvr.disk.DiskUtilization": {
+      "zabbix_key": "vfs.fs.size[{#FSNAME},pused]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘分区利用率（LLD）"
+    },
+    "winsvr.disk.DiskFreeSpace": {
+      "zabbix_key": "vfs.fs.size[{#FSNAME},free]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘剩余空间（LLD）"
+    },
+    "winsvr.disk.DiskTotalSpace": {
+      "zabbix_key": "vfs.fs.size[{#FSNAME},total]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘总空间（LLD）"
+    },
+    "winsvr.interface.InterfaceName": {
+      "zabbix_key": "net.if.discovery",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "网络接口发现"
+    },
+    "winsvr.interface.rxPerSec": {
+      "zabbix_key": "net.if.in[\"{#IFNAME}\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口接收速率"
+    },
+    "winsvr.interface.txPerSec": {
+      "zabbix_key": "net.if.out[\"{#IFNAME}\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口发送速率"
+    },
+    "winsvr.hostname.HostName": {
+      "zabbix_key": "system.hostname",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "主机名"
+    },
+    "winsvr.process.ProcessName": {
+      "zabbix_key": "proc.num[{#PROCNAME}]",
+      "is_prototype": true,
+      "confidence": "medium",
+      "notes": "进程监控（LLD）"
+    },
+    "aix.AvailableData.AvailabilityData": {
+      "zabbix_key": "agent.ping",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "AIX agent 可用性"
+    },
+    "aix.cpu.CpuUtilization": {
+      "zabbix_key": "system.stat[cpu,us]",
+      "is_prototype": false,
+      "confidence": "medium",
+      "notes": "AIX CPU 利用率，Zabbix 用 system.stat[cpu,us] 代表用户态"
+    },
+    "aix.cpu.AppCpuUtilization": {
+      "zabbix_key": "system.stat[cpu,app]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "AIX 应用 CPU 时间"
+    },
+    "aix.cpu.SysCpuUtilization": {
+      "zabbix_key": "system.stat[cpu,sy]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "AIX 系统态 CPU 时间"
+    },
+    "aix.cpu.WaitCpuUtilization": {
+      "zabbix_key": "system.stat[cpu,wa]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "AIX 等待 CPU 时间"
+    },
+    "aix.cpu.IdleCpuUtilization": {
+      "zabbix_key": "system.stat[cpu,id]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "AIX 空闲 CPU 时间"
+    },
+    "aix.memory.MemTotal": {
+      "zabbix_key": "vm.memory.size[total]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "AIX 总内存"
+    },
+    "aix.memory.MemFree": {
+      "zabbix_key": "system.stat[memory,fre]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "AIX 空闲内存"
+    },
+    "aix.load.CpuLoad1": {
+      "zabbix_key": "system.cpu.load[percpu,avg1]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "AIX 1 分钟平均负载（per CPU）"
+    },
+    "aix.load.CpuLoad5": {
+      "zabbix_key": "system.cpu.load[percpu,avg5]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "AIX 5 分钟平均负载"
+    },
+    "aix.load.CpuLoad15": {
+      "zabbix_key": "system.cpu.load[percpu,avg15]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "AIX 15 分钟平均负载"
+    },
+    "aix.interface.rxPerSec": {
+      "zabbix_key": "net.if.in[\"{#IFNAME}\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "AIX 接口接收速率（LLD）"
+    },
+    "aix.interface.txPerSec": {
+      "zabbix_key": "net.if.out[\"{#IFNAME}\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "AIX 接口发送速率（LLD）"
+    },
+    "aix.filesystem.Utilization": {
+      "zabbix_key": "vfs.fs.dependent.size[{#FSNAME},pused]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "AIX 文件系统利用率（LLD）"
+    },
+    "freebsd.AvailableData.AvailabilityData": {
+      "zabbix_key": "agent.ping",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": ""
+    },
+    "freebsd.cpu.CpuUtilization": {
+      "zabbix_key": "system.cpu.util",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": ""
+    },
+    "freebsd.memory.MemUtilization": {
+      "zabbix_key": "vm.memory.utilization",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": ""
+    },
+    "freebsd.load.CpuLoad1": {
+      "zabbix_key": "system.cpu.load[all,avg1]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": ""
+    },
+    "freebsd.filesystem.Utilization": {
+      "zabbix_key": "vfs.fs.dependent.size[{#FSNAME},pused]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": ""
+    },
+    "hpux.AvailableData.AvailabilityData": {
+      "zabbix_key": "agent.ping",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": ""
+    },
+    "hpux.cpu.CpuUtilization": {
+      "zabbix_key": "system.cpu.util",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": ""
+    },
+    "hpux.memory.MemUtilization": {
+      "zabbix_key": "vm.memory.utilization",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": ""
+    },
+    "hpux.load.CpuLoad1": {
+      "zabbix_key": "system.cpu.load[all,avg1]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": ""
+    },
+    "hpux.filesystem.Utilization": {
+      "zabbix_key": "vfs.fs.dependent.size[{#FSNAME},pused]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": ""
+    },
+    "solaris.AvailableData.AvailabilityData": {
+      "zabbix_key": "agent.ping",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": ""
+    },
+    "solaris.cpu.CpuUtilization": {
+      "zabbix_key": "system.cpu.util",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": ""
+    },
+    "solaris.memory.MemUtilization": {
+      "zabbix_key": "vm.memory.utilization",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": ""
+    },
+    "solaris.hostname.HostName": {
+      "zabbix_key": "system.hostname",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": ""
+    },
+    "solaris.filesystem.Utilization": {
+      "zabbix_key": "vfs.fs.dependent.size[{#FSNAME},pused]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": ""
+    },
+    "solaris.interface.rxPerSec": {
+      "zabbix_key": "net.if.in[\"{#IFNAME}\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": ""
+    },
+    "solaris.interface.txPerSec": {
+      "zabbix_key": "net.if.out[\"{#IFNAME}\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": ""
+    },
+    "macos.AvailableData.AvailabilityData": {
+      "zabbix_key": "agent.ping",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": ""
+    },
+    "macos.cpu.CpuUtilization": {
+      "zabbix_key": "system.cpu.util",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": ""
+    },
+    "macos.memory.MemUtilization": {
+      "zabbix_key": "vm.memory.utilization",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": ""
+    },
+    "network.AvailableData.AvailabilityData": {
+      "zabbix_key": "icmpping",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "网络设备可用性用 ICMP ping"
+    },
+    "network.cpu.cpuUtilization": {
+      "zabbix_key": "system.cpu.util",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "SNMP 获取 CPU 利用率（通用 ifXTable 或厂商 MIB）"
+    },
+    "network.memory.memUtilization": {
+      "zabbix_key": "vm.memory.size[pused]",
+      "is_prototype": false,
+      "confidence": "medium",
+      "notes": "通用 SNMP 内存利用率"
+    },
+    "network.interface.InterfaceName": {
+      "zabbix_key": "net.if.discovery",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "接口发现（SNMP ifTable）"
+    },
+    "network.interface.rxPerSec": {
+      "zabbix_key": "net.if.in[{#SNMPINDEX}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口接收速率（SNMP）"
+    },
+    "network.interface.txPerSec": {
+      "zabbix_key": "net.if.out[{#SNMPINDEX}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口发送速率（SNMP）"
+    },
+    "network.interface.rxErrors": {
+      "zabbix_key": "net.if.in[{#SNMPINDEX},errors]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口接收错误"
+    },
+    "network.interface.txErrors": {
+      "zabbix_key": "net.if.out[{#SNMPINDEX},errors]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口发送错误"
+    },
+    "network.interface.rxUtilization": {
+      "zabbix_key": "net.if.in[{#SNMPINDEX}]",
+      "is_prototype": true,
+      "confidence": "medium",
+      "notes": "接口带宽利用率需在 Zabbix 中通过计算 item 实现"
+    },
+    "network.interface.txUtilization": {
+      "zabbix_key": "net.if.out[{#SNMPINDEX}]",
+      "is_prototype": true,
+      "confidence": "medium",
+      "notes": "同上"
+    },
+    "network.interface.interfaceNegotiationRate": {
+      "zabbix_key": "vfs.file.contents[\"/sys/class/net/{#IFNAME}/speed\"]",
+      "is_prototype": true,
+      "confidence": "low",
+      "notes": "接口协商速率，SNMP 设备通过 ifSpeed OID 获取"
+    },
+    "ping.AvailableData.AvailabilityData": {
+      "zabbix_key": "icmpping",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "ICMP ping 可用性"
+    },
+    "ping.ping.responseTime": {
+      "zabbix_key": "icmppingsec",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "ICMP ping 响应时间（秒）"
+    },
+    "ping.ping.packetLoss": {
+      "zabbix_key": "icmppingloss",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "ICMP ping 丢包率"
+    },
+    "ping.ping.responseTimeMs": {
+      "zabbix_key": "icmppingsec",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "ICMP ping 响应时间（Zabbix 单位 s，需换算）"
+    },
+    "pingcmd.AvailableData.AvailabilityData": {
+      "zabbix_key": "icmpping",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "本地 Ping 可用性"
+    },
+    "pingcmd.ping.responseTime": {
+      "zabbix_key": "icmppingsec",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "本地 Ping 响应时间"
+    },
+    "pingcmd.ping.packetLoss": {
+      "zabbix_key": "icmppingloss",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "本地 Ping 丢包率"
+    },
+    "mysql.AvailableData.AvailabilityData": {
+      "zabbix_key": "mysql.ping",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "MySQL 可用性探测"
+    },
+    "mysql.status.Uptime": {
+      "zabbix_key": "mysql.status[Uptime]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "MySQL 运行时长"
+    },
+    "mysql.status.Threads_connected": {
+      "zabbix_key": "mysql.status[Threads_connected]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "当前连接数"
+    },
+    "mysql.status.Threads_running": {
+      "zabbix_key": "mysql.status[Threads_running]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "运行中线程数"
+    },
+    "mysql.status.Max_used_connections": {
+      "zabbix_key": "mysql.status[Max_used_connections]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "历史最大连接数"
+    },
+    "mysql.status.Queries": {
+      "zabbix_key": "mysql.status[Queries]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "查询总数"
+    },
+    "mysql.status.Slow_queries": {
+      "zabbix_key": "mysql.status[Slow_queries]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "慢查询数"
+    },
+    "mysql.status.Bytes_received": {
+      "zabbix_key": "mysql.status[Bytes_received]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "接收字节数"
+    },
+    "mysql.status.Bytes_sent": {
+      "zabbix_key": "mysql.status[Bytes_sent]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "发送字节数"
+    },
+    "mysql.status.Innodb_buffer_pool_read_requests": {
+      "zabbix_key": "mysql.status[Innodb_buffer_pool_read_requests]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "InnoDB 缓冲池读请求"
+    },
+    "mysql.status.Innodb_buffer_pool_reads": {
+      "zabbix_key": "mysql.status[Innodb_buffer_pool_reads]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "InnoDB 缓冲池物理读"
+    },
+    "mysql.version.Version": {
+      "zabbix_key": "mysql.version",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "MySQL 版本"
+    },
+    "mysql.database.dbSize": {
+      "zabbix_key": "mysql.dbsize[{#DBNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "单个数据库大小（LLD）"
+    },
+    "mysql8.AvailableData.AvailabilityData": {
+      "zabbix_key": "mysql.ping",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": ""
+    },
+    "mysql8.status.Uptime": {
+      "zabbix_key": "mysql.status[Uptime]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": ""
+    },
+    "mysql8.status.Threads_connected": {
+      "zabbix_key": "mysql.status[Threads_connected]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": ""
+    },
+    "mysql8.status.Threads_running": {
+      "zabbix_key": "mysql.status[Threads_running]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": ""
+    },
+    "mysql8.status.Queries": {
+      "zabbix_key": "mysql.status[Queries]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": ""
+    },
+    "mysql8.status.Slow_queries": {
+      "zabbix_key": "mysql.status[Slow_queries]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": ""
+    },
+    "mysql8.status.Bytes_received": {
+      "zabbix_key": "mysql.status[Bytes_received]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": ""
+    },
+    "mysql8.status.Bytes_sent": {
+      "zabbix_key": "mysql.status[Bytes_sent]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": ""
+    },
+    "mysql8.status.Innodb_buffer_pool_read_requests": {
+      "zabbix_key": "mysql.status[Innodb_buffer_pool_read_requests]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": ""
+    },
+    "mysql8.status.Innodb_buffer_pool_reads": {
+      "zabbix_key": "mysql.status[Innodb_buffer_pool_reads]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": ""
+    },
+    "mysql8.version.Version": {
+      "zabbix_key": "mysql.version",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": ""
+    },
+    "mysql8.database.dbSize": {
+      "zabbix_key": "mysql.dbsize[{#DBNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": ""
+    },
+    "mysql8.conn.maxConnections": {
+      "zabbix_key": "mysql.status[Max_used_connections]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": ""
+    },
+    "mysql8.conn.connectionUsage": {
+      "zabbix_key": "mysql.status[Threads_connected]",
+      "is_prototype": false,
+      "confidence": "medium",
+      "notes": "连接使用率需结合 max_connections 计算"
+    },
+    "psql.AvailableData.AvailabilityData": {
+      "zabbix_key": "pgsql.ping",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "PostgreSQL 可用性"
+    },
+    "psql.conn.numConnections": {
+      "zabbix_key": "pgsql.connections[{#DBNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "当前连接数（LLD 按数据库）"
+    },
+    "psql.conn.maxConnections": {
+      "zabbix_key": "pgsql.settings.max_connections",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "最大连接数配置"
+    },
+    "psql.status.uptime": {
+      "zabbix_key": "pgsql.uptime",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "PostgreSQL 运行时长"
+    },
+    "psql.database.dbSize": {
+      "zabbix_key": "pgsql.db.size[{#DBNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "单个数据库大小（LLD）"
+    },
+    "psql.database.dbName": {
+      "zabbix_key": "pgsql.db.discovery",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "数据库发现规则"
+    },
+    "psql.version.Version": {
+      "zabbix_key": "pgsql.version",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "PostgreSQL 版本"
+    },
+    "psql.stat.commits": {
+      "zabbix_key": "pgsql.dbstat.sum.xact_commit",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "提交事务数"
+    },
+    "psql.stat.rollbacks": {
+      "zabbix_key": "pgsql.dbstat.sum.xact_rollback",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "回滚事务数"
+    },
+    "psql.stat.blksRead": {
+      "zabbix_key": "pgsql.dbstat.sum.blks_read",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "磁盘块读取数"
+    },
+    "psql.stat.blksHit": {
+      "zabbix_key": "pgsql.dbstat.sum.blks_hit",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "缓存命中块数"
+    },
+    "redis.AvailableData.AvailabilityData": {
+      "zabbix_key": "redis.ping",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Redis 可用性"
+    },
+    "redis.server.redis_version": {
+      "zabbix_key": "redis.info[Server,redis_version]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Redis 版本"
+    },
+    "redis.server.uptime_in_seconds": {
+      "zabbix_key": "redis.info[Server,uptime_in_seconds]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Redis 运行时长"
+    },
+    "redis.memory.used_memory": {
+      "zabbix_key": "redis.info[Memory,used_memory]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Redis 已用内存（字节）"
+    },
+    "redis.memory.used_memory_rss": {
+      "zabbix_key": "redis.info[Memory,used_memory_rss]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Redis RSS 内存"
+    },
+    "redis.memory.maxmemory": {
+      "zabbix_key": "redis.info[Memory,maxmemory]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Redis 最大内存配置"
+    },
+    "redis.clients.connected_clients": {
+      "zabbix_key": "redis.info[Clients,connected_clients]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "当前连接客户端数"
+    },
+    "redis.clients.blocked_clients": {
+      "zabbix_key": "redis.info[Clients,blocked_clients]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "阻塞客户端数"
+    },
+    "redis.stats.total_commands_processed": {
+      "zabbix_key": "redis.info[Stats,total_commands_processed]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "已处理命令总数"
+    },
+    "redis.stats.total_connections_received": {
+      "zabbix_key": "redis.info[Stats,total_connections_received]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "已接受连接总数"
+    },
+    "redis.stats.instantaneous_ops_per_sec": {
+      "zabbix_key": "redis.info[Stats,instantaneous_ops_per_sec]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "每秒操作数（OPS）"
+    },
+    "redis.stats.rejected_connections": {
+      "zabbix_key": "redis.info[Stats,rejected_connections]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "被拒绝连接数"
+    },
+    "redis.replication.connected_slaves": {
+      "zabbix_key": "redis.info[Replication,connected_slaves]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "已连接从库数"
+    },
+    "redis.keyspace.db0.keys": {
+      "zabbix_key": "redis.info[Keyspace,db0]",
+      "is_prototype": false,
+      "confidence": "medium",
+      "notes": "DB0 键数量"
+    },
+    "mongo.AvailableData.AvailabilityData": {
+      "zabbix_key": "mongodb.ping",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "MongoDB 可用性"
+    },
+    "mongo.conn.currentConnections": {
+      "zabbix_key": "mongodb.connpool.stats.current",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "当前连接数"
+    },
+    "mongo.conn.totalCreated": {
+      "zabbix_key": "mongodb.connpool.stats.totalCreated",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "已创建连接总数"
+    },
+    "mongo.server.version": {
+      "zabbix_key": "mongodb.version",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "MongoDB 版本"
+    },
+    "mongo.server.uptime": {
+      "zabbix_key": "mongodb.uptime",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "MongoDB 运行时长"
+    },
+    "mongo.database.dbName": {
+      "zabbix_key": "mongodb.db.discovery",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "数据库发现规则"
+    },
+    "mongo.database.dbSize": {
+      "zabbix_key": "mongodb.db.stats.dataSize[{#DBNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "单个数据库大小（LLD）"
+    },
+    "mongo.ops.insertPerSec": {
+      "zabbix_key": "mongodb.opscounters.insert",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "每秒插入操作"
+    },
+    "mongo.ops.queryPerSec": {
+      "zabbix_key": "mongodb.opscounters.query",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "每秒查询操作"
+    },
+    "mongo.ops.updatePerSec": {
+      "zabbix_key": "mongodb.opscounters.update",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "每秒更新操作"
+    },
+    "mongo.ops.deletePerSec": {
+      "zabbix_key": "mongodb.opscounters.delete",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "每秒删除操作"
+    },
+    "es.AvailableData.AvailabilityData": {
+      "zabbix_key": "es.nodes.get",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "ES 可用性（通过 HTTP 获取节点信息）"
+    },
+    "es.cluster.cluster_status": {
+      "zabbix_key": "es.cluster.health",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "ES 集群健康状态"
+    },
+    "es.cluster.number_of_nodes": {
+      "zabbix_key": "es.cluster.health[number_of_nodes]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "集群节点数"
+    },
+    "es.cluster.active_shards": {
+      "zabbix_key": "es.cluster.health[active_shards]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "活跃分片数"
+    },
+    "es.cluster.unassigned_shards": {
+      "zabbix_key": "es.cluster.health[unassigned_shards]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "未分配分片数"
+    },
+    "es.node.heap_used_percent": {
+      "zabbix_key": "es.nodes.stats[nodes.{#NODE_ID}.jvm.mem.heap_used_percent]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "节点 JVM 堆内存使用率（LLD）"
+    },
+    "memch.AvailableData.AvailabilityData": {
+      "zabbix_key": "memcached.ping",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Memcached 可用性"
+    },
+    "memch.status.version": {
+      "zabbix_key": "memcached.stats[version]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Memcached 版本"
+    },
+    "memch.status.uptime": {
+      "zabbix_key": "memcached.stats[uptime]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Memcached 运行时长"
+    },
+    "memch.status.curr_connections": {
+      "zabbix_key": "memcached.stats[curr_connections]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "当前连接数"
+    },
+    "memch.status.cmd_get": {
+      "zabbix_key": "memcached.stats[cmd_get]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "get 命令数"
+    },
+    "memch.status.cmd_set": {
+      "zabbix_key": "memcached.stats[cmd_set]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "set 命令数"
+    },
+    "memch.status.get_hits": {
+      "zabbix_key": "memcached.stats[get_hits]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "cache 命中数"
+    },
+    "memch.status.get_misses": {
+      "zabbix_key": "memcached.stats[get_misses]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "cache 未命中数"
+    },
+    "memch.status.bytes": {
+      "zabbix_key": "memcached.stats[bytes]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "已用内存字节数"
+    },
+    "memch.status.limit_maxbytes": {
+      "zabbix_key": "memcached.stats[limit_maxbytes]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "最大内存限制"
+    },
+    "nginx.AvailableData.AvailabilityData": {
+      "zabbix_key": "nginx.status",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Nginx 可用性"
+    },
+    "nginx.status.active": {
+      "zabbix_key": "nginx.active_connections",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "活跃连接数"
+    },
+    "nginx.status.requests": {
+      "zabbix_key": "nginx.requests.total",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "总请求数"
+    },
+    "nginx.status.reading": {
+      "zabbix_key": "nginx.reading",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "读请求数"
+    },
+    "nginx.status.writing": {
+      "zabbix_key": "nginx.writing",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "写请求数"
+    },
+    "nginx.status.waiting": {
+      "zabbix_key": "nginx.waiting",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "等待连接数"
+    },
+    "nginx.version.Version": {
+      "zabbix_key": "nginx.version",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Nginx 版本"
+    },
+    "apache.AvailableData.AvailabilityData": {
+      "zabbix_key": "apache.get_status",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Apache 可用性"
+    },
+    "apache.status.totalAccesses": {
+      "zabbix_key": "apache.requests",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "总请求数"
+    },
+    "apache.status.busyWorkers": {
+      "zabbix_key": "apache.connections[writing]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "繁忙工作线程数"
+    },
+    "apache.status.idleWorkers": {
+      "zabbix_key": "apache.connections[keepalive]",
+      "is_prototype": false,
+      "confidence": "medium",
+      "notes": "空闲工作线程数"
+    },
+    "apache.version.Version": {
+      "zabbix_key": "apache.version",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Apache 版本"
+    },
+    "tomcat.AvailableData.AvailabilityData": {
+      "zabbix_key": "jmx[\"Catalina:type=Server\",serverInfo]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Tomcat 可用性（JMX 连通性）"
+    },
+    "tomcat.version.Version": {
+      "zabbix_key": "jmx[\"Catalina:type=Server\",serverInfo]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Tomcat 服务器信息含版本"
+    },
+    "tomcat.thread.currentThreadCount": {
+      "zabbix_key": "jmx[{#JMXOBJ},currentThreadCount]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "当前线程数（LLD by 连接器）"
+    },
+    "tomcat.thread.currentThreadsBusy": {
+      "zabbix_key": "jmx[{#JMXOBJ},currentThreadsBusy]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "繁忙线程数"
+    },
+    "tomcat.thread.maxThreads": {
+      "zabbix_key": "jmx[{#JMXOBJ},maxThreads]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "最大线程数"
+    },
+    "tomcat.request.requestCount": {
+      "zabbix_key": "jmx[{#JMXOBJ},requestCount]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "请求总数（LLD by 连接器）"
+    },
+    "tomcat.request.errorCount": {
+      "zabbix_key": "jmx[{#JMXOBJ},errorCount]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "错误请求数"
+    },
+    "tomcat.request.bytesReceived": {
+      "zabbix_key": "jmx[{#JMXOBJ},bytesReceived]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接收字节数"
+    },
+    "tomcat.request.bytesSent": {
+      "zabbix_key": "jmx[{#JMXOBJ},bytesSent]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "发送字节数"
+    },
+    "tomcat.session.activeSessions": {
+      "zabbix_key": "jmx[{#JMXOBJ},activeSessions]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "活跃 Session 数"
+    },
+    "rabbit.AvailableData.AvailabilityData": {
+      "zabbix_key": "rabbitmq.get",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "RabbitMQ 可用性"
+    },
+    "rabbit.overview.total_queues": {
+      "zabbix_key": "rabbitmq.overview.queue_totals.messages",
+      "is_prototype": false,
+      "confidence": "medium",
+      "notes": "队列消息总数"
+    },
+    "rabbit.overview.total_consumers": {
+      "zabbix_key": "rabbitmq.overview.object_totals.consumers",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "消费者总数"
+    },
+    "rabbit.overview.total_connections": {
+      "zabbix_key": "rabbitmq.overview.object_totals.connections",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "连接总数"
+    },
+    "rabbit.queue.messages": {
+      "zabbix_key": "rabbitmq.queue.messages[{#VHOST}/{#QUEUE}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "队列消息数（LLD）"
+    },
+    "rabbit.queue.messages_ready": {
+      "zabbix_key": "rabbitmq.queue.messages_ready[{#VHOST}/{#QUEUE}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "队列就绪消息数（LLD）"
+    },
+    "rabbit.queue.messages_unacknowledged": {
+      "zabbix_key": "rabbitmq.queue.messages_unacknowledged[{#VHOST}/{#QUEUE}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "未确认消息数（LLD）"
+    },
+    "kafka.AvailableData.AvailabilityData": {
+      "zabbix_key": "jmx[\"kafka.server:type=app-info\",\"version\"]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Kafka 可用性（JMX 连通）"
+    },
+    "kafka.broker.version": {
+      "zabbix_key": "jmx[\"kafka.server:type=app-info\",\"version\"]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Kafka 版本"
+    },
+    "kafka.broker.bytesInPerSec": {
+      "zabbix_key": "jmx[\"kafka.server:type=BrokerTopicMetrics,name=BytesInPerSec\",\"OneMinuteRate\"]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Kafka Broker 流入字节率"
+    },
+    "kafka.broker.bytesOutPerSec": {
+      "zabbix_key": "jmx[\"kafka.server:type=BrokerTopicMetrics,name=BytesOutPerSec\",\"OneMinuteRate\"]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Kafka Broker 流出字节率"
+    },
+    "kafka.broker.messagesInPerSec": {
+      "zabbix_key": "jmx[\"kafka.server:type=BrokerTopicMetrics,name=MessagesInPerSec\",\"OneMinuteRate\"]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "每秒流入消息数"
+    },
+    "kafka.broker.leaderCount": {
+      "zabbix_key": "jmx[\"kafka.server:type=ReplicaManager,name=LeaderCount\",\"Value\"]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Leader 分区数"
+    },
+    "kafka.broker.partitionCount": {
+      "zabbix_key": "jmx[\"kafka.server:type=ReplicaManager,name=PartitionCount\",\"Value\"]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "总分区数"
+    },
+    "kafka.broker.underReplicatedPartitions": {
+      "zabbix_key": "jmx[\"kafka.server:type=ReplicaManager,name=UnderReplicatedPartitions\",\"Value\"]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "欠复制分区数"
+    },
+    "kafka.broker.activeControllerCount": {
+      "zabbix_key": "jmx[\"kafka.controller:type=KafkaController,name=ActiveControllerCount\",\"Value\"]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "活跃 Controller 数"
+    },
+    "kafka.broker.offlinePartitions": {
+      "zabbix_key": "jmx[\"kafka.controller:type=KafkaController,name=OfflinePartitionsCount\",\"Value\"]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "离线分区数"
+    },
+    "zk.AvailableData.AvailabilityData": {
+      "zabbix_key": "zookeeper.mntr",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Zookeeper 可用性"
+    },
+    "zk.zk.zk_avg_latency": {
+      "zabbix_key": "zookeeper.avg_latency",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "平均延迟"
+    },
+    "zk.zk.zk_max_latency": {
+      "zabbix_key": "zookeeper.max_latency",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "最大延迟"
+    },
+    "zk.zk.zk_min_latency": {
+      "zabbix_key": "zookeeper.min_latency",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "最小延迟"
+    },
+    "zk.zk.zk_outstanding_requests": {
+      "zabbix_key": "zookeeper.outstanding_requests",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "待处理请求数"
+    },
+    "zk.zk.zk_watch_count": {
+      "zabbix_key": "zookeeper.watch_count",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Watch 数量"
+    },
+    "zk.zk.zk_server_state": {
+      "zabbix_key": "zookeeper.server_state",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "服务器角色（leader/follower/standalone）"
+    },
+    "zk.zk.zk_num_alive_connections": {
+      "zabbix_key": "zookeeper.num_alive_connections",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "活跃连接数"
+    },
+    "zk.zk.zk_znode_count": {
+      "zabbix_key": "zookeeper.znode_count",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Znode 数量"
+    },
+    "zk.zk.zk_heap_size": {
+      "zabbix_key": "zookeeper.heap_size",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "JVM 堆内存大小"
+    },
+    "zk.version.Version": {
+      "zabbix_key": "zookeeper.version",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Zookeeper 版本"
+    },
+    "etcd.AvailableData.AvailabilityData": {
+      "zabbix_key": "etcd.health",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Etcd 健康检查"
+    },
+    "etcd.health.health": {
+      "zabbix_key": "etcd.health",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Etcd 健康状态"
+    },
+    "etcd.state.state": {
+      "zabbix_key": "etcd.self.state",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Etcd 节点状态（leader/follower）"
+    },
+    "etcd.state.leader": {
+      "zabbix_key": "etcd.self.leader",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "是否为 Leader"
+    },
+    "jrt.AvailableData.AvailabilityData": {
+      "zabbix_key": "jmx[\"java.lang:type=Runtime\",Uptime]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "JVM 可用性（JMX 连通性）"
+    },
+    "jrt.heap.HeapUsed": {
+      "zabbix_key": "jmx[\"java.lang:type=Memory\",HeapMemoryUsage.used]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "堆内存已用"
+    },
+    "jrt.heap.HeapCommitted": {
+      "zabbix_key": "jmx[\"java.lang:type=Memory\",HeapMemoryUsage.committed]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "堆内存已提交"
+    },
+    "jrt.heap.HeapMax": {
+      "zabbix_key": "jmx[\"java.lang:type=Memory\",HeapMemoryUsage.max]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "堆内存最大值"
+    },
+    "jrt.nonheap.NonHeapUsed": {
+      "zabbix_key": "jmx[\"java.lang:type=Memory\",NonHeapMemoryUsage.used]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "非堆内存已用"
+    },
+    "jrt.class.LoadedClassCount": {
+      "zabbix_key": "jmx[\"java.lang:type=ClassLoading\",LoadedClassCount]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "已加载类数量"
+    },
+    "docker.AvailableData.AvailabilityData": {
+      "zabbix_key": "docker.data_usage",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Docker 可用性（通过 socket 获取磁盘使用）"
+    },
+    "docker.info.Containers": {
+      "zabbix_key": "docker.info[Containers]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "容器总数"
+    },
+    "docker.info.ContainersRunning": {
+      "zabbix_key": "docker.info[ContainersRunning]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "运行中容器数"
+    },
+    "docker.info.ContainersPaused": {
+      "zabbix_key": "docker.info[ContainersPaused]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "暂停容器数"
+    },
+    "docker.info.ContainersStopped": {
+      "zabbix_key": "docker.info[ContainersStopped]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "停止容器数"
+    },
+    "docker.info.Images": {
+      "zabbix_key": "docker.info[Images]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "镜像总数"
+    },
+    "docker.info.MemTotal": {
+      "zabbix_key": "docker.info[MemTotal]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Docker 宿主机内存总量"
+    },
+    "docker.container.Name": {
+      "zabbix_key": "docker.containers.discovery",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "容器发现规则"
+    },
+    "docker.container.Status": {
+      "zabbix_key": "docker.container_info[{#NAME},State,Status]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "容器状态（LLD）"
+    },
+    "docker.container.Running": {
+      "zabbix_key": "docker.container_info[{#NAME},State,Running]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "容器是否运行（LLD）"
+    },
+    "docker.stats.CpuPercentage": {
+      "zabbix_key": "docker.container_stats[{#NAME},cpu_percent]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "容器 CPU 使用率（LLD）"
+    },
+    "docker.stats.MemoryUsed": {
+      "zabbix_key": "docker.container_stats[{#NAME},memory_usage]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "容器内存使用（LLD）"
+    },
+    "k8s.AvailableData.AvailabilityData": {
+      "zabbix_key": "kube.api.version",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "K8s API 可用性"
+    },
+    "k8s.detail.version": {
+      "zabbix_key": "kube.api.version",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "K8s API 版本"
+    },
+    "k8s.namespace.NamespaceName": {
+      "zabbix_key": "kube.namespace.discovery",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "命名空间发现规则"
+    },
+    "k8s.node.NodeName": {
+      "zabbix_key": "kube.nodes.discovery",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "节点发现规则"
+    },
+    "k8s.node.CpuAllocatable": {
+      "zabbix_key": "kube.node.cpu_allocatable[{#NAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "节点可分配 CPU（LLD）"
+    },
+    "k8s.node.MemAllocatable": {
+      "zabbix_key": "kube.node.memory_allocatable[{#NAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "节点可分配内存（LLD）"
+    },
+    "k8s.pod.PodName": {
+      "zabbix_key": "kube.pod.discovery",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Pod 发现规则"
+    },
+    "k8s.pod.PodStatus": {
+      "zabbix_key": "kube.pod.phase.running[{#NAMESPACE}/{#NAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "Pod 运行状态（LLD）"
+    },
+    "k8s.pod.ContainersReady": {
+      "zabbix_key": "kube.pod.containers_ready[{#NAMESPACE}/{#NAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "Pod 容器就绪数（LLD）"
+    },
+    "k8s.pod.ContainerRestarts": {
+      "zabbix_key": "kube.pod.containers_restarts[{#NAMESPACE}/{#NAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "Pod 容器重启次数（LLD）"
+    },
+    "k8s.deployment.Replicas": {
+      "zabbix_key": "kube.deployment.replicas[{#NAMESPACE}/{#NAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "Deployment 副本数（LLD）"
+    },
+    "k8s.deployment.ReplicasAvailable": {
+      "zabbix_key": "kube.deployment.replicas_available[{#NAMESPACE}/{#NAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "Deployment 可用副本数（LLD）"
+    },
+    "k8s.pv.PvName": {
+      "zabbix_key": "kube.pv.discovery",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "PV 发现规则"
+    },
+    "k8s.pv.capacity": {
+      "zabbix_key": "kube.pv.capacity.bytes[{#NAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "PV 容量（LLD）"
+    },
+    "vcenter.AvailableData.AvailabilityData": {
+      "zabbix_key": "vmware.fullname[{$VMWARE.URL}]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "VMware vCenter 可用性"
+    },
+    "vmware.AvailableData.AvailabilityData": {
+      "zabbix_key": "vmware.hv.status[{$VMWARE.URL},{$VMWARE.HV.UUID}]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "VMware ESX 主机可用性"
+    },
+    "vmware.cpu.CpuUtilization": {
+      "zabbix_key": "vmware.hv.cpu.usage[{$VMWARE.URL},{$VMWARE.HV.UUID}]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "ESX 主机 CPU 使用率"
+    },
+    "vmware.memory.MemUsed": {
+      "zabbix_key": "vmware.hv.memory.used[{$VMWARE.URL},{$VMWARE.HV.UUID}]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "ESX 主机内存使用量"
+    },
+    "vmware.memory.MemSize": {
+      "zabbix_key": "vmware.hv.memory.size.ballooned[{$VMWARE.URL},{$VMWARE.HV.UUID}]",
+      "is_prototype": false,
+      "confidence": "medium",
+      "notes": "ESX 主机内存大小"
+    },
+    "vmware.vm.CpuUtilization": {
+      "zabbix_key": "vmware.vm.cpu.num[{$VMWARE.URL},{$VMWARE.VM.UUID}]",
+      "is_prototype": false,
+      "confidence": "medium",
+      "notes": "VM CPU 数量（利用率由 vmware.vm.cpu.usage 获取）"
+    },
+    "vmware.vm.MemUsed": {
+      "zabbix_key": "vmware.vm.memory.size.consumed[{$VMWARE.URL},{$VMWARE.VM.UUID}]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "VM 已使用内存"
+    },
+    "iis.AvailableData.AvailabilityData": {
+      "zabbix_key": "iis.get",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "IIS 可用性"
+    },
+    "iis.site.requestsPerSec": {
+      "zabbix_key": "web.service.perf.counter[\"Web Service(*)/Total Method Requests/sec\"]",
+      "is_prototype": false,
+      "confidence": "medium",
+      "notes": "IIS 每秒请求数（Windows 性能计数器）"
+    },
+    "brocade.AvailableData.AvailabilityData": {
+      "zabbix_key": "icmpping",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Brocade 设备可用性"
+    },
+    "brocade.basic.MemUtilization": {
+      "zabbix_key": "brocade.fc.mem.usage",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "内存利用率"
+    },
+    "brocade.basic.CpuUtilization": {
+      "zabbix_key": "brocade.fc.cpu.usage",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "CPU 利用率"
+    },
+    "brocade.port.txPerSec": {
+      "zabbix_key": "brocade.fc.port.tx[{#SNMPINDEX}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "FC 端口发送速率（LLD）"
+    },
+    "brocade.port.rxPerSec": {
+      "zabbix_key": "brocade.fc.port.rx[{#SNMPINDEX}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "FC 端口接收速率（LLD）"
+    },
+    "hadoop.AvailableData.AvailabilityData": {
+      "zabbix_key": "hadoop.namenode.jmx",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Hadoop NameNode 可用性"
+    },
+    "hadoop.dfs.DfsCapacity": {
+      "zabbix_key": "hadoop.namenode.blocks_total",
+      "is_prototype": false,
+      "confidence": "medium",
+      "notes": "HDFS 总容量"
+    },
+    "hadoop.dfs.DfsUsed": {
+      "zabbix_key": "hadoop.namenode.capacity_used",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "HDFS 已用容量"
+    },
+    "hadoop.dfs.DfsUtilization": {
+      "zabbix_key": "hadoop.namenode.capacity_remaining_pc",
+      "is_prototype": false,
+      "confidence": "medium",
+      "notes": "HDFS 利用率（Zabbix 存剩余百分比）"
+    },
+    "hadoop.namenode.liveDataNodes": {
+      "zabbix_key": "hadoop.namenode.num_live_data_nodes",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "活跃 DataNode 数"
+    },
+    "hadoop.namenode.deadDataNodes": {
+      "zabbix_key": "hadoop.namenode.num_dead_data_nodes",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "死亡 DataNode 数"
+    },
+    "php.AvailableData.AvailabilityData": {
+      "zabbix_key": "php-fpm.get_status",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "PHP-FPM 可用性"
+    },
+    "php.status.active_processes": {
+      "zabbix_key": "php-fpm.processes.active",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "活跃进程数"
+    },
+    "php.status.idle_processes": {
+      "zabbix_key": "php-fpm.processes.idle",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "空闲进程数"
+    },
+    "php.status.total_processes": {
+      "zabbix_key": "php-fpm.processes.total",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "总进程数"
+    },
+    "php.status.accepted_conn": {
+      "zabbix_key": "php-fpm.connections.accepted",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "已接受连接数"
+    },
+    "php.pool.pool_name": {
+      "zabbix_key": "php-fpm.discovery",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "PHP-FPM 进程池发现"
+    },
+    "kylin.AvailableData.AvailabilityData": {
+      "zabbix_key": "agent.ping",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Linux agent 可用性用 agent.ping 检测"
+    },
+    "kylin.cpu.CpuUtilization": {
+      "zabbix_key": "system.cpu.util",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "CPU 总利用率，Dependent item 由 system.cpu.util[,*] 计算得出"
+    },
+    "kylin.cpuinfo_stat.IdlePercentage": {
+      "zabbix_key": "system.cpu.util[,idle]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "CPU 空闲时间百分比"
+    },
+    "kylin.cpuinfo_stat.IOwaitPercentage": {
+      "zabbix_key": "system.cpu.util[,iowait]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "CPU IO 等待时间百分比"
+    },
+    "kylin.cpuinfo_stat.UserPercentage": {
+      "zabbix_key": "system.cpu.util[,user]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "用户态 CPU 时间"
+    },
+    "kylin.cpuinfo_stat.SystemPercentage": {
+      "zabbix_key": "system.cpu.util[,system]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "内核态 CPU 时间"
+    },
+    "kylin.cpuinfo_stat.NicePercentage": {
+      "zabbix_key": "system.cpu.util[,nice]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "nice CPU 时间"
+    },
+    "kylin.cpuinfo_stat.SoftirqPercentage": {
+      "zabbix_key": "system.cpu.util[,softirq]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "软中断 CPU 时间"
+    },
+    "kylin.cpuinfo_stat.StealPercentage": {
+      "zabbix_key": "system.cpu.util[,steal]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "steal CPU 时间（虚拟机环境）"
+    },
+    "kylin.cpuinfo_stat.GuestPercentage": {
+      "zabbix_key": "system.cpu.util[,guest]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "guest CPU 时间"
+    },
+    "kylin.cpuinfo_stat.CpuCoreNumber": {
+      "zabbix_key": "system.cpu.num",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "CPU 核心数"
+    },
+    "kylin.cpuinfo_stat.InterruptPerSecond": {
+      "zabbix_key": "system.cpu.intr",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "每秒中断次数"
+    },
+    "kylin.cpuinfo_stat.ContextSwitchPerSecond": {
+      "zabbix_key": "system.cpu.switches",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "每秒上下文切换次数"
+    },
+    "kylin.load.CpuLoad1": {
+      "zabbix_key": "system.cpu.load[all,avg1]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "1 分钟平均负载"
+    },
+    "kylin.load.CpuLoad5": {
+      "zabbix_key": "system.cpu.load[all,avg5]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "5 分钟平均负载"
+    },
+    "kylin.load.CpuLoad15": {
+      "zabbix_key": "system.cpu.load[all,avg15]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "15 分钟平均负载"
+    },
+    "kylin.memory.MemTotal": {
+      "zabbix_key": "vm.memory.size[total]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "总内存"
+    },
+    "kylin.memory.MemFree": {
+      "zabbix_key": "vm.memory.size[available]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "可用内存（Zabbix 用 available，含 buffers/cache）"
+    },
+    "kylin.memory.MemUtilization": {
+      "zabbix_key": "vm.memory.utilization",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "内存利用率百分比（Dependent item）"
+    },
+    "kylin.memory.MemAvailable": {
+      "zabbix_key": "vm.memory.size[pavailable]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "可用内存百分比"
+    },
+    "kylin.memory.SwapTotal": {
+      "zabbix_key": "system.swap.size[,total]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Swap 总大小"
+    },
+    "kylin.memory.SwapFree": {
+      "zabbix_key": "system.swap.size[,free]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Swap 剩余"
+    },
+    "kylin.memory.SwapUtilization": {
+      "zabbix_key": "system.swap.size[,pfree]",
+      "is_prototype": false,
+      "confidence": "medium",
+      "notes": "Swap 利用率（Zabbix 为 pfree=剩余百分比，需转换）"
+    },
+    "kylin.filesystem.TotalSpace": {
+      "zabbix_key": "vfs.fs.dependent.size[{#FSNAME},total]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "文件系统总空间（LLD）"
+    },
+    "kylin.filesystem.FreeSpace": {
+      "zabbix_key": "vfs.fs.dependent.size[{#FSNAME},free]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "文件系统剩余空间（LLD）"
+    },
+    "kylin.filesystem.UsedSpace": {
+      "zabbix_key": "vfs.fs.dependent.size[{#FSNAME},used]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "文件系统已用空间（LLD）"
+    },
+    "kylin.filesystem.Utilization": {
+      "zabbix_key": "vfs.fs.dependent.size[{#FSNAME},pused]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "文件系统利用率（LLD）"
+    },
+    "kylin.filesystem.FsName": {
+      "zabbix_key": "vfs.fs.dependent.discovery",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "文件系统名称（LLD 发现规则本身）"
+    },
+    "kylin.inode.InodesUsed": {
+      "zabbix_key": "vfs.fs.dependent.inode[{#FSNAME},pfree]",
+      "is_prototype": true,
+      "confidence": "medium",
+      "notes": "Zabbix 存 inode 剩余百分比，华三存已用；含义相反但同一数据"
+    },
+    "kylin.interface.InterfaceName": {
+      "zabbix_key": "net.if.discovery",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "网络接口发现规则，对应接口名称标识字段"
+    },
+    "kylin.interface.rxPerSec": {
+      "zabbix_key": "net.if.in[\"{#IFNAME}\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口接收速率（bps）"
+    },
+    "kylin.interface.txPerSec": {
+      "zabbix_key": "net.if.out[\"{#IFNAME}\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口发送速率（bps）"
+    },
+    "kylin.interface.rxErrors": {
+      "zabbix_key": "net.if.in[\"{#IFNAME}\",errors]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口接收错误"
+    },
+    "kylin.interface.txErrors": {
+      "zabbix_key": "net.if.out[\"{#IFNAME}\",errors]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口发送错误"
+    },
+    "kylin.interface.rxDropped": {
+      "zabbix_key": "net.if.in[\"{#IFNAME}\",dropped]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口接收丢包"
+    },
+    "kylin.interface.txDropped": {
+      "zabbix_key": "net.if.out[\"{#IFNAME}\",dropped]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口发送丢包"
+    },
+    "kylin.interface.InterfaceSpeed": {
+      "zabbix_key": "vfs.file.contents[\"/sys/class/net/{#IFNAME}/speed\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口速率"
+    },
+    "kylin.interface.InterfaceStatus": {
+      "zabbix_key": "vfs.file.contents[\"/sys/class/net/{#IFNAME}/operstate\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口状态（up/down）"
+    },
+    "kylin.disk.DiskReadRate": {
+      "zabbix_key": "vfs.dev.read.rate[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘读速率"
+    },
+    "kylin.disk.DiskWriteRate": {
+      "zabbix_key": "vfs.dev.write.rate[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘写速率"
+    },
+    "kylin.disk.DiskReadAwait": {
+      "zabbix_key": "vfs.dev.read.await[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘读等待时间（ms）"
+    },
+    "kylin.disk.DiskWriteAwait": {
+      "zabbix_key": "vfs.dev.write.await[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘写等待时间（ms）"
+    },
+    "kylin.disk.DiskUtilization": {
+      "zabbix_key": "vfs.dev.util[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘利用率"
+    },
+    "kylin.hostname.HostName": {
+      "zabbix_key": "system.hostname",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "主机名"
+    },
+    "kylin.version.OsVersion": {
+      "zabbix_key": "system.sw.os",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "操作系统版本"
+    },
+    "kylin.ntp.NtpOffset": {
+      "zabbix_key": "system.localtime",
+      "is_prototype": false,
+      "confidence": "medium",
+      "notes": "NTP 时间（Zabbix 获取本地时间，需外部计算偏差）"
+    },
+    "kylin.process.ProcessNum": {
+      "zabbix_key": "proc.num",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "进程总数"
+    },
+    "kylin.process.RunningProcessNum": {
+      "zabbix_key": "proc.num[,,run]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "运行中进程数"
+    },
+    "kylinos.AvailableData.AvailabilityData": {
+      "zabbix_key": "agent.ping",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Linux agent 可用性用 agent.ping 检测"
+    },
+    "kylinos.cpu.CpuUtilization": {
+      "zabbix_key": "system.cpu.util",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "CPU 总利用率，Dependent item 由 system.cpu.util[,*] 计算得出"
+    },
+    "kylinos.cpuinfo_stat.IdlePercentage": {
+      "zabbix_key": "system.cpu.util[,idle]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "CPU 空闲时间百分比"
+    },
+    "kylinos.cpuinfo_stat.IOwaitPercentage": {
+      "zabbix_key": "system.cpu.util[,iowait]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "CPU IO 等待时间百分比"
+    },
+    "kylinos.cpuinfo_stat.UserPercentage": {
+      "zabbix_key": "system.cpu.util[,user]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "用户态 CPU 时间"
+    },
+    "kylinos.cpuinfo_stat.SystemPercentage": {
+      "zabbix_key": "system.cpu.util[,system]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "内核态 CPU 时间"
+    },
+    "kylinos.cpuinfo_stat.NicePercentage": {
+      "zabbix_key": "system.cpu.util[,nice]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "nice CPU 时间"
+    },
+    "kylinos.cpuinfo_stat.SoftirqPercentage": {
+      "zabbix_key": "system.cpu.util[,softirq]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "软中断 CPU 时间"
+    },
+    "kylinos.cpuinfo_stat.StealPercentage": {
+      "zabbix_key": "system.cpu.util[,steal]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "steal CPU 时间（虚拟机环境）"
+    },
+    "kylinos.cpuinfo_stat.GuestPercentage": {
+      "zabbix_key": "system.cpu.util[,guest]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "guest CPU 时间"
+    },
+    "kylinos.cpuinfo_stat.CpuCoreNumber": {
+      "zabbix_key": "system.cpu.num",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "CPU 核心数"
+    },
+    "kylinos.cpuinfo_stat.InterruptPerSecond": {
+      "zabbix_key": "system.cpu.intr",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "每秒中断次数"
+    },
+    "kylinos.cpuinfo_stat.ContextSwitchPerSecond": {
+      "zabbix_key": "system.cpu.switches",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "每秒上下文切换次数"
+    },
+    "kylinos.load.CpuLoad1": {
+      "zabbix_key": "system.cpu.load[all,avg1]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "1 分钟平均负载"
+    },
+    "kylinos.load.CpuLoad5": {
+      "zabbix_key": "system.cpu.load[all,avg5]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "5 分钟平均负载"
+    },
+    "kylinos.load.CpuLoad15": {
+      "zabbix_key": "system.cpu.load[all,avg15]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "15 分钟平均负载"
+    },
+    "kylinos.memory.MemTotal": {
+      "zabbix_key": "vm.memory.size[total]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "总内存"
+    },
+    "kylinos.memory.MemFree": {
+      "zabbix_key": "vm.memory.size[available]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "可用内存（Zabbix 用 available，含 buffers/cache）"
+    },
+    "kylinos.memory.MemUtilization": {
+      "zabbix_key": "vm.memory.utilization",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "内存利用率百分比（Dependent item）"
+    },
+    "kylinos.memory.MemAvailable": {
+      "zabbix_key": "vm.memory.size[pavailable]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "可用内存百分比"
+    },
+    "kylinos.memory.SwapTotal": {
+      "zabbix_key": "system.swap.size[,total]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Swap 总大小"
+    },
+    "kylinos.memory.SwapFree": {
+      "zabbix_key": "system.swap.size[,free]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Swap 剩余"
+    },
+    "kylinos.memory.SwapUtilization": {
+      "zabbix_key": "system.swap.size[,pfree]",
+      "is_prototype": false,
+      "confidence": "medium",
+      "notes": "Swap 利用率（Zabbix 为 pfree=剩余百分比，需转换）"
+    },
+    "kylinos.filesystem.TotalSpace": {
+      "zabbix_key": "vfs.fs.dependent.size[{#FSNAME},total]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "文件系统总空间（LLD）"
+    },
+    "kylinos.filesystem.FreeSpace": {
+      "zabbix_key": "vfs.fs.dependent.size[{#FSNAME},free]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "文件系统剩余空间（LLD）"
+    },
+    "kylinos.filesystem.UsedSpace": {
+      "zabbix_key": "vfs.fs.dependent.size[{#FSNAME},used]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "文件系统已用空间（LLD）"
+    },
+    "kylinos.filesystem.Utilization": {
+      "zabbix_key": "vfs.fs.dependent.size[{#FSNAME},pused]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "文件系统利用率（LLD）"
+    },
+    "kylinos.filesystem.FsName": {
+      "zabbix_key": "vfs.fs.dependent.discovery",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "文件系统名称（LLD 发现规则本身）"
+    },
+    "kylinos.inode.InodesUsed": {
+      "zabbix_key": "vfs.fs.dependent.inode[{#FSNAME},pfree]",
+      "is_prototype": true,
+      "confidence": "medium",
+      "notes": "Zabbix 存 inode 剩余百分比，华三存已用；含义相反但同一数据"
+    },
+    "kylinos.interface.InterfaceName": {
+      "zabbix_key": "net.if.discovery",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "网络接口发现规则，对应接口名称标识字段"
+    },
+    "kylinos.interface.rxPerSec": {
+      "zabbix_key": "net.if.in[\"{#IFNAME}\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口接收速率（bps）"
+    },
+    "kylinos.interface.txPerSec": {
+      "zabbix_key": "net.if.out[\"{#IFNAME}\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口发送速率（bps）"
+    },
+    "kylinos.interface.rxErrors": {
+      "zabbix_key": "net.if.in[\"{#IFNAME}\",errors]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口接收错误"
+    },
+    "kylinos.interface.txErrors": {
+      "zabbix_key": "net.if.out[\"{#IFNAME}\",errors]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口发送错误"
+    },
+    "kylinos.interface.rxDropped": {
+      "zabbix_key": "net.if.in[\"{#IFNAME}\",dropped]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口接收丢包"
+    },
+    "kylinos.interface.txDropped": {
+      "zabbix_key": "net.if.out[\"{#IFNAME}\",dropped]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口发送丢包"
+    },
+    "kylinos.interface.InterfaceSpeed": {
+      "zabbix_key": "vfs.file.contents[\"/sys/class/net/{#IFNAME}/speed\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口速率"
+    },
+    "kylinos.interface.InterfaceStatus": {
+      "zabbix_key": "vfs.file.contents[\"/sys/class/net/{#IFNAME}/operstate\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口状态（up/down）"
+    },
+    "kylinos.disk.DiskReadRate": {
+      "zabbix_key": "vfs.dev.read.rate[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘读速率"
+    },
+    "kylinos.disk.DiskWriteRate": {
+      "zabbix_key": "vfs.dev.write.rate[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘写速率"
+    },
+    "kylinos.disk.DiskReadAwait": {
+      "zabbix_key": "vfs.dev.read.await[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘读等待时间（ms）"
+    },
+    "kylinos.disk.DiskWriteAwait": {
+      "zabbix_key": "vfs.dev.write.await[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘写等待时间（ms）"
+    },
+    "kylinos.disk.DiskUtilization": {
+      "zabbix_key": "vfs.dev.util[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘利用率"
+    },
+    "kylinos.hostname.HostName": {
+      "zabbix_key": "system.hostname",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "主机名"
+    },
+    "kylinos.version.OsVersion": {
+      "zabbix_key": "system.sw.os",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "操作系统版本"
+    },
+    "kylinos.ntp.NtpOffset": {
+      "zabbix_key": "system.localtime",
+      "is_prototype": false,
+      "confidence": "medium",
+      "notes": "NTP 时间（Zabbix 获取本地时间，需外部计算偏差）"
+    },
+    "kylinos.process.ProcessNum": {
+      "zabbix_key": "proc.num",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "进程总数"
+    },
+    "kylinos.process.RunningProcessNum": {
+      "zabbix_key": "proc.num[,,run]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "运行中进程数"
+    },
+    "uos.AvailableData.AvailabilityData": {
+      "zabbix_key": "agent.ping",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Linux agent 可用性用 agent.ping 检测"
+    },
+    "uos.cpu.CpuUtilization": {
+      "zabbix_key": "system.cpu.util",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "CPU 总利用率，Dependent item 由 system.cpu.util[,*] 计算得出"
+    },
+    "uos.cpuinfo_stat.IdlePercentage": {
+      "zabbix_key": "system.cpu.util[,idle]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "CPU 空闲时间百分比"
+    },
+    "uos.cpuinfo_stat.IOwaitPercentage": {
+      "zabbix_key": "system.cpu.util[,iowait]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "CPU IO 等待时间百分比"
+    },
+    "uos.cpuinfo_stat.UserPercentage": {
+      "zabbix_key": "system.cpu.util[,user]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "用户态 CPU 时间"
+    },
+    "uos.cpuinfo_stat.SystemPercentage": {
+      "zabbix_key": "system.cpu.util[,system]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "内核态 CPU 时间"
+    },
+    "uos.cpuinfo_stat.NicePercentage": {
+      "zabbix_key": "system.cpu.util[,nice]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "nice CPU 时间"
+    },
+    "uos.cpuinfo_stat.SoftirqPercentage": {
+      "zabbix_key": "system.cpu.util[,softirq]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "软中断 CPU 时间"
+    },
+    "uos.cpuinfo_stat.StealPercentage": {
+      "zabbix_key": "system.cpu.util[,steal]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "steal CPU 时间（虚拟机环境）"
+    },
+    "uos.cpuinfo_stat.GuestPercentage": {
+      "zabbix_key": "system.cpu.util[,guest]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "guest CPU 时间"
+    },
+    "uos.cpuinfo_stat.CpuCoreNumber": {
+      "zabbix_key": "system.cpu.num",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "CPU 核心数"
+    },
+    "uos.cpuinfo_stat.InterruptPerSecond": {
+      "zabbix_key": "system.cpu.intr",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "每秒中断次数"
+    },
+    "uos.cpuinfo_stat.ContextSwitchPerSecond": {
+      "zabbix_key": "system.cpu.switches",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "每秒上下文切换次数"
+    },
+    "uos.load.CpuLoad1": {
+      "zabbix_key": "system.cpu.load[all,avg1]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "1 分钟平均负载"
+    },
+    "uos.load.CpuLoad5": {
+      "zabbix_key": "system.cpu.load[all,avg5]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "5 分钟平均负载"
+    },
+    "uos.load.CpuLoad15": {
+      "zabbix_key": "system.cpu.load[all,avg15]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "15 分钟平均负载"
+    },
+    "uos.memory.MemTotal": {
+      "zabbix_key": "vm.memory.size[total]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "总内存"
+    },
+    "uos.memory.MemFree": {
+      "zabbix_key": "vm.memory.size[available]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "可用内存（Zabbix 用 available，含 buffers/cache）"
+    },
+    "uos.memory.MemUtilization": {
+      "zabbix_key": "vm.memory.utilization",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "内存利用率百分比（Dependent item）"
+    },
+    "uos.memory.MemAvailable": {
+      "zabbix_key": "vm.memory.size[pavailable]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "可用内存百分比"
+    },
+    "uos.memory.SwapTotal": {
+      "zabbix_key": "system.swap.size[,total]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Swap 总大小"
+    },
+    "uos.memory.SwapFree": {
+      "zabbix_key": "system.swap.size[,free]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Swap 剩余"
+    },
+    "uos.memory.SwapUtilization": {
+      "zabbix_key": "system.swap.size[,pfree]",
+      "is_prototype": false,
+      "confidence": "medium",
+      "notes": "Swap 利用率（Zabbix 为 pfree=剩余百分比，需转换）"
+    },
+    "uos.filesystem.TotalSpace": {
+      "zabbix_key": "vfs.fs.dependent.size[{#FSNAME},total]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "文件系统总空间（LLD）"
+    },
+    "uos.filesystem.FreeSpace": {
+      "zabbix_key": "vfs.fs.dependent.size[{#FSNAME},free]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "文件系统剩余空间（LLD）"
+    },
+    "uos.filesystem.UsedSpace": {
+      "zabbix_key": "vfs.fs.dependent.size[{#FSNAME},used]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "文件系统已用空间（LLD）"
+    },
+    "uos.filesystem.Utilization": {
+      "zabbix_key": "vfs.fs.dependent.size[{#FSNAME},pused]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "文件系统利用率（LLD）"
+    },
+    "uos.filesystem.FsName": {
+      "zabbix_key": "vfs.fs.dependent.discovery",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "文件系统名称（LLD 发现规则本身）"
+    },
+    "uos.inode.InodesUsed": {
+      "zabbix_key": "vfs.fs.dependent.inode[{#FSNAME},pfree]",
+      "is_prototype": true,
+      "confidence": "medium",
+      "notes": "Zabbix 存 inode 剩余百分比，华三存已用；含义相反但同一数据"
+    },
+    "uos.interface.InterfaceName": {
+      "zabbix_key": "net.if.discovery",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "网络接口发现规则，对应接口名称标识字段"
+    },
+    "uos.interface.rxPerSec": {
+      "zabbix_key": "net.if.in[\"{#IFNAME}\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口接收速率（bps）"
+    },
+    "uos.interface.txPerSec": {
+      "zabbix_key": "net.if.out[\"{#IFNAME}\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口发送速率（bps）"
+    },
+    "uos.interface.rxErrors": {
+      "zabbix_key": "net.if.in[\"{#IFNAME}\",errors]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口接收错误"
+    },
+    "uos.interface.txErrors": {
+      "zabbix_key": "net.if.out[\"{#IFNAME}\",errors]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口发送错误"
+    },
+    "uos.interface.rxDropped": {
+      "zabbix_key": "net.if.in[\"{#IFNAME}\",dropped]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口接收丢包"
+    },
+    "uos.interface.txDropped": {
+      "zabbix_key": "net.if.out[\"{#IFNAME}\",dropped]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口发送丢包"
+    },
+    "uos.interface.InterfaceSpeed": {
+      "zabbix_key": "vfs.file.contents[\"/sys/class/net/{#IFNAME}/speed\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口速率"
+    },
+    "uos.interface.InterfaceStatus": {
+      "zabbix_key": "vfs.file.contents[\"/sys/class/net/{#IFNAME}/operstate\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口状态（up/down）"
+    },
+    "uos.disk.DiskReadRate": {
+      "zabbix_key": "vfs.dev.read.rate[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘读速率"
+    },
+    "uos.disk.DiskWriteRate": {
+      "zabbix_key": "vfs.dev.write.rate[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘写速率"
+    },
+    "uos.disk.DiskReadAwait": {
+      "zabbix_key": "vfs.dev.read.await[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘读等待时间（ms）"
+    },
+    "uos.disk.DiskWriteAwait": {
+      "zabbix_key": "vfs.dev.write.await[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘写等待时间（ms）"
+    },
+    "uos.disk.DiskUtilization": {
+      "zabbix_key": "vfs.dev.util[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘利用率"
+    },
+    "uos.hostname.HostName": {
+      "zabbix_key": "system.hostname",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "主机名"
+    },
+    "uos.version.OsVersion": {
+      "zabbix_key": "system.sw.os",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "操作系统版本"
+    },
+    "uos.ntp.NtpOffset": {
+      "zabbix_key": "system.localtime",
+      "is_prototype": false,
+      "confidence": "medium",
+      "notes": "NTP 时间（Zabbix 获取本地时间，需外部计算偏差）"
+    },
+    "uos.process.ProcessNum": {
+      "zabbix_key": "proc.num",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "进程总数"
+    },
+    "uos.process.RunningProcessNum": {
+      "zabbix_key": "proc.num[,,run]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "运行中进程数"
+    },
+    "rocky.AvailableData.AvailabilityData": {
+      "zabbix_key": "agent.ping",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Linux agent 可用性用 agent.ping 检测"
+    },
+    "rocky.cpu.CpuUtilization": {
+      "zabbix_key": "system.cpu.util",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "CPU 总利用率，Dependent item 由 system.cpu.util[,*] 计算得出"
+    },
+    "rocky.cpuinfo_stat.IdlePercentage": {
+      "zabbix_key": "system.cpu.util[,idle]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "CPU 空闲时间百分比"
+    },
+    "rocky.cpuinfo_stat.IOwaitPercentage": {
+      "zabbix_key": "system.cpu.util[,iowait]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "CPU IO 等待时间百分比"
+    },
+    "rocky.cpuinfo_stat.UserPercentage": {
+      "zabbix_key": "system.cpu.util[,user]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "用户态 CPU 时间"
+    },
+    "rocky.cpuinfo_stat.SystemPercentage": {
+      "zabbix_key": "system.cpu.util[,system]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "内核态 CPU 时间"
+    },
+    "rocky.cpuinfo_stat.NicePercentage": {
+      "zabbix_key": "system.cpu.util[,nice]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "nice CPU 时间"
+    },
+    "rocky.cpuinfo_stat.SoftirqPercentage": {
+      "zabbix_key": "system.cpu.util[,softirq]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "软中断 CPU 时间"
+    },
+    "rocky.cpuinfo_stat.StealPercentage": {
+      "zabbix_key": "system.cpu.util[,steal]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "steal CPU 时间（虚拟机环境）"
+    },
+    "rocky.cpuinfo_stat.GuestPercentage": {
+      "zabbix_key": "system.cpu.util[,guest]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "guest CPU 时间"
+    },
+    "rocky.cpuinfo_stat.CpuCoreNumber": {
+      "zabbix_key": "system.cpu.num",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "CPU 核心数"
+    },
+    "rocky.cpuinfo_stat.InterruptPerSecond": {
+      "zabbix_key": "system.cpu.intr",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "每秒中断次数"
+    },
+    "rocky.cpuinfo_stat.ContextSwitchPerSecond": {
+      "zabbix_key": "system.cpu.switches",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "每秒上下文切换次数"
+    },
+    "rocky.load.CpuLoad1": {
+      "zabbix_key": "system.cpu.load[all,avg1]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "1 分钟平均负载"
+    },
+    "rocky.load.CpuLoad5": {
+      "zabbix_key": "system.cpu.load[all,avg5]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "5 分钟平均负载"
+    },
+    "rocky.load.CpuLoad15": {
+      "zabbix_key": "system.cpu.load[all,avg15]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "15 分钟平均负载"
+    },
+    "rocky.memory.MemTotal": {
+      "zabbix_key": "vm.memory.size[total]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "总内存"
+    },
+    "rocky.memory.MemFree": {
+      "zabbix_key": "vm.memory.size[available]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "可用内存（Zabbix 用 available，含 buffers/cache）"
+    },
+    "rocky.memory.MemUtilization": {
+      "zabbix_key": "vm.memory.utilization",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "内存利用率百分比（Dependent item）"
+    },
+    "rocky.memory.MemAvailable": {
+      "zabbix_key": "vm.memory.size[pavailable]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "可用内存百分比"
+    },
+    "rocky.memory.SwapTotal": {
+      "zabbix_key": "system.swap.size[,total]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Swap 总大小"
+    },
+    "rocky.memory.SwapFree": {
+      "zabbix_key": "system.swap.size[,free]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Swap 剩余"
+    },
+    "rocky.memory.SwapUtilization": {
+      "zabbix_key": "system.swap.size[,pfree]",
+      "is_prototype": false,
+      "confidence": "medium",
+      "notes": "Swap 利用率（Zabbix 为 pfree=剩余百分比，需转换）"
+    },
+    "rocky.filesystem.TotalSpace": {
+      "zabbix_key": "vfs.fs.dependent.size[{#FSNAME},total]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "文件系统总空间（LLD）"
+    },
+    "rocky.filesystem.FreeSpace": {
+      "zabbix_key": "vfs.fs.dependent.size[{#FSNAME},free]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "文件系统剩余空间（LLD）"
+    },
+    "rocky.filesystem.UsedSpace": {
+      "zabbix_key": "vfs.fs.dependent.size[{#FSNAME},used]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "文件系统已用空间（LLD）"
+    },
+    "rocky.filesystem.Utilization": {
+      "zabbix_key": "vfs.fs.dependent.size[{#FSNAME},pused]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "文件系统利用率（LLD）"
+    },
+    "rocky.filesystem.FsName": {
+      "zabbix_key": "vfs.fs.dependent.discovery",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "文件系统名称（LLD 发现规则本身）"
+    },
+    "rocky.inode.InodesUsed": {
+      "zabbix_key": "vfs.fs.dependent.inode[{#FSNAME},pfree]",
+      "is_prototype": true,
+      "confidence": "medium",
+      "notes": "Zabbix 存 inode 剩余百分比，华三存已用；含义相反但同一数据"
+    },
+    "rocky.interface.InterfaceName": {
+      "zabbix_key": "net.if.discovery",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "网络接口发现规则，对应接口名称标识字段"
+    },
+    "rocky.interface.rxPerSec": {
+      "zabbix_key": "net.if.in[\"{#IFNAME}\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口接收速率（bps）"
+    },
+    "rocky.interface.txPerSec": {
+      "zabbix_key": "net.if.out[\"{#IFNAME}\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口发送速率（bps）"
+    },
+    "rocky.interface.rxErrors": {
+      "zabbix_key": "net.if.in[\"{#IFNAME}\",errors]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口接收错误"
+    },
+    "rocky.interface.txErrors": {
+      "zabbix_key": "net.if.out[\"{#IFNAME}\",errors]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口发送错误"
+    },
+    "rocky.interface.rxDropped": {
+      "zabbix_key": "net.if.in[\"{#IFNAME}\",dropped]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口接收丢包"
+    },
+    "rocky.interface.txDropped": {
+      "zabbix_key": "net.if.out[\"{#IFNAME}\",dropped]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口发送丢包"
+    },
+    "rocky.interface.InterfaceSpeed": {
+      "zabbix_key": "vfs.file.contents[\"/sys/class/net/{#IFNAME}/speed\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口速率"
+    },
+    "rocky.interface.InterfaceStatus": {
+      "zabbix_key": "vfs.file.contents[\"/sys/class/net/{#IFNAME}/operstate\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口状态（up/down）"
+    },
+    "rocky.disk.DiskReadRate": {
+      "zabbix_key": "vfs.dev.read.rate[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘读速率"
+    },
+    "rocky.disk.DiskWriteRate": {
+      "zabbix_key": "vfs.dev.write.rate[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘写速率"
+    },
+    "rocky.disk.DiskReadAwait": {
+      "zabbix_key": "vfs.dev.read.await[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘读等待时间（ms）"
+    },
+    "rocky.disk.DiskWriteAwait": {
+      "zabbix_key": "vfs.dev.write.await[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘写等待时间（ms）"
+    },
+    "rocky.disk.DiskUtilization": {
+      "zabbix_key": "vfs.dev.util[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘利用率"
+    },
+    "rocky.hostname.HostName": {
+      "zabbix_key": "system.hostname",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "主机名"
+    },
+    "rocky.version.OsVersion": {
+      "zabbix_key": "system.sw.os",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "操作系统版本"
+    },
+    "rocky.ntp.NtpOffset": {
+      "zabbix_key": "system.localtime",
+      "is_prototype": false,
+      "confidence": "medium",
+      "notes": "NTP 时间（Zabbix 获取本地时间，需外部计算偏差）"
+    },
+    "rocky.process.ProcessNum": {
+      "zabbix_key": "proc.num",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "进程总数"
+    },
+    "rocky.process.RunningProcessNum": {
+      "zabbix_key": "proc.num[,,run]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "运行中进程数"
+    },
+    "suse.AvailableData.AvailabilityData": {
+      "zabbix_key": "agent.ping",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Linux agent 可用性用 agent.ping 检测"
+    },
+    "suse.cpu.CpuUtilization": {
+      "zabbix_key": "system.cpu.util",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "CPU 总利用率，Dependent item 由 system.cpu.util[,*] 计算得出"
+    },
+    "suse.cpuinfo_stat.IdlePercentage": {
+      "zabbix_key": "system.cpu.util[,idle]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "CPU 空闲时间百分比"
+    },
+    "suse.cpuinfo_stat.IOwaitPercentage": {
+      "zabbix_key": "system.cpu.util[,iowait]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "CPU IO 等待时间百分比"
+    },
+    "suse.cpuinfo_stat.UserPercentage": {
+      "zabbix_key": "system.cpu.util[,user]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "用户态 CPU 时间"
+    },
+    "suse.cpuinfo_stat.SystemPercentage": {
+      "zabbix_key": "system.cpu.util[,system]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "内核态 CPU 时间"
+    },
+    "suse.cpuinfo_stat.NicePercentage": {
+      "zabbix_key": "system.cpu.util[,nice]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "nice CPU 时间"
+    },
+    "suse.cpuinfo_stat.SoftirqPercentage": {
+      "zabbix_key": "system.cpu.util[,softirq]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "软中断 CPU 时间"
+    },
+    "suse.cpuinfo_stat.StealPercentage": {
+      "zabbix_key": "system.cpu.util[,steal]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "steal CPU 时间（虚拟机环境）"
+    },
+    "suse.cpuinfo_stat.GuestPercentage": {
+      "zabbix_key": "system.cpu.util[,guest]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "guest CPU 时间"
+    },
+    "suse.cpuinfo_stat.CpuCoreNumber": {
+      "zabbix_key": "system.cpu.num",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "CPU 核心数"
+    },
+    "suse.cpuinfo_stat.InterruptPerSecond": {
+      "zabbix_key": "system.cpu.intr",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "每秒中断次数"
+    },
+    "suse.cpuinfo_stat.ContextSwitchPerSecond": {
+      "zabbix_key": "system.cpu.switches",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "每秒上下文切换次数"
+    },
+    "suse.load.CpuLoad1": {
+      "zabbix_key": "system.cpu.load[all,avg1]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "1 分钟平均负载"
+    },
+    "suse.load.CpuLoad5": {
+      "zabbix_key": "system.cpu.load[all,avg5]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "5 分钟平均负载"
+    },
+    "suse.load.CpuLoad15": {
+      "zabbix_key": "system.cpu.load[all,avg15]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "15 分钟平均负载"
+    },
+    "suse.memory.MemTotal": {
+      "zabbix_key": "vm.memory.size[total]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "总内存"
+    },
+    "suse.memory.MemFree": {
+      "zabbix_key": "vm.memory.size[available]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "可用内存（Zabbix 用 available，含 buffers/cache）"
+    },
+    "suse.memory.MemUtilization": {
+      "zabbix_key": "vm.memory.utilization",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "内存利用率百分比（Dependent item）"
+    },
+    "suse.memory.MemAvailable": {
+      "zabbix_key": "vm.memory.size[pavailable]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "可用内存百分比"
+    },
+    "suse.memory.SwapTotal": {
+      "zabbix_key": "system.swap.size[,total]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Swap 总大小"
+    },
+    "suse.memory.SwapFree": {
+      "zabbix_key": "system.swap.size[,free]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "Swap 剩余"
+    },
+    "suse.memory.SwapUtilization": {
+      "zabbix_key": "system.swap.size[,pfree]",
+      "is_prototype": false,
+      "confidence": "medium",
+      "notes": "Swap 利用率（Zabbix 为 pfree=剩余百分比，需转换）"
+    },
+    "suse.filesystem.TotalSpace": {
+      "zabbix_key": "vfs.fs.dependent.size[{#FSNAME},total]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "文件系统总空间（LLD）"
+    },
+    "suse.filesystem.FreeSpace": {
+      "zabbix_key": "vfs.fs.dependent.size[{#FSNAME},free]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "文件系统剩余空间（LLD）"
+    },
+    "suse.filesystem.UsedSpace": {
+      "zabbix_key": "vfs.fs.dependent.size[{#FSNAME},used]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "文件系统已用空间（LLD）"
+    },
+    "suse.filesystem.Utilization": {
+      "zabbix_key": "vfs.fs.dependent.size[{#FSNAME},pused]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "文件系统利用率（LLD）"
+    },
+    "suse.filesystem.FsName": {
+      "zabbix_key": "vfs.fs.dependent.discovery",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "文件系统名称（LLD 发现规则本身）"
+    },
+    "suse.inode.InodesUsed": {
+      "zabbix_key": "vfs.fs.dependent.inode[{#FSNAME},pfree]",
+      "is_prototype": true,
+      "confidence": "medium",
+      "notes": "Zabbix 存 inode 剩余百分比，华三存已用；含义相反但同一数据"
+    },
+    "suse.interface.InterfaceName": {
+      "zabbix_key": "net.if.discovery",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "网络接口发现规则，对应接口名称标识字段"
+    },
+    "suse.interface.rxPerSec": {
+      "zabbix_key": "net.if.in[\"{#IFNAME}\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口接收速率（bps）"
+    },
+    "suse.interface.txPerSec": {
+      "zabbix_key": "net.if.out[\"{#IFNAME}\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口发送速率（bps）"
+    },
+    "suse.interface.rxErrors": {
+      "zabbix_key": "net.if.in[\"{#IFNAME}\",errors]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口接收错误"
+    },
+    "suse.interface.txErrors": {
+      "zabbix_key": "net.if.out[\"{#IFNAME}\",errors]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口发送错误"
+    },
+    "suse.interface.rxDropped": {
+      "zabbix_key": "net.if.in[\"{#IFNAME}\",dropped]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口接收丢包"
+    },
+    "suse.interface.txDropped": {
+      "zabbix_key": "net.if.out[\"{#IFNAME}\",dropped]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口发送丢包"
+    },
+    "suse.interface.InterfaceSpeed": {
+      "zabbix_key": "vfs.file.contents[\"/sys/class/net/{#IFNAME}/speed\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口速率"
+    },
+    "suse.interface.InterfaceStatus": {
+      "zabbix_key": "vfs.file.contents[\"/sys/class/net/{#IFNAME}/operstate\"]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "接口状态（up/down）"
+    },
+    "suse.disk.DiskReadRate": {
+      "zabbix_key": "vfs.dev.read.rate[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘读速率"
+    },
+    "suse.disk.DiskWriteRate": {
+      "zabbix_key": "vfs.dev.write.rate[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘写速率"
+    },
+    "suse.disk.DiskReadAwait": {
+      "zabbix_key": "vfs.dev.read.await[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘读等待时间（ms）"
+    },
+    "suse.disk.DiskWriteAwait": {
+      "zabbix_key": "vfs.dev.write.await[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘写等待时间（ms）"
+    },
+    "suse.disk.DiskUtilization": {
+      "zabbix_key": "vfs.dev.util[{#DEVNAME}]",
+      "is_prototype": true,
+      "confidence": "high",
+      "notes": "磁盘利用率"
+    },
+    "suse.hostname.HostName": {
+      "zabbix_key": "system.hostname",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "主机名"
+    },
+    "suse.version.OsVersion": {
+      "zabbix_key": "system.sw.os",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "操作系统版本"
+    },
+    "suse.ntp.NtpOffset": {
+      "zabbix_key": "system.localtime",
+      "is_prototype": false,
+      "confidence": "medium",
+      "notes": "NTP 时间（Zabbix 获取本地时间，需外部计算偏差）"
+    },
+    "suse.process.ProcessNum": {
+      "zabbix_key": "proc.num",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "进程总数"
+    },
+    "suse.process.RunningProcessNum": {
+      "zabbix_key": "proc.num[,,run]",
+      "is_prototype": false,
+      "confidence": "high",
+      "notes": "运行中进程数"
+    }
+  },
+  "h3c_type_to_zabbix_templates": {
+    "linux": [
+      "Linux by Zabbix agent",
+      "Linux by Zabbix agent active",
+      "Linux by SNMP"
+    ],
+    "kylin": [
+      "Linux by Zabbix agent"
+    ],
+    "kylinos": [
+      "Linux by Zabbix agent"
+    ],
+    "uos": [
+      "Linux by Zabbix agent"
+    ],
+    "rocky": [
+      "Linux by Zabbix agent"
+    ],
+    "suse": [
+      "Linux by Zabbix agent"
+    ],
+    "winsvr": [
+      "Windows by Zabbix agent",
+      "Windows by Zabbix agent active",
+      "Windows by SNMP"
+    ],
+    "aix": [
+      "AIX by Zabbix agent"
+    ],
+    "freebsd": [
+      "FreeBSD by Zabbix agent"
+    ],
+    "hpux": [
+      "HP-UX by Zabbix agent"
+    ],
+    "solaris": [
+      "Solaris by Zabbix agent"
+    ],
+    "macos": [
+      "macOS by Zabbix agent"
+    ],
+    "network": [
+      "Network Generic Device by SNMP"
+    ],
+    "ping": [
+      "ICMP Ping"
+    ],
+    "pingcmd": [
+      "ICMP Ping"
+    ],
+    "brocade": [
+      "Brocade FC by SNMP"
+    ],
+    "mysql": [
+      "MySQL by Zabbix agent 2",
+      "MySQL by Zabbix agent"
+    ],
+    "mysql8": [
+      "MySQL by Zabbix agent 2"
+    ],
+    "psql": [
+      "PostgreSQL by Zabbix agent 2",
+      "PostgreSQL by Zabbix agent"
+    ],
+    "redis": [
+      "Redis by Zabbix agent 2"
+    ],
+    "mongo": [
+      "MongoDB node by Zabbix agent 2"
+    ],
+    "es": [
+      "Elasticsearch Cluster by HTTP"
+    ],
+    "mssql": [
+      "MSSQL by Zabbix agent 2"
+    ],
+    "oracle": [
+      "Oracle by Zabbix agent 2"
+    ],
+    "memch": [
+      "Memcached by Zabbix agent 2"
+    ],
+    "nginx": [
+      "Nginx by HTTP",
+      "Nginx by Zabbix agent"
+    ],
+    "apache": [
+      "Apache by HTTP"
+    ],
+    "tomcat": [
+      "Apache Tomcat by JMX"
+    ],
+    "rabbit": [
+      "RabbitMQ node by HTTP",
+      "RabbitMQ cluster by HTTP"
+    ],
+    "kafka": [
+      "Apache Kafka by JMX"
+    ],
+    "zk": [
+      "Zookeeper by HTTP"
+    ],
+    "iis": [
+      "IIS by Zabbix agent"
+    ],
+    "php": [
+      "PHP-FPM by HTTP"
+    ],
+    "hadoop": [
+      "Hadoop by HTTP"
+    ],
+    "etcd": [
+      "Etcd by HTTP"
+    ],
+    "jrt": [
+      "Generic Java JMX"
+    ],
+    "wildfly": [
+      "WildFly Server by JMX"
+    ],
+    "docker": [
+      "Docker by Zabbix agent 2"
+    ],
+    "k8s": [
+      "Kubernetes cluster state by HTTP",
+      "Kubernetes nodes by HTTP"
+    ],
+    "kubemaster": [
+      "Kubernetes API server by HTTP"
+    ],
+    "kubecon": [
+      "Kubernetes Kubelet by HTTP"
+    ],
+    "vcenter": [
+      "VMware"
+    ],
+    "vmware": [
+      "VMware Guest",
+      "VMware Hypervisor"
+    ]
+  },
+  "h3c_level_to_zabbix_severity": {
+    "1": "INFO",
+    "2": "WARNING",
+    "3": "AVERAGE",
+    "4": "HIGH",
+    "5": "DISASTER"
+  },
+  "h3c_operator_to_zabbix": {
+    "GT": ">",
+    "GE": ">=",
+    "LT": "<",
+    "LE": "<=",
+    "EQ": "=",
+    "NEQ": "<>",
+    "IC": "like",
+    "EC": "not like",
+    "RULE": "regexp",
+    "CHG": "change",
+    "CT": ">=",
+    "DC": "<="
+  }
+}

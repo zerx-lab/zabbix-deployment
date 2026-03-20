@@ -1,0 +1,271 @@
+{
+  "nameEn": "远程Telnet探测",
+  "thresholds": [
+    {
+      "id": 10000073,
+      "templateId": 209760028721225,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "SingleStage",
+      "conditions": [
+        {
+          "id": 74,
+          "type": "general",
+          "unit": "AvailableData",
+          "field": "AvailabilityData",
+          "valueType": 1,
+          "operator": "EQ",
+          "threshold": [
+            {
+              "level": 1,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 2,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 3,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 4,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 5,
+              "value": "无法连接",
+              "enable": true,
+              "trigger": 2
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "",
+          "range": ""
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "5": {
+          "level": 5,
+          "value": {
+            "74": "无法连接"
+          },
+          "trigger": 2
+        }
+      },
+      "regionId": 1761206917732
+    }
+  ],
+  "def": true,
+  "tenantId": "abd2d9f6-36d9-45b8-b7e3-7a793b3a6f2c",
+  "uuid": 209760028721225,
+  "regionId": 1761206917732,
+  "regionPermission": true,
+  "version": 1,
+  "templateId": 209760028721225,
+  "name": "远程Telnet探测",
+  "type": "lr_telnet",
+  "scene": "MONITOR",
+  "typeLabel": {
+    "zh": "远程Telnet探测",
+    "en": "Linux Remote Telnet",
+    "label": "远程Telnet探测"
+  },
+  "describe": null,
+  "custom": false,
+  "operationIds": [
+    801,
+    802,
+    803,
+    804,
+    805,
+    806,
+    807,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    28402,
+    28403
+  ],
+  "resGroup": [],
+  "unitList": [
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "lr_telnet",
+      "unit": "remoteTelnet",
+      "nameZh": "跳转机telnet",
+      "nameEn": "Remote Telnet",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "row",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 993,
+          "type": "lr_telnet",
+          "unit": "remoteTelnet",
+          "field": "description",
+          "appname": "apm",
+          "nameZh": "描述信息",
+          "nameEn": "Description",
+          "explainZh": "指Linux服务器TELNET探测端口返回的描述信息。",
+          "explainEn": "Description returned when you use Telnet to probe the specified port on the Linux server.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "IC,EC,NEQ,RULE,EQ,CHG",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 994,
+          "type": "lr_telnet",
+          "unit": "remoteTelnet",
+          "field": "destinationIP",
+          "appname": "apm",
+          "nameZh": "目的IP",
+          "nameEn": "Destination IP",
+          "explainZh": "远程Telnet的目的IP。",
+          "explainEn": "Destination IP.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "IC,EC,NEQ,RULE,EQ,CHG",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 995,
+          "type": "lr_telnet",
+          "unit": "remoteTelnet",
+          "field": "state",
+          "appname": "apm",
+          "nameZh": "连接状态",
+          "nameEn": "State",
+          "explainZh": "指Linux服务器TELNET探测端口返回的连接状态。",
+          "explainEn": "Connection state returned when you use Telnet to probe the specified port on the Linux server.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "IC,EC,NEQ,RULE,EQ,CHG",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": [
+        "AvailabilityData"
+      ],
+      "allField": false,
+      "operations": null,
+      "enableDelete": false,
+      "type": "general",
+      "unit": "AvailableData",
+      "nameZh": "可用性",
+      "nameEn": "Availability",
+      "appname": "apm",
+      "collectTime": 60,
+      "scope": 3,
+      "defaultUsed": true,
+      "defaultCp": true,
+      "enableCollectTime": true,
+      "dataType": "",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 19916,
+          "type": "general",
+          "unit": "AvailableData",
+          "field": "AvailabilityData",
+          "appname": "apm",
+          "nameZh": "协议连接",
+          "nameEn": "Protocol Connection",
+          "explainZh": "测试IP对应资源的协议连接。",
+          "explainEn": "Test the protocol connections of the resource corresponding to an IP address.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "EQ",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    }
+  ]
+}

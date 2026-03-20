@@ -1,0 +1,1288 @@
+{
+  "nameEn": "MemCached",
+  "thresholds": [
+    {
+      "id": 10000130,
+      "templateId": 209760028721299,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "Multistage",
+      "conditions": [
+        {
+          "id": 131,
+          "type": "memch",
+          "unit": "MemChVars",
+          "field": "UsedMemoryRate",
+          "valueType": 0,
+          "operator": "GT",
+          "threshold": [
+            {
+              "level": 1,
+              "value": "30",
+              "enable": false,
+              "trigger": 1
+            },
+            {
+              "level": 2,
+              "value": "70",
+              "enable": false,
+              "trigger": 1
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "%",
+          "range": "[#,#]"
+        }
+      ],
+      "desc": null,
+      "thresholds": {},
+      "regionId": 1761206917732
+    },
+    {
+      "id": 10000131,
+      "templateId": 209760028721299,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "SingleStage",
+      "conditions": [
+        {
+          "id": 132,
+          "type": "general",
+          "unit": "AvailableData",
+          "field": "AvailabilityData",
+          "valueType": 1,
+          "operator": "EQ",
+          "threshold": [
+            {
+              "level": 1,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 2,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 3,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 4,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 5,
+              "value": "无法连接",
+              "enable": true,
+              "trigger": 2
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "",
+          "range": ""
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "5": {
+          "level": 5,
+          "value": {
+            "132": "无法连接"
+          },
+          "trigger": 2
+        }
+      },
+      "regionId": 1761206917732
+    }
+  ],
+  "def": true,
+  "tenantId": "abd2d9f6-36d9-45b8-b7e3-7a793b3a6f2c",
+  "uuid": 209760028721299,
+  "regionId": 1761206917732,
+  "regionPermission": true,
+  "version": 1,
+  "templateId": 209760028721299,
+  "name": "MemCached",
+  "type": "memch",
+  "scene": "MONITOR",
+  "typeLabel": {
+    "zh": "MemCached",
+    "en": "MemCached",
+    "label": "MemCached"
+  },
+  "describe": null,
+  "custom": false,
+  "operationIds": [
+    801,
+    802,
+    803,
+    804,
+    805,
+    806,
+    807,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    28402,
+    28403
+  ],
+  "resGroup": [],
+  "unitList": [
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "memch",
+      "unit": "MemChVars",
+      "nameZh": "性能信息",
+      "nameEn": "Performance Infomation",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "row",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 3492,
+          "type": "memch",
+          "unit": "MemChVars",
+          "field": "Connections",
+          "appname": "apm",
+          "nameZh": "连接数",
+          "nameEn": "Connections",
+          "explainZh": "MemCached当前的连接数（统计本身会产生连接，可能与直接命令行查询结果有差异）。",
+          "explainEn": "Connections.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 3493,
+          "type": "memch",
+          "unit": "MemChVars",
+          "field": "DeleteTime",
+          "appname": "apm",
+          "nameZh": "DELETE-时间",
+          "nameEn": "DELETE-Time",
+          "explainZh": "从MemCached删除数据使用的时间。",
+          "explainEn": "DELETE-Time.",
+          "fieldUnit": "ms",
+          "unitGroup": {
+            "name": "Time",
+            "label": {
+              "zh": "时间",
+              "en": "Time",
+              "label": "时间"
+            },
+            "items": [
+              {
+                "name": "Time",
+                "origin": "ms",
+                "destination": "s",
+                "multiplier": 1000.0
+              }
+            ],
+            "units": [
+              "ms",
+              "s"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 3494,
+          "type": "memch",
+          "unit": "MemChVars",
+          "field": "Evictions",
+          "appname": "apm",
+          "nameZh": "释放数",
+          "nameEn": "Evictions",
+          "explainZh": "使用LRU方式释放的缓存条目数。",
+          "explainEn": "Evictions.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 3495,
+          "type": "memch",
+          "unit": "MemChVars",
+          "field": "FreeMemory",
+          "appname": "apm",
+          "nameZh": "可用内存",
+          "nameEn": "Free Memory",
+          "explainZh": "MemCached可用的内存量（因为已用内存是按实际存储的数据大小计算而非chunk的占用大小，所以该指标可能比实际可用内存大）。",
+          "explainEn": "Free Memory (because the used memory is calculated based on the size of the actual stored data rather than the size of the chunk, so this indicator may be larger than the actual available memory).",
+          "fieldUnit": "B",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 3496,
+          "type": "memch",
+          "unit": "MemChVars",
+          "field": "FreeMemoryRate",
+          "appname": "apm",
+          "nameZh": "内存空闲率",
+          "nameEn": "Memory Free Ratio",
+          "explainZh": "MemCached内存的空闲率（因为已用内存是按实际存储的数据大小计算而非chunk的占用大小，所以该指标可能比实际内存空闲率大）。",
+          "explainEn": "Memory Free Ratio (because the used memory is calculated based on the actual stored data size rather than the chunk size, this indicator may be larger than the actual memory free rate).",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 3497,
+          "type": "memch",
+          "unit": "MemChVars",
+          "field": "Gets_min",
+          "appname": "apm",
+          "nameZh": "每分钟Get数",
+          "nameEn": "Gets/min",
+          "explainZh": "MemCached每分钟Get请求的数量。",
+          "explainEn": "Gets/min.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 3498,
+          "type": "memch",
+          "unit": "MemChVars",
+          "field": "GetTime",
+          "appname": "apm",
+          "nameZh": "GET-时间",
+          "nameEn": "GET-Time",
+          "explainZh": "从MemCached获取数据使用的时间。",
+          "explainEn": "GET-Time.",
+          "fieldUnit": "ms",
+          "unitGroup": {
+            "name": "Time",
+            "label": {
+              "zh": "时间",
+              "en": "Time",
+              "label": "时间"
+            },
+            "items": [
+              {
+                "name": "Time",
+                "origin": "ms",
+                "destination": "s",
+                "multiplier": 1000.0
+              }
+            ],
+            "units": [
+              "ms",
+              "s"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 3499,
+          "type": "memch",
+          "unit": "MemChVars",
+          "field": "HitRatio",
+          "appname": "apm",
+          "nameZh": "内存命中率",
+          "nameEn": "Memory Hit Ratio",
+          "explainZh": "MemCached内存的命中率。",
+          "explainEn": "Memory Hit Ratio.",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 3500,
+          "type": "memch",
+          "unit": "MemChVars",
+          "field": "Hits_min",
+          "appname": "apm",
+          "nameZh": "每分钟命中数",
+          "nameEn": "Hits/min",
+          "explainZh": "高速缓冲每分钟命中的数量。",
+          "explainEn": "Hits/min.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 3501,
+          "type": "memch",
+          "unit": "MemChVars",
+          "field": "ItemsCached",
+          "appname": "apm",
+          "nameZh": "缓存条目数",
+          "nameEn": "Items cached",
+          "explainZh": "当前的缓存条目数。",
+          "explainEn": "Items cached.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 3502,
+          "type": "memch",
+          "unit": "MemChVars",
+          "field": "Misses_min",
+          "appname": "apm",
+          "nameZh": "每分钟失败数",
+          "nameEn": "Misses/min",
+          "explainZh": "高速缓冲每分钟失败的数量。",
+          "explainEn": "Misses/min.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 3503,
+          "type": "memch",
+          "unit": "MemChVars",
+          "field": "Received_min",
+          "appname": "apm",
+          "nameZh": "每分钟接收字节",
+          "nameEn": "Bytes Received",
+          "explainZh": "MemCached每分钟接收字节的数量。",
+          "explainEn": "Bytes Received.",
+          "fieldUnit": "bps",
+          "unitGroup": {
+            "name": "TransmissionRate",
+            "label": {
+              "zh": "传输速率",
+              "en": "Transmission Rate",
+              "label": "传输速率"
+            },
+            "items": [
+              {
+                "name": "TransmissionRate",
+                "origin": "bps",
+                "destination": "Kbps",
+                "multiplier": 1000.0
+              },
+              {
+                "name": "TransmissionRate",
+                "origin": "Kbps",
+                "destination": "Mbps",
+                "multiplier": 1000.0
+              },
+              {
+                "name": "TransmissionRate",
+                "origin": "Mbps",
+                "destination": "Gbps",
+                "multiplier": 1000.0
+              },
+              {
+                "name": "TransmissionRate",
+                "origin": "Gbps",
+                "destination": "Tbps",
+                "multiplier": 1000.0
+              }
+            ],
+            "units": [
+              "bps",
+              "Kbps",
+              "Mbps",
+              "Gbps",
+              "Tbps"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 3504,
+          "type": "memch",
+          "unit": "MemChVars",
+          "field": "responseTime",
+          "appname": "apm",
+          "nameZh": "应答时间",
+          "nameEn": "Response Time",
+          "explainZh": "MemCached响应时间。",
+          "explainEn": "Response Time.",
+          "fieldUnit": "ms",
+          "unitGroup": {
+            "name": "Time",
+            "label": {
+              "zh": "时间",
+              "en": "Time",
+              "label": "时间"
+            },
+            "items": [
+              {
+                "name": "Time",
+                "origin": "ms",
+                "destination": "s",
+                "multiplier": 1000.0
+              }
+            ],
+            "units": [
+              "ms",
+              "s"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 3505,
+          "type": "memch",
+          "unit": "MemChVars",
+          "field": "Sent_min",
+          "appname": "apm",
+          "nameZh": "每分钟发送字节",
+          "nameEn": "Bytes Sent",
+          "explainZh": "MemCached每分钟发送字节的数量。",
+          "explainEn": "Bytes Sent.",
+          "fieldUnit": "bps",
+          "unitGroup": {
+            "name": "TransmissionRate",
+            "label": {
+              "zh": "传输速率",
+              "en": "Transmission Rate",
+              "label": "传输速率"
+            },
+            "items": [
+              {
+                "name": "TransmissionRate",
+                "origin": "bps",
+                "destination": "Kbps",
+                "multiplier": 1000.0
+              },
+              {
+                "name": "TransmissionRate",
+                "origin": "Kbps",
+                "destination": "Mbps",
+                "multiplier": 1000.0
+              },
+              {
+                "name": "TransmissionRate",
+                "origin": "Mbps",
+                "destination": "Gbps",
+                "multiplier": 1000.0
+              },
+              {
+                "name": "TransmissionRate",
+                "origin": "Gbps",
+                "destination": "Tbps",
+                "multiplier": 1000.0
+              }
+            ],
+            "units": [
+              "bps",
+              "Kbps",
+              "Mbps",
+              "Gbps",
+              "Tbps"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 3506,
+          "type": "memch",
+          "unit": "MemChVars",
+          "field": "Sets_min",
+          "appname": "apm",
+          "nameZh": "每分钟Set数",
+          "nameEn": "Sets/min",
+          "explainZh": "MemCached每分钟Set请求的数量。",
+          "explainEn": "Sets/min.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 3507,
+          "type": "memch",
+          "unit": "MemChVars",
+          "field": "SetTime",
+          "appname": "apm",
+          "nameZh": "SET-时间",
+          "nameEn": "SET-Time",
+          "explainZh": "向MemCached设置数据使用的时间。",
+          "explainEn": "SET-Time.",
+          "fieldUnit": "ms",
+          "unitGroup": {
+            "name": "Time",
+            "label": {
+              "zh": "时间",
+              "en": "Time",
+              "label": "时间"
+            },
+            "items": [
+              {
+                "name": "Time",
+                "origin": "ms",
+                "destination": "s",
+                "multiplier": 1000.0
+              }
+            ],
+            "units": [
+              "ms",
+              "s"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 3508,
+          "type": "memch",
+          "unit": "MemChVars",
+          "field": "SystemCPU",
+          "appname": "apm",
+          "nameZh": "系统CPU",
+          "nameEn": "System CPU",
+          "explainZh": "进程中系统时间的总数。",
+          "explainEn": "System CPU.",
+          "fieldUnit": "s",
+          "unitGroup": {
+            "name": "Time",
+            "label": {
+              "zh": "时间",
+              "en": "Time",
+              "label": "时间"
+            },
+            "items": [
+              {
+                "name": "Time",
+                "origin": "ms",
+                "destination": "s",
+                "multiplier": 1000.0
+              }
+            ],
+            "units": [
+              "ms",
+              "s"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 3509,
+          "type": "memch",
+          "unit": "MemChVars",
+          "field": "Threads",
+          "appname": "apm",
+          "nameZh": "线程数",
+          "nameEn": "Threads",
+          "explainZh": "MemCached当前的线程数。",
+          "explainEn": "Threads.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 3510,
+          "type": "memch",
+          "unit": "MemChVars",
+          "field": "TotalMemory",
+          "appname": "apm",
+          "nameZh": "总内存",
+          "nameEn": "Total Memory",
+          "explainZh": "MemCached内存的总量。",
+          "explainEn": "Total Memory.",
+          "fieldUnit": "B",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 3511,
+          "type": "memch",
+          "unit": "MemChVars",
+          "field": "TotalTime",
+          "appname": "apm",
+          "nameZh": "总的事务时间",
+          "nameEn": "Total Transaction Time",
+          "explainZh": "MemCached上所有操作使用的总的时间。",
+          "explainEn": "Total Transaction Time.",
+          "fieldUnit": "ms",
+          "unitGroup": {
+            "name": "Time",
+            "label": {
+              "zh": "时间",
+              "en": "Time",
+              "label": "时间"
+            },
+            "items": [
+              {
+                "name": "Time",
+                "origin": "ms",
+                "destination": "s",
+                "multiplier": 1000.0
+              }
+            ],
+            "units": [
+              "ms",
+              "s"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 3512,
+          "type": "memch",
+          "unit": "MemChVars",
+          "field": "UsedMemory",
+          "appname": "apm",
+          "nameZh": "已用内存",
+          "nameEn": "Used Memory",
+          "explainZh": "MemCached当前存储占用的大小（因为实际存储的数据比chunk占用的小，所以该指标可能比实际使用的内存小）。",
+          "explainEn": "The current storage size of MemCached (because the actual stored data is smaller than the chunk, this indicator may be smaller than the actual memory used).",
+          "fieldUnit": "B",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 3513,
+          "type": "memch",
+          "unit": "MemChVars",
+          "field": "UsedMemoryRate",
+          "appname": "apm",
+          "nameZh": "内存利用率",
+          "nameEn": "Memory Used Ratio",
+          "explainZh": "MemCached内存的利用率（因为已用内存是按实际存储的数据大小计算而非chunk的占用大小，所以该指标可能比实际利用率小）。",
+          "explainEn": "Memory Used Ratio (because the used memory is calculated based on the size of the actual stored data rather than the size of the chunk, this indicator may be smaller than the actual utilization rate).",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 3514,
+          "type": "memch",
+          "unit": "MemChVars",
+          "field": "UserCPU",
+          "appname": "apm",
+          "nameZh": "用户CPU",
+          "nameEn": "User CPU",
+          "explainZh": "进程中用户时间的总数。",
+          "explainEn": "User CPU.",
+          "fieldUnit": "s",
+          "unitGroup": {
+            "name": "Time",
+            "label": {
+              "zh": "时间",
+              "en": "Time",
+              "label": "时间"
+            },
+            "items": [
+              {
+                "name": "Time",
+                "origin": "ms",
+                "destination": "s",
+                "multiplier": 1000.0
+              }
+            ],
+            "units": [
+              "ms",
+              "s"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "memch",
+      "unit": "Version",
+      "nameZh": "MemCached版本",
+      "nameEn": "MemCached Version",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 3,
+      "defaultUsed": true,
+      "defaultCp": true,
+      "enableCollectTime": true,
+      "dataType": "row",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 3515,
+          "type": "memch",
+          "unit": "Version",
+          "field": "Version",
+          "appname": "apm",
+          "nameZh": "MemCached版本",
+          "nameEn": "MemCached Version",
+          "explainZh": "当前MemCached应用的版本信息。",
+          "explainEn": "MemCached Version.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "IC,EC,NEQ,RULE,EQ,CHG",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": [
+        "AvailabilityData"
+      ],
+      "allField": false,
+      "operations": null,
+      "enableDelete": false,
+      "type": "general",
+      "unit": "AvailableData",
+      "nameZh": "可用性",
+      "nameEn": "Availability",
+      "appname": "apm",
+      "collectTime": 60,
+      "scope": 3,
+      "defaultUsed": true,
+      "defaultCp": true,
+      "enableCollectTime": true,
+      "dataType": "",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 19916,
+          "type": "general",
+          "unit": "AvailableData",
+          "field": "AvailabilityData",
+          "appname": "apm",
+          "nameZh": "协议连接",
+          "nameEn": "Protocol Connection",
+          "explainZh": "测试IP对应资源的协议连接。",
+          "explainEn": "Test the protocol connections of the resource corresponding to an IP address.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "EQ",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    }
+  ]
+}

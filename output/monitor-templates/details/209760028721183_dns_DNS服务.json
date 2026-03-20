@@ -1,0 +1,291 @@
+{
+  "nameEn": "DNS服务",
+  "thresholds": [
+    {
+      "id": 10000027,
+      "templateId": 209760028721183,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "SingleStage",
+      "conditions": [
+        {
+          "id": 28,
+          "type": "general",
+          "unit": "AvailableData",
+          "field": "AvailabilityData",
+          "valueType": 1,
+          "operator": "EQ",
+          "threshold": [
+            {
+              "level": 1,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 2,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 3,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 4,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 5,
+              "value": "无法连接",
+              "enable": true,
+              "trigger": 2
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "",
+          "range": ""
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "5": {
+          "level": 5,
+          "value": {
+            "28": "无法连接"
+          },
+          "trigger": 2
+        }
+      },
+      "regionId": 1761206917732
+    }
+  ],
+  "def": true,
+  "tenantId": "abd2d9f6-36d9-45b8-b7e3-7a793b3a6f2c",
+  "uuid": 209760028721183,
+  "regionId": 1761206917732,
+  "regionPermission": true,
+  "version": 1,
+  "templateId": 209760028721183,
+  "name": "DNS服务",
+  "type": "dns",
+  "scene": "MONITOR",
+  "typeLabel": {
+    "zh": "DNS服务",
+    "en": "DNS Monitor",
+    "label": "DNS服务"
+  },
+  "describe": null,
+  "custom": false,
+  "operationIds": [
+    801,
+    802,
+    803,
+    804,
+    805,
+    806,
+    807,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    28402,
+    28403
+  ],
+  "resGroup": [],
+  "unitList": [
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "dns",
+      "unit": "response",
+      "nameZh": "响应时间",
+      "nameEn": "Response Time",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 3,
+      "defaultUsed": true,
+      "defaultCp": true,
+      "enableCollectTime": true,
+      "dataType": "row",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 379,
+          "type": "dns",
+          "unit": "response",
+          "field": "Alias",
+          "appname": "apm",
+          "nameZh": "别名",
+          "nameEn": "Alias",
+          "explainZh": "DNS查询后获取的主机别名。",
+          "explainEn": "Host alias obtained after DNS query.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "IC,EC,NEQ,RULE,EQ,CHG",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 380,
+          "type": "dns",
+          "unit": "response",
+          "field": "QueryResult",
+          "appname": "apm",
+          "nameZh": "查询结果",
+          "nameEn": "Query Result",
+          "explainZh": "DNS查询结果。",
+          "explainEn": "DNS query result.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "IC,EC,NEQ,RULE,EQ,CHG",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 381,
+          "type": "dns",
+          "unit": "response",
+          "field": "ResponseTime",
+          "appname": "apm",
+          "nameZh": "响应时间",
+          "nameEn": "Response Time",
+          "explainZh": "DNS查询响应时间。",
+          "explainEn": "Response time of DNS query.",
+          "fieldUnit": "ms",
+          "unitGroup": {
+            "name": "Time",
+            "label": {
+              "zh": "时间",
+              "en": "Time",
+              "label": "时间"
+            },
+            "items": [
+              {
+                "name": "Time",
+                "origin": "ms",
+                "destination": "s",
+                "multiplier": 1000.0
+              }
+            ],
+            "units": [
+              "ms",
+              "s"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": [
+        "AvailabilityData"
+      ],
+      "allField": false,
+      "operations": null,
+      "enableDelete": false,
+      "type": "general",
+      "unit": "AvailableData",
+      "nameZh": "可用性",
+      "nameEn": "Availability",
+      "appname": "apm",
+      "collectTime": 60,
+      "scope": 3,
+      "defaultUsed": true,
+      "defaultCp": true,
+      "enableCollectTime": true,
+      "dataType": "",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 19916,
+          "type": "general",
+          "unit": "AvailableData",
+          "field": "AvailabilityData",
+          "appname": "apm",
+          "nameZh": "协议连接",
+          "nameEn": "Protocol Connection",
+          "explainZh": "测试IP对应资源的协议连接。",
+          "explainEn": "Test the protocol connections of the resource corresponding to an IP address.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "EQ",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    }
+  ]
+}

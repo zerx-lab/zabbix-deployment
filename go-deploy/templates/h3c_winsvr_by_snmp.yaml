@@ -1,0 +1,666 @@
+zabbix_export:
+  version: '7.0'
+  template_groups:
+    - uuid: 0099638a6e38449e807d7b0b5de75a0c
+      name: 'Templates/Operating systems'
+  templates:
+    - uuid: 2acd9f82c12746cb83559b808b01c8c6
+      template: H3C_WINSVR_by_SNMP
+      name: 'H3C WINSVR by SNMP'
+      description: |
+        华三监控模板转换（H3C → Zabbix 7.0 SNMP）
+        源模板名称 : Windows
+        源模板 ID  : 209760028721423
+        华三类型   : winsvr
+        转换时间   : 2026-03-20 13:24:57
+        生成工具   : convert_snmp_templates.py
+      groups:
+        - name: 'Templates/Operating systems'
+      items:
+        - uuid: 8d63235ee2ab47c5bc2de421b1eeda71
+          name: 'ICMP ping'
+          type: SIMPLE
+          key: icmpping
+          delay: '60s'
+          description: '设备 ICMP ping 可达性。0=不可达，1=可达。'
+          valuemap:
+            name: 'Service state'
+          tags:
+            - tag: component
+              value: health
+            - tag: component
+              value: network
+            - tag: source
+              value: h3c-converted
+          triggers:
+            - uuid: a872427a72964e079b3ea89ce2a31b87
+              expression: 'max(/H3C_WINSVR_by_SNMP/icmpping,#3)=0'
+              name: 'H3C Windows by SNMP: 设备 ICMP ping 不可达'
+              priority: HIGH
+              description: '连续 3 次 ICMP ping 超时，请检查设备连通性。'
+              tags:
+                - tag: scope
+                  value: availability
+        - uuid: 09dec08d240f48d59d0af81dd2730a70
+          name: 'ICMP ping loss'
+          type: SIMPLE
+          key: icmppingloss
+          delay: '1m'
+          value_type: FLOAT
+          units: '%'
+          description: 'ICMP ping 丢包率。'
+          tags:
+            - tag: component
+              value: health
+            - tag: component
+              value: network
+            - tag: source
+              value: h3c-converted
+          triggers:
+            - uuid: ab24d9418f90417d90018a994327f22d
+              expression: 'min(/H3C_WINSVR_by_SNMP/icmppingloss,5m)>{$ICMP_LOSS_WARN} and min(/H3C_WINSVR_by_SNMP/icmppingloss,5m)<100'
+              name: 'H3C Windows by SNMP: ICMP ping 丢包率过高'
+              opdata: 'Loss: {ITEM.LASTVALUE1}'
+              priority: WARNING
+              description: '检测到 ICMP 丢包。'
+              dependencies:
+                - name: 'H3C Windows by SNMP: 设备 ICMP ping 不可达'
+                  expression: 'max(/H3C_WINSVR_by_SNMP/icmpping,#3)=0'
+              tags:
+                - tag: scope
+                  value: availability
+                - tag: scope
+                  value: performance
+        - uuid: b36303a4a3544d2db98d3ee2c6ae8875
+          name: 'ICMP response time'
+          type: SIMPLE
+          key: icmppingsec
+          delay: '1m'
+          value_type: FLOAT
+          units: s
+          description: 'ICMP ping 响应时间（秒）。'
+          tags:
+            - tag: component
+              value: health
+            - tag: component
+              value: network
+            - tag: source
+              value: h3c-converted
+          triggers:
+            - uuid: b29cfec9d1984335b0e9d615a65ac958
+              expression: 'avg(/H3C_WINSVR_by_SNMP/icmppingsec,5m)>{$ICMP_RESPONSE_TIME_WARN}'
+              name: 'H3C Windows by SNMP: ICMP ping 响应时间过高'
+              opdata: 'Value: {ITEM.LASTVALUE1}'
+              priority: WARNING
+              description: '平均 ICMP 响应时间过高。'
+              dependencies:
+                - name: 'H3C Windows by SNMP: ICMP ping 丢包率过高'
+                  expression: 'min(/H3C_WINSVR_by_SNMP/icmppingloss,5m)>{$ICMP_LOSS_WARN} and min(/H3C_WINSVR_by_SNMP/icmppingloss,5m)<100'
+                - name: 'H3C Windows by SNMP: 设备 ICMP ping 不可达'
+                  expression: 'max(/H3C_WINSVR_by_SNMP/icmpping,#3)=0'
+              tags:
+                - tag: scope
+                  value: availability
+                - tag: scope
+                  value: performance
+        - uuid: a74bb1b19b7e42f8939e1fbaa04734fb
+          name: 'SNMP traps (fallback)'
+          type: SNMP_TRAP
+          key: snmptrap.fallback
+          delay: '0'
+          trends: '0'
+          value_type: LOG
+          logtimefmt: 'hh:mm:sszyyyy/MM/dd'
+          description: '用于收集所有未被其他 snmptrap item 匹配的 SNMP trap。'
+          tags:
+            - tag: component
+              value: network
+            - tag: source
+              value: h3c-converted
+        - uuid: 80e7a792761f4faabbf8d8752035a17d
+          name: 'System name'
+          type: SNMP_AGENT
+          snmp_oid: 'get[1.3.6.1.2.1.1.5.0]'
+          key: system.name
+          delay: '15m'
+          trends: '0'
+          value_type: CHAR
+          inventory_link: NAME
+          description: |
+            MIB: SNMPv2-MIB
+            系统管理员分配的节点名称（sysName）。
+          preprocessing:
+            - type: DISCARD_UNCHANGED_HEARTBEAT
+              parameters:
+                - '12h'
+          tags:
+            - tag: component
+              value: system
+            - tag: source
+              value: h3c-converted
+        - uuid: a9e9d7ab6712428aa5a72025ec0e2e51
+          name: 'System description'
+          type: SNMP_AGENT
+          snmp_oid: 'get[1.3.6.1.2.1.1.1.0]'
+          key: 'system.descr[sysDescr.0]'
+          delay: '15m'
+          trends: '0'
+          value_type: CHAR
+          inventory_link: OS
+          description: |
+            MIB: SNMPv2-MIB
+            实体文本描述，包含硬件型号、OS 版本及网络软件版本（sysDescr）。
+          preprocessing:
+            - type: DISCARD_UNCHANGED_HEARTBEAT
+              parameters:
+                - '12h'
+          tags:
+            - tag: component
+              value: system
+            - tag: source
+              value: h3c-converted
+        - uuid: 429c8ae9bb6b476f8140381710d367af
+          name: 'System contact details'
+          type: SNMP_AGENT
+          snmp_oid: 'get[1.3.6.1.2.1.1.4.0]'
+          key: 'system.contact[sysContact.0]'
+          delay: '15m'
+          trends: '0'
+          value_type: CHAR
+          inventory_link: CONTACT
+          description: |
+            MIB: SNMPv2-MIB
+            该节点联系人及联系方式（sysContact）。
+          preprocessing:
+            - type: DISCARD_UNCHANGED_HEARTBEAT
+              parameters:
+                - '12h'
+          tags:
+            - tag: component
+              value: system
+            - tag: source
+              value: h3c-converted
+        - uuid: 68d7c055d7dd4e06ad18df0321ad430b
+          name: 'System location'
+          type: SNMP_AGENT
+          snmp_oid: 'get[1.3.6.1.2.1.1.6.0]'
+          key: 'system.location[sysLocation.0]'
+          delay: '15m'
+          trends: '0'
+          value_type: CHAR
+          inventory_link: LOCATION
+          description: |
+            MIB: SNMPv2-MIB
+            节点物理位置（sysLocation）。
+          preprocessing:
+            - type: DISCARD_UNCHANGED_HEARTBEAT
+              parameters:
+                - '12h'
+          tags:
+            - tag: component
+              value: system
+            - tag: source
+              value: h3c-converted
+        - uuid: 7c608a5c3f854bbd8d8a69ac89d1788a
+          name: 'Uptime (network)'
+          type: SNMP_AGENT
+          snmp_oid: 'get[1.3.6.1.2.1.1.3.0]'
+          key: 'system.net.uptime[sysUpTime.0]'
+          delay: '30s'
+          trends: '0'
+          units: uptime
+          description: |
+            MIB: SNMPv2-MIB
+            网管部分自上次初始化后的运行时间（sysUpTime，单位：百分之一秒）。
+          preprocessing:
+            - type: MULTIPLIER
+              parameters:
+                - '0.01'
+          tags:
+            - tag: component
+              value: system
+            - tag: source
+              value: h3c-converted
+        - uuid: b9fd522cb1364457a91c3df040f5224a
+          name: 'Uptime (hardware)'
+          type: SNMP_AGENT
+          snmp_oid: 'get[1.3.6.1.2.1.25.1.1.0]'
+          key: 'system.hw.uptime[hrSystemUptime.0]'
+          delay: '30s'
+          trends: '0'
+          units: uptime
+          description: |
+            MIB: HOST-RESOURCES-MIB
+            主机自上次初始化后的运行时间（hrSystemUptime，单位：百分之一秒）。
+          preprocessing:
+            - type: CHECK_NOT_SUPPORTED
+              parameters:
+                - '-1'
+              error_handler: CUSTOM_VALUE
+              error_handler_params: '0'
+            - type: MULTIPLIER
+              parameters:
+                - '0.01'
+          tags:
+            - tag: component
+              value: system
+            - tag: source
+              value: h3c-converted
+        - uuid: 495f1f83dfe04d319ac21dd1111fae40
+          name: 'SNMP availability'
+          type: INTERNAL
+          key: 'zabbix[host,snmp,available]'
+          delay: '1m'
+          description: 'Zabbix 内部 item，记录 SNMP 接口可用状态。'
+          valuemap:
+            name: zabbix.host.available
+          tags:
+            - tag: component
+              value: health
+            - tag: source
+              value: h3c-converted
+          triggers:
+            - uuid: 91299507cfff4551b95dffd8aea99a76
+              expression: 'max(/H3C_WINSVR_by_SNMP/zabbix[host,snmp,available],{$SNMP.TIMEOUT})=0'
+              name: 'H3C Windows by SNMP: SNMP agent 不可达'
+              priority: WARNING
+              description: '在 {$SNMP.TIMEOUT} 时间内 SNMP agent 没有响应。'
+              tags:
+                - tag: scope
+                  value: availability
+        - uuid: 9559da3085e04f75a36bc508a1240738
+          name: 'CPU 利用率（Windows SNMP）'
+          type: SNMP_AGENT
+          snmp_oid: 'get[1.3.6.1.2.1.25.3.3.1.2.1]'
+          key: system.cpu.util
+          delay: '300s'
+          value_type: FLOAT
+          units: '%'
+          description: |
+            MIB: HOST-RESOURCES-MIB
+            hrProcessorLoad: 处理器近期运行时间百分比。
+          tags:
+            - tag: component
+              value: cpu
+            - tag: source
+              value: h3c-converted
+          triggers:
+            - uuid: 08b3b95658c045688435840efc25ee64
+              expression: 'count(/H3C_WINSVR_by_SNMP/system.cpu.util,900s,"ge","80")>=3'
+              name: 'H3C Windows by SNMP: Windows CpuUtilization GE 80（HIGH）'
+              priority: HIGH
+              description: '华三阈值转换：cpu/CpuUtilization GE 80，持续 3 次（每次 300s）。'
+              tags:
+                - tag: scope
+                  value: performance
+            - uuid: 731117fe8a5c46b58235fceb063ade0e
+              expression: 'count(/H3C_WINSVR_by_SNMP/system.cpu.util,900s,"ge","90")>=3'
+              name: 'H3C Windows by SNMP: Windows CpuUtilization GE 90（DISASTER）'
+              priority: DISASTER
+              description: '华三阈值转换：cpu/CpuUtilization GE 90，持续 3 次（每次 300s）。'
+              tags:
+                - tag: scope
+                  value: performance
+        - uuid: 99029ef5b5144be2adaa487f7b4a3683
+          name: '内存总量（Windows SNMP）'
+          type: SNMP_AGENT
+          snmp_oid: 'get[1.3.6.1.2.1.25.2.2.0]'
+          key: 'vm.memory.total[hrMemorySize.0]'
+          delay: '300s'
+          units: B
+          description: |
+            MIB: HOST-RESOURCES-MIB
+            hrMemorySize: 主机物理内存总量（KB）。
+          preprocessing:
+            - type: MULTIPLIER
+              parameters:
+                - '1024'
+          tags:
+            - tag: component
+              value: memory
+            - tag: source
+              value: h3c-converted
+      discovery_rules:
+        - uuid: 55b6b86d060645d9a1dcb19c1fc7eb67
+          name: 'Filesystem discovery (Windows SNMP)'
+          type: SNMP_AGENT
+          snmp_oid: 'walk[1.3.6.1.2.1.25.3.8]'
+          key: 'vfs.fs.discovery[snmp]'
+          delay: '1h'
+          description: |
+            MIB: HOST-RESOURCES-MIB
+            发现本机存储资源（文件系统）。
+          filter:
+            evaltype: AND_OR
+            conditions:
+              - macro: '{#FSTYPE}'
+                value: 'hrStorageFixedDisk'
+                operator: MATCHES_REGEX
+                formulaid: A
+          lld_macro_paths:
+            - lld_macro: '{#SNMPINDEX}'
+              path: $.index
+            - lld_macro: '{#FSNAME}'
+              path: $.name
+            - lld_macro: '{#FSTYPE}'
+              path: $.type
+          item_prototypes:
+            - uuid: f4d99598aae24a8a9789aa4d7f05e6c9
+              name: 'Filesystem {#FSNAME}: 总空间'
+              type: SNMP_AGENT
+              snmp_oid: 'get[1.3.6.1.2.1.25.2.3.1.5.{#SNMPINDEX}]'
+              key: 'vfs.fs.total[dskTotal.{#SNMPINDEX}]'
+              delay: '1m'
+              units: B
+              description: |
+                MIB: HOST-RESOURCES-MIB
+                hrStorageSize: 文件系统总分配块数 × AllocationUnits。
+              preprocessing:
+                - type: MULTIPLIER
+                  parameters:
+                    - '{#ALLOC_UNITS}'
+              tags:
+                - tag: component
+                  value: storage
+                - tag: filesystem
+                  value: '{#FSNAME}'
+                - tag: source
+                  value: h3c-converted
+            - uuid: 53c4e692ba724d10980eaf70e21fe4f0
+              name: 'Filesystem {#FSNAME}: 已用空间'
+              type: SNMP_AGENT
+              snmp_oid: 'get[1.3.6.1.2.1.25.2.3.1.6.{#SNMPINDEX}]'
+              key: 'vfs.fs.used[dskUsed.{#SNMPINDEX}]'
+              delay: '1m'
+              units: B
+              description: |
+                MIB: HOST-RESOURCES-MIB
+                hrStorageUsed: 已使用块数 × AllocationUnits。
+              preprocessing:
+                - type: MULTIPLIER
+                  parameters:
+                    - '{#ALLOC_UNITS}'
+              tags:
+                - tag: component
+                  value: storage
+                - tag: filesystem
+                  value: '{#FSNAME}'
+                - tag: source
+                  value: h3c-converted
+            - uuid: c5262c1e2ff649e6aa0751a71639f46b
+              name: 'Filesystem {#FSNAME}: 利用率'
+              type: CALCULATED
+              key: 'vfs.fs.pused[{#SNMPINDEX}]'
+              delay: '1m'
+              value_type: FLOAT
+              units: '%'
+              params: '100*last(//vfs.fs.used[dskUsed.{#SNMPINDEX}])/last(//vfs.fs.total[dskTotal.{#SNMPINDEX}])'
+              description: '文件系统使用率（%）。'
+              tags:
+                - tag: component
+                  value: storage
+                - tag: filesystem
+                  value: '{#FSNAME}'
+                - tag: source
+                  value: h3c-converted
+        - uuid: 64afd739d54a41c5ac5c45649bf75db7
+          name: 'Network interface discovery'
+          type: SNMP_AGENT
+          snmp_oid: 'walk[1.3.6.1.2.1.2.2]'
+          key: net.if.discovery
+          delay: '1h'
+          description: |
+            MIB: IF-MIB
+            发现所有网络接口（ifTable）。
+          filter:
+            evaltype: AND_OR
+            conditions:
+              - macro: '{#IFADMINSTATUS}'
+                value: '1'
+                operator: MATCHES_REGEX
+                formulaid: A
+          lld_macro_paths:
+            - lld_macro: '{#IFINDEX}'
+              path: $.index
+            - lld_macro: '{#IFDESCR}'
+              path: $.name
+            - lld_macro: '{#IFNAME}'
+              path: $.name
+            - lld_macro: '{#IFALIAS}'
+              path: $.alias
+            - lld_macro: '{#IFTYPE}'
+              path: $.type
+            - lld_macro: '{#IFADMINSTATUS}'
+              path: $.admin_status
+            - lld_macro: '{#SNMPINDEX}'
+              path: $.index
+          item_prototypes:
+            - uuid: 4d8aab6a8e9a47bda251aa31dcd05e0a
+              name: 'Interface {#IFDESCR}: 入流量'
+              type: SNMP_AGENT
+              snmp_oid: 'get[1.3.6.1.2.1.31.1.1.1.6.{#SNMPINDEX}]'
+              key: 'net.if.in[ifHCInOctets.{#SNMPINDEX}]'
+              delay: '3m'
+              units: bps
+              description: |
+                MIB: IF-MIB
+                ifHCInOctets: 接口入方向字节数（64 位计数器）。
+              preprocessing:
+                - type: CHANGE_PER_SECOND
+                - type: MULTIPLIER
+                  parameters:
+                    - '8'
+              tags:
+                - tag: component
+                  value: network
+                - tag: interface
+                  value: '{#IFDESCR}'
+                - tag: source
+                  value: h3c-converted
+            - uuid: 5322ab9ab390433c861bb04b815c878d
+              name: 'Interface {#IFDESCR}: 出流量'
+              type: SNMP_AGENT
+              snmp_oid: 'get[1.3.6.1.2.1.31.1.1.1.10.{#SNMPINDEX}]'
+              key: 'net.if.out[ifHCOutOctets.{#SNMPINDEX}]'
+              delay: '3m'
+              units: bps
+              description: |
+                MIB: IF-MIB
+                ifHCOutOctets: 接口出方向字节数（64 位计数器）。
+              preprocessing:
+                - type: CHANGE_PER_SECOND
+                - type: MULTIPLIER
+                  parameters:
+                    - '8'
+              tags:
+                - tag: component
+                  value: network
+                - tag: interface
+                  value: '{#IFDESCR}'
+                - tag: source
+                  value: h3c-converted
+            - uuid: 6c0ef049d9894fd09256e41b7bcc5541
+              name: 'Interface {#IFDESCR}: 入错误'
+              type: SNMP_AGENT
+              snmp_oid: 'get[1.3.6.1.2.1.2.2.1.14.{#SNMPINDEX}]'
+              key: 'net.if.in.errors[ifInErrors.{#SNMPINDEX}]'
+              delay: '3m'
+              description: |
+                MIB: IF-MIB
+                ifInErrors: 接口入方向错误包数。
+              preprocessing:
+                - type: CHANGE_PER_SECOND
+              tags:
+                - tag: component
+                  value: network
+                - tag: interface
+                  value: '{#IFDESCR}'
+                - tag: source
+                  value: h3c-converted
+            - uuid: ce3152d9e9eb454aac1329e8cfbf4df7
+              name: 'Interface {#IFDESCR}: 出错误'
+              type: SNMP_AGENT
+              snmp_oid: 'get[1.3.6.1.2.1.2.2.1.20.{#SNMPINDEX}]'
+              key: 'net.if.out.errors[ifOutErrors.{#SNMPINDEX}]'
+              delay: '3m'
+              description: |
+                MIB: IF-MIB
+                ifOutErrors: 接口出方向错误包数。
+              preprocessing:
+                - type: CHANGE_PER_SECOND
+              tags:
+                - tag: component
+                  value: network
+                - tag: interface
+                  value: '{#IFDESCR}'
+                - tag: source
+                  value: h3c-converted
+            - uuid: 2cd4a1ac431245dcb988845a343e24d5
+              name: 'Interface {#IFDESCR}: 入丢包'
+              type: SNMP_AGENT
+              snmp_oid: 'get[1.3.6.1.2.1.2.2.1.13.{#SNMPINDEX}]'
+              key: 'net.if.in.discards[ifInDiscards.{#SNMPINDEX}]'
+              delay: '3m'
+              description: |
+                MIB: IF-MIB
+                ifInDiscards: 接口入方向丢弃包数。
+              preprocessing:
+                - type: CHANGE_PER_SECOND
+              tags:
+                - tag: component
+                  value: network
+                - tag: interface
+                  value: '{#IFDESCR}'
+                - tag: source
+                  value: h3c-converted
+            - uuid: cdeeb5378d7e4750982b2ed4f216a874
+              name: 'Interface {#IFDESCR}: 出丢包'
+              type: SNMP_AGENT
+              snmp_oid: 'get[1.3.6.1.2.1.2.2.1.19.{#SNMPINDEX}]'
+              key: 'net.if.out.discards[ifOutDiscards.{#SNMPINDEX}]'
+              delay: '3m'
+              description: |
+                MIB: IF-MIB
+                ifOutDiscards: 接口出方向丢弃包数。
+              preprocessing:
+                - type: CHANGE_PER_SECOND
+              tags:
+                - tag: component
+                  value: network
+                - tag: interface
+                  value: '{#IFDESCR}'
+                - tag: source
+                  value: h3c-converted
+            - uuid: 9167f6c2ad1649fdb5e835bb4dd8e0c6
+              name: 'Interface {#IFDESCR}: 速率'
+              type: SNMP_AGENT
+              snmp_oid: 'get[1.3.6.1.2.1.31.1.1.1.15.{#SNMPINDEX}]'
+              key: 'net.if.speed[ifHighSpeed.{#SNMPINDEX}]'
+              delay: '5m'
+              units: bps
+              description: |
+                MIB: IF-MIB
+                ifHighSpeed: 接口额定速率（Mbps 转 bps）。
+              preprocessing:
+                - type: MULTIPLIER
+                  parameters:
+                    - '1000000'
+              tags:
+                - tag: component
+                  value: network
+                - tag: interface
+                  value: '{#IFDESCR}'
+                - tag: source
+                  value: h3c-converted
+            - uuid: 7d96c0bf955e4f1c88e29d48cdec9f48
+              name: 'Interface {#IFDESCR}: 运行状态'
+              type: SNMP_AGENT
+              snmp_oid: 'get[1.3.6.1.2.1.2.2.1.8.{#SNMPINDEX}]'
+              key: 'net.if.status[ifOperStatus.{#SNMPINDEX}]'
+              delay: '1m'
+              description: |
+                MIB: IF-MIB
+                ifOperStatus: 接口当前运行状态（1=up, 2=down, 3=testing）。
+              valuemap:
+                name: 'IF-MIB::ifOperStatus'
+              tags:
+                - tag: component
+                  value: network
+                - tag: interface
+                  value: '{#IFDESCR}'
+                - tag: source
+                  value: h3c-converted
+              trigger_prototypes:
+                - uuid: ee188e5f09cd4d50a5ad4c7996474517
+                  expression: 'last(/H3C_WINSVR_by_SNMP/net.if.status[ifOperStatus.{#SNMPINDEX}])=2'
+                  name: 'Interface {#IFDESCR}: 接口链路 down'
+                  priority: AVERAGE
+                  description: '接口运行状态变为 down。'
+                  tags:
+                    - tag: scope
+                      value: availability
+                    - tag: interface
+                      value: '{#IFDESCR}'
+      macros:
+        - macro: '{$SNMP_COMMUNITY}'
+          value: 'public'
+          description: 'SNMP community string'
+        - macro: '{$SNMP.TIMEOUT}'
+          value: '5m'
+          description: 'SNMP 连接超时时间'
+        - macro: '{$ICMP_LOSS_WARN}'
+          value: '20'
+          description: 'ICMP 丢包率告警阈值（%）'
+        - macro: '{$ICMP_RESPONSE_TIME_WARN}'
+          value: '0.15'
+          description: 'ICMP 响应时间告警阈值（秒）'
+      tags:
+        - tag: source
+          value: h3c-converted
+        - tag: h3c-type
+          value: winsvr
+      valuemaps:
+        - uuid: 06a4a5f2768e4a0aa1deaa0306198f58
+          name: 'Service state'
+          mappings:
+            - value: '0'
+              newvalue: 'Down'
+            - value: '1'
+              newvalue: 'Up'
+        - uuid: 97f68e62aa664923be37bf9a54ff63d2
+          name: 'IF-MIB::ifOperStatus'
+          mappings:
+            - value: '1'
+              newvalue: 'up'
+            - value: '2'
+              newvalue: 'down'
+            - value: '3'
+              newvalue: 'testing'
+            - value: '4'
+              newvalue: 'unknown'
+            - value: '5'
+              newvalue: 'dormant'
+            - value: '6'
+              newvalue: 'notPresent'
+            - value: '7'
+              newvalue: 'lowerLayerDown'
+        - uuid: 5e185ac8adb44535981131948df4aaa9
+          name: zabbix.host.available
+          mappings:
+            - value: '0'
+              newvalue: 'not available'
+            - value: '1'
+              newvalue: 'available'
+            - value: '2'
+              newvalue: 'unknown'
+        - uuid: b062d03db01a4834b0574cbdfb1d0625
+          name: 'Brocade::swFCPortOpStatus'
+          mappings:
+            - value: '1'
+              newvalue: 'online'
+            - value: '2'
+              newvalue: 'offline'
+            - value: '3'
+              newvalue: 'testing'
+            - value: '4'
+              newvalue: 'faulty'

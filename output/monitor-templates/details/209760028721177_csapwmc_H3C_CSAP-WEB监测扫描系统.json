@@ -1,0 +1,627 @@
+{
+  "nameEn": "H3C CSAP-WEB监测扫描系统",
+  "thresholds": [
+    {
+      "id": 10000021,
+      "templateId": 209760028721177,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "Multistage",
+      "conditions": [
+        {
+          "id": 22,
+          "type": "csapwmc",
+          "unit": "enginestatus",
+          "field": "engDiskPec",
+          "valueType": 0,
+          "operator": "GE",
+          "threshold": [
+            {
+              "level": 5,
+              "value": "80",
+              "enable": true,
+              "trigger": 3
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "%",
+          "range": "[0,100]"
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "5": {
+          "level": 5,
+          "value": {
+            "22": "80"
+          },
+          "trigger": 3
+        }
+      },
+      "regionId": 1761206917732
+    },
+    {
+      "id": 10000022,
+      "templateId": 209760028721177,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "Multistage",
+      "conditions": [
+        {
+          "id": 23,
+          "type": "csapwmc",
+          "unit": "enginestatus",
+          "field": "engCpuPec",
+          "valueType": 0,
+          "operator": "GE",
+          "threshold": [
+            {
+              "level": 5,
+              "value": "80",
+              "enable": true,
+              "trigger": 3
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "%",
+          "range": "[0,100]"
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "5": {
+          "level": 5,
+          "value": {
+            "23": "80"
+          },
+          "trigger": 3
+        }
+      },
+      "regionId": 1761206917732
+    },
+    {
+      "id": 10000023,
+      "templateId": 209760028721177,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "Multistage",
+      "conditions": [
+        {
+          "id": 24,
+          "type": "csapwmc",
+          "unit": "enginestatus",
+          "field": "engMemPec",
+          "valueType": 0,
+          "operator": "GE",
+          "threshold": [
+            {
+              "level": 5,
+              "value": "80",
+              "enable": true,
+              "trigger": 3
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "%",
+          "range": "[0,100]"
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "5": {
+          "level": 5,
+          "value": {
+            "24": "80"
+          },
+          "trigger": 3
+        }
+      },
+      "regionId": 1761206917732
+    },
+    {
+      "id": 10000024,
+      "templateId": 209760028721177,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "SingleStage",
+      "conditions": [
+        {
+          "id": 25,
+          "type": "general",
+          "unit": "AvailableData",
+          "field": "AvailabilityData",
+          "valueType": 1,
+          "operator": "EQ",
+          "threshold": [
+            {
+              "level": 1,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 2,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 3,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 4,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 5,
+              "value": "无法连接",
+              "enable": true,
+              "trigger": 2
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "",
+          "range": ""
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "5": {
+          "level": 5,
+          "value": {
+            "25": "无法连接"
+          },
+          "trigger": 2
+        }
+      },
+      "regionId": 1761206917732
+    }
+  ],
+  "def": true,
+  "tenantId": "abd2d9f6-36d9-45b8-b7e3-7a793b3a6f2c",
+  "uuid": 209760028721177,
+  "regionId": 1761206917732,
+  "regionPermission": true,
+  "version": 1,
+  "templateId": 209760028721177,
+  "name": "H3C CSAP-WEB监测扫描系统",
+  "type": "csapwmc",
+  "scene": "MONITOR",
+  "typeLabel": {
+    "zh": "H3C CSAP-WEB监测扫描系统",
+    "en": "H3C CSAP-WEB Monitoring Center",
+    "label": "H3C CSAP-WEB监测扫描系统"
+  },
+  "describe": null,
+  "custom": false,
+  "operationIds": [
+    801,
+    802,
+    803,
+    804,
+    805,
+    806,
+    807,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    28402,
+    28403
+  ],
+  "resGroup": [],
+  "unitList": [
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "csapwmc",
+      "unit": "enginestatus",
+      "nameZh": "引擎使用状况",
+      "nameEn": "Engine Usage",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "table",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 359,
+          "type": "csapwmc",
+          "unit": "enginestatus",
+          "field": "engCpuPec",
+          "appname": "apm",
+          "nameZh": "CPU利用率",
+          "nameEn": "CPU Usage",
+          "explainZh": "引擎的CPU利用率。",
+          "explainEn": "CPU usage of the engine.",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,100]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 360,
+          "type": "csapwmc",
+          "unit": "enginestatus",
+          "field": "engDiskPec",
+          "appname": "apm",
+          "nameZh": "硬盘使用率",
+          "nameEn": "Disk Usage",
+          "explainZh": "引擎的硬盘利用率。",
+          "explainEn": "Disk usage of the engine.",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,100]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 361,
+          "type": "csapwmc",
+          "unit": "enginestatus",
+          "field": "engDiskTotal",
+          "appname": "apm",
+          "nameZh": "硬盘总容量",
+          "nameEn": "Total Disk Space",
+          "explainZh": "引擎磁盘总容量大小。",
+          "explainEn": "Total disk space of the engine.",
+          "fieldUnit": "MB",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 362,
+          "type": "csapwmc",
+          "unit": "enginestatus",
+          "field": "engDiskUsed",
+          "appname": "apm",
+          "nameZh": "硬盘已使用空间",
+          "nameEn": "Used Disk Space",
+          "explainZh": "引擎的磁盘已使用空间大小。",
+          "explainEn": "Used disk space of the engine.",
+          "fieldUnit": "MB",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 363,
+          "type": "csapwmc",
+          "unit": "enginestatus",
+          "field": "engIp",
+          "appname": "apm",
+          "nameZh": "引擎IP",
+          "nameEn": "Engine IP",
+          "explainZh": "引擎的IP地址。",
+          "explainEn": "IP address of the engine.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "IC,EC,NEQ,RULE,EQ,CHG",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 364,
+          "type": "csapwmc",
+          "unit": "enginestatus",
+          "field": "engMemPec",
+          "appname": "apm",
+          "nameZh": "内存利用率",
+          "nameEn": "Memory Usage",
+          "explainZh": "引擎的内存利用率。",
+          "explainEn": "Memory usage of the engine.",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,100]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": -1,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 365,
+          "type": "csapwmc",
+          "unit": "enginestatus",
+          "field": "engName",
+          "appname": "apm",
+          "nameZh": "引擎名称",
+          "nameEn": "Engine Name",
+          "explainZh": "引擎的名称。",
+          "explainEn": "Name of the engine.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "IC,EC,NEQ,RULE,EQ",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 366,
+          "type": "csapwmc",
+          "unit": "enginestatus",
+          "field": "engStatus",
+          "appname": "apm",
+          "nameZh": "引擎状态",
+          "nameEn": "Engine State",
+          "explainZh": "引擎的状态，包括 “在线” 和 “离线”。",
+          "explainEn": "State of the engine, which can be \"ONLINE\" or \"OFFLINE\".",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "IC,EC,NEQ,RULE,EQ,CHG",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": [
+        "AvailabilityData"
+      ],
+      "allField": false,
+      "operations": null,
+      "enableDelete": false,
+      "type": "general",
+      "unit": "AvailableData",
+      "nameZh": "可用性",
+      "nameEn": "Availability",
+      "appname": "apm",
+      "collectTime": 60,
+      "scope": 3,
+      "defaultUsed": true,
+      "defaultCp": true,
+      "enableCollectTime": true,
+      "dataType": "",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 19916,
+          "type": "general",
+          "unit": "AvailableData",
+          "field": "AvailabilityData",
+          "appname": "apm",
+          "nameZh": "协议连接",
+          "nameEn": "Protocol Connection",
+          "explainZh": "测试IP对应资源的协议连接。",
+          "explainEn": "Test the protocol connections of the resource corresponding to an IP address.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "EQ",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    }
+  ]
+}

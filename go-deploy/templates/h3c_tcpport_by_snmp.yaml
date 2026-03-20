@@ -1,0 +1,120 @@
+zabbix_export:
+  version: '7.0'
+  template_groups:
+    - uuid: 447617281b0a48f8b80532f48c7bb624
+      name: 'Templates/Network devices'
+  templates:
+    - uuid: d06b6c94fc624b1d9e4d1560577d0e9b
+      template: H3C_TCPPORT_by_SNMP
+      name: 'H3C TCPPORT by SNMP'
+      description: |
+        华三监控模板转换（H3C → Zabbix 7.0 SNMP）
+        源模板名称 : TCP Port
+        源模板 ID  : 209760028721247
+        华三类型   : tcpport
+        转换时间   : 2026-03-20 13:24:56
+        生成工具   : convert_snmp_templates.py
+      groups:
+        - name: 'Templates/Network devices'
+      items:
+        - uuid: 901c04894c004b6d8c3cf56708e4136a
+          name: 'TCP port {$TCP_PORT}: 响应状态'
+          type: SIMPLE
+          key: 'net.tcp.service[tcp,,{$TCP_PORT}]'
+          delay: '60s'
+          description: 'TCP 端口连通性检测。0=端口不通，1=端口可达。'
+          valuemap:
+            name: 'Service state'
+          tags:
+            - tag: component
+              value: health
+            - tag: source
+              value: h3c-converted
+          triggers:
+            - uuid: 1f33197a11244f0db06d0fa05da695af
+              expression: 'max(/H3C_TCPPORT_by_SNMP/net.tcp.service[tcp,,{$TCP_PORT}],#3)=0'
+              name: 'H3C TCP Port by SNMP: TCP 端口 {$TCP_PORT} 不可达'
+              priority: AVERAGE
+              description: 'TCP 端口连续 3 次探测失败。'
+              tags:
+                - tag: scope
+                  value: availability
+        - uuid: d4eda876b3974ee196fe1381d58d7c7c
+          name: 'TCP port {$TCP_PORT}: 响应时间'
+          type: SIMPLE
+          key: 'net.tcp.service.perf[tcp,,{$TCP_PORT}]'
+          delay: '60s'
+          value_type: FLOAT
+          units: s
+          description: 'TCP 端口建立连接所需时间（秒）。0=端口不通。'
+          tags:
+            - tag: component
+              value: health
+            - tag: source
+              value: h3c-converted
+      macros:
+        - macro: '{$SNMP_COMMUNITY}'
+          value: 'public'
+          description: 'SNMP community string'
+        - macro: '{$SNMP.TIMEOUT}'
+          value: '5m'
+          description: 'SNMP 连接超时时间'
+        - macro: '{$ICMP_LOSS_WARN}'
+          value: '20'
+          description: 'ICMP 丢包率告警阈值（%）'
+        - macro: '{$ICMP_RESPONSE_TIME_WARN}'
+          value: '0.15'
+          description: 'ICMP 响应时间告警阈值（秒）'
+        - macro: '{$TCP_PORT}'
+          value: '80'
+          description: '要监控的 TCP 端口号（请根据实际情况修改）'
+      tags:
+        - tag: source
+          value: h3c-converted
+        - tag: h3c-type
+          value: tcpport
+      valuemaps:
+        - uuid: fd4d23cae73e418588f95d73f9aaa3b4
+          name: 'Service state'
+          mappings:
+            - value: '0'
+              newvalue: 'Down'
+            - value: '1'
+              newvalue: 'Up'
+        - uuid: 7ab2cd887e4340b3acb9e9f546dd61ad
+          name: 'IF-MIB::ifOperStatus'
+          mappings:
+            - value: '1'
+              newvalue: 'up'
+            - value: '2'
+              newvalue: 'down'
+            - value: '3'
+              newvalue: 'testing'
+            - value: '4'
+              newvalue: 'unknown'
+            - value: '5'
+              newvalue: 'dormant'
+            - value: '6'
+              newvalue: 'notPresent'
+            - value: '7'
+              newvalue: 'lowerLayerDown'
+        - uuid: 8e4deed28a4f45419b8a0b810c482f93
+          name: zabbix.host.available
+          mappings:
+            - value: '0'
+              newvalue: 'not available'
+            - value: '1'
+              newvalue: 'available'
+            - value: '2'
+              newvalue: 'unknown'
+        - uuid: 0ede378cdc3a406db19408682ac746d7
+          name: 'Brocade::swFCPortOpStatus'
+          mappings:
+            - value: '1'
+              newvalue: 'online'
+            - value: '2'
+              newvalue: 'offline'
+            - value: '3'
+              newvalue: 'testing'
+            - value: '4'
+              newvalue: 'faulty'

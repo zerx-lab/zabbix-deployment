@@ -18,6 +18,8 @@ const helpText = `Zabbix 离线部署工具
   status               检查服务状态
   stop                 停止服务
   uninstall            彻底清理
+  import-templates     将内嵌的 Zabbix 监控模板导入到指定 Zabbix 实例
+  list-templates       列出二进制中内嵌的所有监控模板
 
 通用选项:
   -y, --yes            自动确认所有操作（跳过确认提示）
@@ -33,6 +35,15 @@ Deploy 选项:
   --start-pollers <n>        Poller 数量（默认 5）
   --enable-snmp-trapper      启用 SNMP Trap 接收
   --snmp-trapper-port <port> SNMP Trap 端口（默认 162）
+
+Import-Templates 选项:
+  --api-url <url>            Zabbix API 完整地址
+                             例如: http://192.168.1.10:8080/api_jsonrpc.php
+                             若不指定则根据 --web-port 自动构建（指向 localhost）
+  --web-port <port>          Zabbix Web 端口（当 --api-url 未指定时使用，默认 8080）
+  --zabbix-user <user>       Zabbix 登录用户名（默认 Admin）
+  --zabbix-password <pass>   Zabbix 登录密码（默认 zabbix）
+  --force                    强制覆盖已存在的模板（默认：已存在则跳过）
 
 示例:
   # 交互式 TUI 模式
@@ -51,7 +62,19 @@ Deploy 选项:
   ./zabbix-deploy stop -y
 
   # 彻底清理（自动确认）
-  ./zabbix-deploy uninstall -y`
+  ./zabbix-deploy uninstall -y
+
+  # 列出内嵌模板
+  ./zabbix-deploy list-templates
+
+  # 导入模板到本机部署的 Zabbix（默认端口 8080）
+  ./zabbix-deploy import-templates
+
+  # 导入模板到指定 Zabbix（自定义地址和凭据）
+  ./zabbix-deploy import-templates --api-url http://192.168.1.10:8080/api_jsonrpc.php --zabbix-user Admin --zabbix-password mypassword
+
+  # 导入模板并强制覆盖已有对象
+  ./zabbix-deploy import-templates --force`
 
 // showHelp 打印帮助信息
 func showHelp() {
@@ -61,11 +84,13 @@ func showHelp() {
 // ─── 有效命令集 ────────────────────────────────────────────
 
 var validCommands = map[string]Action{
-	"install-docker": ActionInstallDocker,
-	"deploy":         ActionDeploy,
-	"status":         ActionStatus,
-	"stop":           ActionStop,
-	"uninstall":      ActionUninstall,
+	"install-docker":   ActionInstallDocker,
+	"deploy":           ActionDeploy,
+	"status":           ActionStatus,
+	"stop":             ActionStop,
+	"uninstall":        ActionUninstall,
+	"import-templates": ActionImportTemplates,
+	"list-templates":   ActionListTemplates,
 }
 
 // ─── parseArgs 解析命令行参数 ──────────────────────────────
@@ -88,6 +113,12 @@ func parseArgs(argv []string) ParsedArgs {
 			StartPollers:    5,
 			SnmpTrapperPort: 162,
 			DeployDir:       DefaultDeployDir,
+		},
+		ImportTemplatesArgs: ImportTemplatesArgs{
+			WebPort:  8080,
+			Username: defaultZabbixUsername,
+			Password: defaultZabbixPassword,
+			Force:    false,
 		},
 	}
 
@@ -116,6 +147,7 @@ func parseArgs(argv []string) ParsedArgs {
 		case "-h", "--help":
 			result.Help = true
 
+		// ── deploy 专属选项 ───────────────────────────────
 		case "--deploy-dir":
 			result.DeployArgs.DeployDir = requireValue(args, i, arg)
 			result.HasDeployArgs = true
@@ -123,11 +155,6 @@ func parseArgs(argv []string) ParsedArgs {
 
 		case "--db-password":
 			result.DeployArgs.DBPassword = requireValue(args, i, arg)
-			result.HasDeployArgs = true
-			i++
-
-		case "--web-port":
-			result.DeployArgs.WebPort = requirePort(args, i, arg)
 			result.HasDeployArgs = true
 			i++
 
@@ -165,6 +192,30 @@ func parseArgs(argv []string) ParsedArgs {
 			result.DeployArgs.SnmpTrapperPort = requirePort(args, i, arg)
 			result.HasDeployArgs = true
 			i++
+
+		// ── 共用选项（deploy + import-templates 均可使用） ─
+		case "--web-port":
+			port := requirePort(args, i, arg)
+			result.DeployArgs.WebPort = port
+			result.ImportTemplatesArgs.WebPort = port
+			result.HasDeployArgs = true
+			i++
+
+		// ── import-templates 专属选项 ─────────────────────
+		case "--api-url":
+			result.ImportTemplatesArgs.APIURL = requireValue(args, i, arg)
+			i++
+
+		case "--zabbix-user":
+			result.ImportTemplatesArgs.Username = requireValue(args, i, arg)
+			i++
+
+		case "--zabbix-password":
+			result.ImportTemplatesArgs.Password = requireValue(args, i, arg)
+			i++
+
+		case "--force":
+			result.ImportTemplatesArgs.Force = true
 
 		default:
 			fmt.Fprintf(os.Stderr, "未知选项: %s\n", arg)

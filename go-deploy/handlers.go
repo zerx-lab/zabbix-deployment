@@ -737,6 +737,8 @@ func runCli() {
 					huh.NewOption("检查状态        查看服务运行状态与镜像", string(ActionStatus)),
 					huh.NewOption("停止服务        停止所有容器，保留数据和镜像", string(ActionStop)),
 					huh.NewOption("彻底清理        停止服务并删除所有数据、镜像、部署文件", string(ActionUninstall)),
+					huh.NewOption("导入监控模板    将内嵌模板导入到 Zabbix", string(ActionImportTemplates)),
+					huh.NewOption("列出内嵌模板    显示二进制中内嵌的所有监控模板", string(ActionListTemplates)),
 					huh.NewOption("退出", string(ActionQuit)),
 				).
 				Value(&action),
@@ -775,7 +777,199 @@ func runAction(action Action, ctx CliContext) {
 		handleStop(ctx)
 	case ActionUninstall:
 		handleUninstall(ctx)
+	case ActionImportTemplates:
+		handleImportTemplates(ctx)
+	case ActionListTemplates:
+		handleListTemplates()
 	case ActionQuit:
 		// nothing
 	}
+}
+
+// ─── 模板导入 ──────────────────────────────────────────────
+
+// handleListTemplates 列出二进制中内嵌的所有监控模板
+func handleListTemplates() {
+	PrintEmbeddedTemplateList()
+}
+
+// handleImportTemplates 将内嵌的 Zabbix 监控模板导入到目标 Zabbix 实例
+func handleImportTemplates(ctx CliContext) {
+	itArgs := ctx.ImportTemplatesArgs
+
+	// 构建导入选项
+	opts := ImportTemplatesOptions{
+		APIURL:   itArgs.APIURL,
+		WebPort:  itArgs.WebPort,
+		Username: itArgs.Username,
+		Password: itArgs.Password,
+		Force:    itArgs.Force,
+	}
+
+	// 补全默认值
+	if opts.WebPort == 0 {
+		opts.WebPort = 8080
+	}
+	if opts.Username == "" {
+		opts.Username = defaultZabbixUsername
+	}
+	if opts.Password == "" {
+		opts.Password = defaultZabbixPassword
+	}
+
+	// 在 TUI 模式下交互式收集 API 地址和凭据
+	if !ctx.AutoConfirm && opts.APIURL == "" {
+		collected, err := collectImportTemplatesConfig(opts)
+		if err != nil {
+			logError(fmt.Sprintf("收集配置失败: %v", err))
+			return
+		}
+		if collected == nil {
+			printCancel("操作已取消")
+			return
+		}
+		opts = *collected
+	}
+
+	// 打印目标信息
+	apiDisplay := opts.APIURL
+	if apiDisplay == "" {
+		apiDisplay = fmt.Sprintf("http://localhost:%d/api_jsonrpc.php（自动构建）", opts.WebPort)
+	}
+	logInfo(fmt.Sprintf("目标 Zabbix API : %s", apiDisplay))
+	logInfo(fmt.Sprintf("登录用户        : %s", opts.Username))
+	if opts.Force {
+		logInfo("导入模式        : 强制覆盖（--force）")
+	} else {
+		logInfo("导入模式        : 跳过已存在（使用 --force 强制覆盖）")
+	}
+	fmt.Println()
+
+	progress := newProgress()
+	progress.Start("正在连接 Zabbix API...")
+
+	cb := &ImportTemplatesCallbacks{
+		OnStart: func(total int) {
+			progress.Message(fmt.Sprintf("准备导入 %d 个模板...", total))
+		},
+		OnTemplateDone: func(r TemplateImportResult, index int, total int) {
+			switch {
+			case r.Skipped:
+				progress.Message(fmt.Sprintf("[%d/%d] ⏭  %s（已存在）", index, total, r.Name))
+			case r.Success:
+				progress.Message(fmt.Sprintf("[%d/%d] ✓ %s", index, total, r.Name))
+			default:
+				progress.Message(fmt.Sprintf("[%d/%d] ✗ %s", index, total, r.Name))
+			}
+		},
+		OnDone: func(_ ImportTemplatesResult) {},
+	}
+
+	result := ImportEmbeddedTemplates(opts, cb)
+
+	if result.Total == 0 {
+		progress.Stop(yellowText("⚠  未找到任何内嵌模板"))
+		return
+	}
+
+	// 汇总行
+	switch {
+	case result.Failed == 0 && result.Skipped == 0:
+		progress.Stop(greenText(fmt.Sprintf("✓  全部 %d 个模板导入成功", result.Succeeded)))
+	case result.Failed == 0:
+		progress.Stop(greenText(fmt.Sprintf(
+			"✓  导入完成：%d 成功，%d 跳过（已存在）",
+			result.Succeeded, result.Skipped)))
+	default:
+		progress.Stop(yellowText(fmt.Sprintf(
+			"⚠  导入完成：%d 成功，%d 跳过，%d 失败（共 %d 个）",
+			result.Succeeded, result.Skipped, result.Failed, result.Total)))
+	}
+
+	// 逐条详情
+	fmt.Println()
+	for _, r := range result.Results {
+		switch {
+		case r.Skipped:
+			nameHint := r.Name
+			if r.TemplateName != "" {
+				nameHint = fmt.Sprintf("%s  [%s]", r.Name, r.TemplateName)
+			}
+			logWarn(fmt.Sprintf("  ⏭  %s", nameHint))
+		case r.Success:
+			logSuccess(fmt.Sprintf("  ✓ %s", r.Name))
+		default:
+			logError(fmt.Sprintf("  ✗ %s", r.Name))
+			if r.Error != "" {
+				logError(fmt.Sprintf("      %s", r.Error))
+			}
+		}
+	}
+
+	fmt.Println()
+	if result.Failed > 0 {
+		logError(redText(fmt.Sprintf("导入失败 %d 个，请检查上方错误信息", result.Failed)))
+	}
+	if result.Skipped > 0 && !opts.Force {
+		logWarn(fmt.Sprintf("已跳过 %d 个已存在模板，如需覆盖请使用 --force 参数重新导入", result.Skipped))
+	}
+	if result.Failed == 0 && result.Skipped == 0 {
+		logSuccess(greenText("所有模板已成功导入！"))
+	}
+}
+
+// collectImportTemplatesConfig 在 TUI 模式下交互式收集导入配置
+func collectImportTemplatesConfig(defaults ImportTemplatesOptions) (*ImportTemplatesOptions, error) {
+	apiURL := defaults.APIURL
+	username := defaults.Username
+	password := defaults.Password
+
+	defaultAPIURL := fmt.Sprintf("http://localhost:%d/api_jsonrpc.php", defaults.WebPort)
+	if apiURL == "" {
+		apiURL = defaultAPIURL
+	}
+
+	form := huh.NewForm(
+		huh.NewGroup(
+			huh.NewInput().
+				Title("Zabbix API 地址").
+				Description("例如: http://192.168.1.10:8080/api_jsonrpc.php").
+				Placeholder(defaultAPIURL).
+				Value(&apiURL),
+			huh.NewInput().
+				Title("登录用户名").
+				Placeholder(defaultZabbixUsername).
+				Value(&username),
+			huh.NewInput().
+				Title("登录密码").
+				EchoMode(huh.EchoModePassword).
+				Placeholder("（留空使用默认值 zabbix）").
+				Value(&password),
+		),
+	)
+
+	if err := form.Run(); err != nil {
+		if errors.Is(err, huh.ErrUserAborted) {
+			return nil, nil
+		}
+		return nil, err
+	}
+
+	if apiURL == "" {
+		apiURL = defaultAPIURL
+	}
+	if username == "" {
+		username = defaultZabbixUsername
+	}
+	if password == "" {
+		password = defaultZabbixPassword
+	}
+
+	return &ImportTemplatesOptions{
+		APIURL:   apiURL,
+		WebPort:  defaults.WebPort,
+		Username: username,
+		Password: password,
+		Force:    defaults.Force,
+	}, nil
 }

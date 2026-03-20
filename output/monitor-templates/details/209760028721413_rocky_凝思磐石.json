@@ -1,0 +1,1670 @@
+{
+  "nameEn": "凝思磐石",
+  "thresholds": [
+    {
+      "id": 10000297,
+      "templateId": 209760028721413,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "Multistage",
+      "conditions": [
+        {
+          "id": 298,
+          "type": "rocky",
+          "unit": "cpu",
+          "field": "CpuUtilization",
+          "valueType": 0,
+          "operator": "GE",
+          "threshold": [
+            {
+              "level": 1,
+              "value": "80",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 2,
+              "value": "90",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 3,
+              "value": "",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 4,
+              "value": "80",
+              "enable": true,
+              "trigger": 3
+            },
+            {
+              "level": 5,
+              "value": "90",
+              "enable": true,
+              "trigger": 3
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "%",
+          "range": "[0,#]"
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "4": {
+          "level": 4,
+          "value": {
+            "298": "80"
+          },
+          "trigger": 3
+        },
+        "5": {
+          "level": 5,
+          "value": {
+            "298": "90"
+          },
+          "trigger": 3
+        }
+      },
+      "regionId": 1761206917732
+    },
+    {
+      "id": 10000298,
+      "templateId": 209760028721413,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "Multistage",
+      "conditions": [
+        {
+          "id": 299,
+          "type": "rocky",
+          "unit": "disk",
+          "field": "DiskUtilization",
+          "valueType": 0,
+          "operator": "GE",
+          "threshold": [
+            {
+              "level": 1,
+              "value": "80",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 2,
+              "value": "90",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 3,
+              "value": "",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 4,
+              "value": "80",
+              "enable": true,
+              "trigger": 3
+            },
+            {
+              "level": 5,
+              "value": "90",
+              "enable": true,
+              "trigger": 3
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "%",
+          "range": "[#,#]"
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "4": {
+          "level": 4,
+          "value": {
+            "299": "80"
+          },
+          "trigger": 3
+        },
+        "5": {
+          "level": 5,
+          "value": {
+            "299": "90"
+          },
+          "trigger": 3
+        }
+      },
+      "regionId": 1761206917732
+    },
+    {
+      "id": 10000299,
+      "templateId": 209760028721413,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "Multistage",
+      "conditions": [
+        {
+          "id": 300,
+          "type": "rocky",
+          "unit": "memory",
+          "field": "PhysicalMemoryUtilization",
+          "valueType": 0,
+          "operator": "GE",
+          "threshold": [
+            {
+              "level": 1,
+              "value": "70",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 2,
+              "value": "85",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 3,
+              "value": "",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 4,
+              "value": "70",
+              "enable": true,
+              "trigger": 3
+            },
+            {
+              "level": 5,
+              "value": "85",
+              "enable": true,
+              "trigger": 3
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "%",
+          "range": "[#,#]"
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "4": {
+          "level": 4,
+          "value": {
+            "300": "70"
+          },
+          "trigger": 3
+        },
+        "5": {
+          "level": 5,
+          "value": {
+            "300": "85"
+          },
+          "trigger": 3
+        }
+      },
+      "regionId": 1761206917732
+    },
+    {
+      "id": 10000300,
+      "templateId": 209760028721413,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "Multistage",
+      "conditions": [
+        {
+          "id": 301,
+          "type": "rocky",
+          "unit": "memory",
+          "field": "VirtualMemoryUtilization",
+          "valueType": 0,
+          "operator": "GE",
+          "threshold": [
+            {
+              "level": 1,
+              "value": "30",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 2,
+              "value": "70",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 3,
+              "value": "",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 4,
+              "value": "",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 5,
+              "value": "",
+              "enable": false,
+              "trigger": 3
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "%",
+          "range": "[#,#]"
+        }
+      ],
+      "desc": null,
+      "thresholds": {},
+      "regionId": 1761206917732
+    },
+    {
+      "id": 10000301,
+      "templateId": 209760028721413,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "SingleStage",
+      "conditions": [
+        {
+          "id": 302,
+          "type": "general",
+          "unit": "AvailableData",
+          "field": "AvailabilityData",
+          "valueType": 1,
+          "operator": "EQ",
+          "threshold": [
+            {
+              "level": 1,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 2,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 3,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 4,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 5,
+              "value": "无法连接",
+              "enable": true,
+              "trigger": 2
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "",
+          "range": ""
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "5": {
+          "level": 5,
+          "value": {
+            "302": "无法连接"
+          },
+          "trigger": 2
+        }
+      },
+      "regionId": 1761206917732
+    }
+  ],
+  "def": true,
+  "tenantId": "abd2d9f6-36d9-45b8-b7e3-7a793b3a6f2c",
+  "uuid": 209760028721413,
+  "regionId": 1761206917732,
+  "regionPermission": true,
+  "version": 1,
+  "templateId": 209760028721413,
+  "name": "凝思磐石",
+  "type": "rocky",
+  "scene": "MONITOR",
+  "typeLabel": {
+    "zh": "凝思磐石",
+    "en": "Rocky",
+    "label": "凝思磐石"
+  },
+  "describe": null,
+  "custom": false,
+  "operationIds": [
+    801,
+    802,
+    803,
+    804,
+    805,
+    806,
+    807,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    28402,
+    28403
+  ],
+  "resGroup": [],
+  "unitList": [
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "rocky",
+      "unit": "cpu",
+      "nameZh": "CPU",
+      "nameEn": "CPU",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "row",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7715,
+          "type": "rocky",
+          "unit": "cpu",
+          "field": "CpuUtilization",
+          "appname": "apm",
+          "nameZh": "CPU利用率",
+          "nameEn": "CPU Usage Ratio",
+          "explainZh": "指凝思磐石服务器CPU的当前利用率。",
+          "explainEn": "CPU Usage Ratio.",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "rocky",
+      "unit": "cpuinfo_config",
+      "nameZh": "处理器信息",
+      "nameEn": "Processor Info",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "table",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7716,
+          "type": "rocky",
+          "unit": "cpuinfo_config",
+          "field": "CurrentClockSpeed",
+          "appname": "apm",
+          "nameZh": "时钟频率",
+          "nameEn": "Clock Speed",
+          "explainZh": "时钟频率。",
+          "explainEn": "Clock Speed.",
+          "fieldUnit": "MHz",
+          "unitGroup": {
+            "name": "Frequency",
+            "label": {
+              "zh": "频率",
+              "en": "Frequency",
+              "label": "频率"
+            },
+            "items": [
+              {
+                "name": "Frequency",
+                "origin": "Hz",
+                "destination": "KHz",
+                "multiplier": 1000.0
+              },
+              {
+                "name": "Frequency",
+                "origin": "KHz",
+                "destination": "MHz",
+                "multiplier": 1000.0
+              },
+              {
+                "name": "Frequency",
+                "origin": "MHz",
+                "destination": "GHz",
+                "multiplier": 1000.0
+              },
+              {
+                "name": "Frequency",
+                "origin": "GHz",
+                "destination": "THz",
+                "multiplier": 1000.0
+              }
+            ],
+            "units": [
+              "Hz",
+              "KHz",
+              "MHz",
+              "GHz",
+              "THz"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7717,
+          "type": "rocky",
+          "unit": "cpuinfo_config",
+          "field": "Name",
+          "appname": "apm",
+          "nameZh": "处理器型号",
+          "nameEn": "Processor Model",
+          "explainZh": "指凝思磐石服务器处理器的型号。",
+          "explainEn": "Model of the processor on the Rocky server.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "IC,EC,NEQ,RULE,EQ,CHG",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7718,
+          "type": "rocky",
+          "unit": "cpuinfo_config",
+          "field": "NumberOfCores",
+          "appname": "apm",
+          "nameZh": "核心数",
+          "nameEn": "Number Of Cores",
+          "explainZh": "指凝思磐石服务器处理器的核数。",
+          "explainEn": "Number of cores on the processor of the Rocky server.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": -1,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7719,
+          "type": "rocky",
+          "unit": "cpuinfo_config",
+          "field": "processor",
+          "appname": "apm",
+          "nameZh": "CPU名称",
+          "nameEn": "CPU Name",
+          "explainZh": "指凝思磐石服务器处理器的名称。",
+          "explainEn": "Name of the processor on the Rocky server.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "IC,EC,NEQ,RULE,EQ",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "rocky",
+      "unit": "cpuinfo_stat",
+      "nameZh": "CPU性能",
+      "nameEn": "CPU Performance",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "table",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7720,
+          "type": "rocky",
+          "unit": "cpuinfo_stat",
+          "field": "LoadPercentage",
+          "appname": "apm",
+          "nameZh": "系统利用率",
+          "nameEn": "Load Percentage",
+          "explainZh": "指凝思磐石服务器CPU的系统利用率。",
+          "explainEn": "System usage of the CPU on the Rocky server.",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": -1,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7721,
+          "type": "rocky",
+          "unit": "cpuinfo_stat",
+          "field": "processor",
+          "appname": "apm",
+          "nameZh": "CPU名称",
+          "nameEn": "CPU Name",
+          "explainZh": "指凝思磐石服务器CPU的名称。",
+          "explainEn": "Name of the CPU on the Rocky server.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "IC,EC,NEQ,RULE,EQ",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "rocky",
+      "unit": "disk",
+      "nameZh": "文件系统",
+      "nameEn": "File System",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "table",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7722,
+          "type": "rocky",
+          "unit": "disk",
+          "field": "DiskFreeSpace",
+          "appname": "apm",
+          "nameZh": "空闲空间",
+          "nameEn": "Free Space",
+          "explainZh": "指凝思磐石服务器某个文件系统空闲空间大小。",
+          "explainEn": "Free Space.",
+          "fieldUnit": "KB",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": -1,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7723,
+          "type": "rocky",
+          "unit": "disk",
+          "field": "DiskName",
+          "appname": "apm",
+          "nameZh": "名称",
+          "nameEn": "Name",
+          "explainZh": "指凝思磐石服务器的某个文件系统的名称。",
+          "explainEn": "Name.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "IC,EC,NEQ,RULE,EQ",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7724,
+          "type": "rocky",
+          "unit": "disk",
+          "field": "DiskSize",
+          "appname": "apm",
+          "nameZh": "容量",
+          "nameEn": "Size",
+          "explainZh": "指凝思磐石某个卷组的容量。",
+          "explainEn": "Size.",
+          "fieldUnit": "KB",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7725,
+          "type": "rocky",
+          "unit": "disk",
+          "field": "DiskUsed",
+          "appname": "apm",
+          "nameZh": "已用空间",
+          "nameEn": "In Use",
+          "explainZh": "指凝思磐石服务器某个文件系统已用空间大小。",
+          "explainEn": "In Use.",
+          "fieldUnit": "KB",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7726,
+          "type": "rocky",
+          "unit": "disk",
+          "field": "DiskUtilization",
+          "appname": "apm",
+          "nameZh": "文件系统利用率",
+          "nameEn": "File System Usage Ratio",
+          "explainZh": "指凝思磐石服务器某个文件系统的空间利用率。",
+          "explainEn": "File System Usage Ratio.",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "rocky",
+      "unit": "memory",
+      "nameZh": "内存",
+      "nameEn": "Memory",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "row",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7742,
+          "type": "rocky",
+          "unit": "memory",
+          "field": "PhysicalMemoryTotal",
+          "appname": "apm",
+          "nameZh": "物理内存容量",
+          "nameEn": "Physical Memory Total",
+          "explainZh": "指凝思磐石服务器的物理内存总数。",
+          "explainEn": "Physical Memory Total.",
+          "fieldUnit": "MB",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7743,
+          "type": "rocky",
+          "unit": "memory",
+          "field": "PhysicalMemoryUsed",
+          "appname": "apm",
+          "nameZh": "已用物理内存",
+          "nameEn": "Physical Memory In Use",
+          "explainZh": "指凝思磐石服务器的已使用物理内存数。",
+          "explainEn": "Physical Memory In Use.",
+          "fieldUnit": "MB",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7744,
+          "type": "rocky",
+          "unit": "memory",
+          "field": "PhysicalMemoryUtilization",
+          "appname": "apm",
+          "nameZh": "物理内存利用率",
+          "nameEn": "Physical Memory Usage Ratio",
+          "explainZh": "指凝思磐石服务器的物理内存利用率。",
+          "explainEn": "Physical Memory Usage Ratio.",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7745,
+          "type": "rocky",
+          "unit": "memory",
+          "field": "VirtualMemoryTotal",
+          "appname": "apm",
+          "nameZh": "交换内存容量",
+          "nameEn": "Swap Total",
+          "explainZh": "指凝思磐石服务器的交换内存总数。",
+          "explainEn": "Swap Total.",
+          "fieldUnit": "MB",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7746,
+          "type": "rocky",
+          "unit": "memory",
+          "field": "VirtualMemoryUsed",
+          "appname": "apm",
+          "nameZh": "已用交换内存",
+          "nameEn": "Swap In Use",
+          "explainZh": "指凝思磐石服务器的交换内存数。",
+          "explainEn": "Swap In Use.",
+          "fieldUnit": "MB",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7747,
+          "type": "rocky",
+          "unit": "memory",
+          "field": "VirtualMemoryUtilization",
+          "appname": "apm",
+          "nameZh": "交换内存利用率",
+          "nameEn": "Swap Usage Ratio",
+          "explainZh": "指凝思磐石服务器的交换内存利用率。",
+          "explainEn": "Swap Usage Ratio.",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "rocky",
+      "unit": "ping",
+      "nameZh": "Ping测试",
+      "nameEn": "Ping Test",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "row",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7751,
+          "type": "rocky",
+          "unit": "ping",
+          "field": "connected",
+          "appname": "apm",
+          "nameZh": "连接",
+          "nameEn": "Connected",
+          "explainZh": "连接。",
+          "explainEn": "Connected.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "IC,EC,NEQ,RULE,EQ,CHG",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7752,
+          "type": "rocky",
+          "unit": "ping",
+          "field": "recvPackageNum",
+          "appname": "apm",
+          "nameZh": "接收包数",
+          "nameEn": "Packets Received",
+          "explainZh": "指凝思磐石服务器进行Ping测试接收的包的数量。",
+          "explainEn": "Packets Received.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7753,
+          "type": "rocky",
+          "unit": "ping",
+          "field": "replytime",
+          "appname": "apm",
+          "nameZh": "响应时间",
+          "nameEn": "Response Time",
+          "explainZh": "指凝思磐石服务器进行Ping测试的响应时间。",
+          "explainEn": "Response Time.",
+          "fieldUnit": "ms",
+          "unitGroup": {
+            "name": "Time",
+            "label": {
+              "zh": "时间",
+              "en": "Time",
+              "label": "时间"
+            },
+            "items": [
+              {
+                "name": "Time",
+                "origin": "ms",
+                "destination": "s",
+                "multiplier": 1000.0
+              }
+            ],
+            "units": [
+              "ms",
+              "s"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7754,
+          "type": "rocky",
+          "unit": "ping",
+          "field": "sendPackageNum",
+          "appname": "apm",
+          "nameZh": "发送包数",
+          "nameEn": "Packets Sent",
+          "explainZh": "指凝思磐石服务器进行Ping测试发送的包的数量。",
+          "explainEn": "Packets Sent.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "rocky",
+      "unit": "sysload",
+      "nameZh": "系统负载",
+      "nameEn": "System Load",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "row",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7762,
+          "type": "rocky",
+          "unit": "sysload",
+          "field": "FifteenMinuteLoad",
+          "appname": "apm",
+          "nameZh": "15分钟系统平均负载",
+          "nameEn": "System Loads/15 Min",
+          "explainZh": "指凝思磐石服务器最近十五分钟运行的系统平均负载。",
+          "explainEn": "System Loads/15 Min.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7763,
+          "type": "rocky",
+          "unit": "sysload",
+          "field": "FiveMinuteLoad",
+          "appname": "apm",
+          "nameZh": "5分钟系统平均负载",
+          "nameEn": "System Loads/5 Min",
+          "explainZh": "指凝思磐石服务器最近五分钟运行的系统平均负载。",
+          "explainEn": "System Loads/5 Min.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7764,
+          "type": "rocky",
+          "unit": "sysload",
+          "field": "OneMinuteLoad",
+          "appname": "apm",
+          "nameZh": "1分钟系统平均负载",
+          "nameEn": "System Load/Min",
+          "explainZh": "指凝思磐石服务器最近一分钟运行的系统平均负载。",
+          "explainEn": "System Load/Min.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": [
+        "AvailabilityData"
+      ],
+      "allField": false,
+      "operations": null,
+      "enableDelete": false,
+      "type": "general",
+      "unit": "AvailableData",
+      "nameZh": "可用性",
+      "nameEn": "Availability",
+      "appname": "apm",
+      "collectTime": 60,
+      "scope": 3,
+      "defaultUsed": true,
+      "defaultCp": true,
+      "enableCollectTime": true,
+      "dataType": "",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 19916,
+          "type": "general",
+          "unit": "AvailableData",
+          "field": "AvailabilityData",
+          "appname": "apm",
+          "nameZh": "协议连接",
+          "nameEn": "Protocol Connection",
+          "explainZh": "测试IP对应资源的协议连接。",
+          "explainEn": "Test the protocol connections of the resource corresponding to an IP address.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "EQ",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    }
+  ]
+}

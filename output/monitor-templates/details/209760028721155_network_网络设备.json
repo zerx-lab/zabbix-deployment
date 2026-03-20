@@ -1,0 +1,1152 @@
+{
+  "nameEn": "网络设备",
+  "thresholds": [
+    {
+      "id": 10000000,
+      "templateId": 209760028721155,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "Multistage",
+      "conditions": [
+        {
+          "id": 1,
+          "type": "network",
+          "unit": "cpu",
+          "field": "cpuUtilization",
+          "valueType": 0,
+          "operator": "GE",
+          "threshold": [
+            {
+              "level": 3,
+              "value": "70",
+              "enable": true,
+              "trigger": 3
+            },
+            {
+              "level": 4,
+              "value": "90",
+              "enable": true,
+              "trigger": 3
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "%",
+          "range": "[0,100]"
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "3": {
+          "level": 3,
+          "value": {
+            "1": "70"
+          },
+          "trigger": 3
+        },
+        "4": {
+          "level": 4,
+          "value": {
+            "1": "90"
+          },
+          "trigger": 3
+        }
+      },
+      "regionId": 1761206917732
+    },
+    {
+      "id": 10000001,
+      "templateId": 209760028721155,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "Multistage",
+      "conditions": [
+        {
+          "id": 2,
+          "type": "network",
+          "unit": "memory",
+          "field": "memUtilization",
+          "valueType": 0,
+          "operator": "GE",
+          "threshold": [
+            {
+              "level": 3,
+              "value": "80",
+              "enable": true,
+              "trigger": 3
+            },
+            {
+              "level": 4,
+              "value": "90",
+              "enable": true,
+              "trigger": 3
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "%",
+          "range": "[0,100]"
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "3": {
+          "level": 3,
+          "value": {
+            "2": "80"
+          },
+          "trigger": 3
+        },
+        "4": {
+          "level": 4,
+          "value": {
+            "2": "90"
+          },
+          "trigger": 3
+        }
+      },
+      "regionId": 1761206917732
+    },
+    {
+      "id": 10000002,
+      "templateId": 209760028721155,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "Multistage",
+      "conditions": [
+        {
+          "id": 3,
+          "type": "network",
+          "unit": "deviceDefect",
+          "field": "responseTime",
+          "valueType": 0,
+          "operator": "GE",
+          "threshold": [
+            {
+              "level": 3,
+              "value": "50",
+              "enable": true,
+              "trigger": 3
+            },
+            {
+              "level": 4,
+              "value": "100",
+              "enable": true,
+              "trigger": 3
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "ms",
+          "range": "[0,#]"
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "3": {
+          "level": 3,
+          "value": {
+            "3": "50"
+          },
+          "trigger": 3
+        },
+        "4": {
+          "level": 4,
+          "value": {
+            "3": "100"
+          },
+          "trigger": 3
+        }
+      },
+      "regionId": 1761206917732
+    },
+    {
+      "id": 10000003,
+      "templateId": 209760028721155,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "Multistage",
+      "conditions": [
+        {
+          "id": 4,
+          "type": "network",
+          "unit": "powerStatus",
+          "field": "devPowerStatus",
+          "valueType": 1,
+          "operator": "RULE",
+          "threshold": [
+            {
+              "level": 3,
+              "value": "异常|不支持",
+              "enable": true,
+              "trigger": 1
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "",
+          "range": "[0,1]"
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "3": {
+          "level": 3,
+          "value": {
+            "4": "异常|不支持"
+          },
+          "trigger": 1
+        }
+      },
+      "regionId": 1761206917732
+    },
+    {
+      "id": 10000004,
+      "templateId": 209760028721155,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "Multistage",
+      "conditions": [
+        {
+          "id": 5,
+          "type": "network",
+          "unit": "fanStatus",
+          "field": "devFanStatus",
+          "valueType": 1,
+          "operator": "RULE",
+          "threshold": [
+            {
+              "level": 3,
+              "value": "异常|不支持",
+              "enable": true,
+              "trigger": 1
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "",
+          "range": "[0,1]"
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "3": {
+          "level": 3,
+          "value": {
+            "5": "异常|不支持"
+          },
+          "trigger": 1
+        }
+      },
+      "regionId": 1761206917732
+    },
+    {
+      "id": 10000005,
+      "templateId": 209760028721155,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "Multistage",
+      "conditions": [
+        {
+          "id": 6,
+          "type": "network",
+          "unit": "boardTemp",
+          "field": "devBoardTemp",
+          "valueType": 0,
+          "operator": "GE",
+          "threshold": [
+            {
+              "level": 3,
+              "value": "60",
+              "enable": true,
+              "trigger": 3
+            },
+            {
+              "level": 4,
+              "value": "80",
+              "enable": true,
+              "trigger": 3
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "℃",
+          "range": "[0,2000]"
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "3": {
+          "level": 3,
+          "value": {
+            "6": "60"
+          },
+          "trigger": 3
+        },
+        "4": {
+          "level": 4,
+          "value": {
+            "6": "80"
+          },
+          "trigger": 3
+        }
+      },
+      "regionId": 1761206917732
+    },
+    {
+      "id": 10000006,
+      "templateId": 209760028721155,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "Multistage",
+      "conditions": [
+        {
+          "id": 7,
+          "type": "network",
+          "unit": "interface",
+          "field": "interfaceNegotiationRate",
+          "valueType": 0,
+          "operator": "CHG",
+          "threshold": [
+            {
+              "level": 3,
+              "value": "0",
+              "enable": false,
+              "trigger": 3
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "bps",
+          "range": "[0,#]"
+        }
+      ],
+      "desc": null,
+      "thresholds": {},
+      "regionId": 1761206917732
+    },
+    {
+      "id": 10000007,
+      "templateId": 209760028721155,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "Multistage",
+      "conditions": [
+        {
+          "id": 8,
+          "type": "network",
+          "unit": "interface",
+          "field": "txUtilization",
+          "valueType": 0,
+          "operator": "GE",
+          "threshold": [
+            {
+              "level": 3,
+              "value": "60",
+              "enable": true,
+              "trigger": 3
+            },
+            {
+              "level": 4,
+              "value": "90",
+              "enable": true,
+              "trigger": 3
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "%",
+          "range": "[0,100]"
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "3": {
+          "level": 3,
+          "value": {
+            "8": "60"
+          },
+          "trigger": 3
+        },
+        "4": {
+          "level": 4,
+          "value": {
+            "8": "90"
+          },
+          "trigger": 3
+        }
+      },
+      "regionId": 1761206917732
+    },
+    {
+      "id": 10000008,
+      "templateId": 209760028721155,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "Multistage",
+      "conditions": [
+        {
+          "id": 9,
+          "type": "network",
+          "unit": "interface",
+          "field": "rxUtilization",
+          "valueType": 0,
+          "operator": "GE",
+          "threshold": [
+            {
+              "level": 3,
+              "value": "60",
+              "enable": true,
+              "trigger": 3
+            },
+            {
+              "level": 4,
+              "value": "90",
+              "enable": true,
+              "trigger": 3
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "%",
+          "range": "[0,100]"
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "3": {
+          "level": 3,
+          "value": {
+            "9": "60"
+          },
+          "trigger": 3
+        },
+        "4": {
+          "level": 4,
+          "value": {
+            "9": "90"
+          },
+          "trigger": 3
+        }
+      },
+      "regionId": 1761206917732
+    }
+  ],
+  "def": true,
+  "tenantId": "abd2d9f6-36d9-45b8-b7e3-7a793b3a6f2c",
+  "uuid": 209760028721155,
+  "regionId": 1761206917732,
+  "regionPermission": true,
+  "version": 2,
+  "templateId": 209760028721155,
+  "name": "网络设备",
+  "type": "network",
+  "scene": "MONITOR",
+  "typeLabel": {
+    "zh": "网络设备",
+    "en": "Network Device",
+    "label": "网络设备"
+  },
+  "describe": null,
+  "custom": false,
+  "operationIds": [
+    801,
+    802,
+    803,
+    804,
+    805,
+    806,
+    807,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    28402,
+    28403
+  ],
+  "resGroup": [],
+  "unitList": [
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "network",
+      "unit": "boardTemp",
+      "nameZh": "设备温度",
+      "nameEn": "Device Temperature",
+      "appname": "network",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "table",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 43,
+          "type": "network",
+          "unit": "boardTemp",
+          "field": "devBoardTemp",
+          "appname": "network",
+          "nameZh": "设备温度",
+          "nameEn": "Device Temperature",
+          "explainZh": null,
+          "explainEn": null,
+          "fieldUnit": "℃",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "EQ,GT,GE,LT,LE,CT,DC",
+          "optionalValue": null,
+          "range": "[0,2000]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "network",
+      "unit": "cpu",
+      "nameZh": "CPU",
+      "nameEn": "CPU Usage",
+      "appname": "network",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "table",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 4,
+          "type": "network",
+          "unit": "cpu",
+          "field": "cpuUtilization",
+          "appname": "network",
+          "nameZh": "CPU利用率",
+          "nameEn": "CPU Usage",
+          "explainZh": null,
+          "explainEn": null,
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "EQ,GT,GE,LT,LE,CT,DC",
+          "optionalValue": null,
+          "range": "[0,100]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "network",
+      "unit": "deviceDefect",
+      "nameZh": "设备缺陷",
+      "nameEn": "Device Defect",
+      "appname": "network",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "table",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 6,
+          "type": "network",
+          "unit": "deviceDefect",
+          "field": "responseTime",
+          "appname": "network",
+          "nameZh": "设备响应时间",
+          "nameEn": "Device Response Time",
+          "explainZh": null,
+          "explainEn": null,
+          "fieldUnit": "ms",
+          "unitGroup": {
+            "name": "Network_Time",
+            "label": {
+              "zh": "时间",
+              "en": "Time",
+              "label": "时间"
+            },
+            "items": [
+              {
+                "name": "Network_Time",
+                "origin": "ms",
+                "destination": "s",
+                "multiplier": 1000.0
+              }
+            ],
+            "units": [
+              "ms",
+              "s"
+            ],
+            "appname": "network"
+          },
+          "valueType": 0,
+          "conditionType": "EQ,GT,GE,LT,LE,CT,DC",
+          "optionalValue": null,
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7,
+          "type": "network",
+          "unit": "deviceDefect",
+          "field": "unreachableRate",
+          "appname": "network",
+          "nameZh": "设备不可达性比例",
+          "nameEn": "Device Unreachability Ratio",
+          "explainZh": null,
+          "explainEn": null,
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "EQ,GT,GE,LT,LE,CT,DC",
+          "optionalValue": null,
+          "range": "[0,100]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "network",
+      "unit": "fanStatus",
+      "nameZh": "风扇监控",
+      "nameEn": "Fan Monitor",
+      "appname": "network",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "table",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 41,
+          "type": "network",
+          "unit": "fanStatus",
+          "field": "devFanStatus",
+          "appname": "network",
+          "nameZh": "风扇状态",
+          "nameEn": "Fan Status",
+          "explainZh": null,
+          "explainEn": null,
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "RULE,CHG",
+          "optionalValue": "[{\"name\":\"正常\",\"nameEn\":\"Normal\",\"nameAlias\":\"正常\"},{\"name\":\"异常\",\"nameEn\":\"Abnormal\",\"nameAlias\":\"异常\"}]",
+          "range": "[0,1]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 42,
+          "type": "network",
+          "unit": "fanStatus",
+          "field": "devFanSpeed",
+          "appname": "network",
+          "nameZh": "风扇转速",
+          "nameEn": "Fan Speed",
+          "explainZh": null,
+          "explainEn": null,
+          "fieldUnit": "RPM",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "EQ,GT,GE,LT,LE,CT,DC",
+          "optionalValue": null,
+          "range": "[0,100000]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "network",
+      "unit": "interface",
+      "nameZh": "接口统计",
+      "nameEn": "Interface Statistics",
+      "appname": "network",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "table",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 8,
+          "type": "network",
+          "unit": "interface",
+          "field": "interfaceNegotiationRate",
+          "appname": "network",
+          "nameZh": "接口协商速率",
+          "nameEn": "Negotiated Interface Rate",
+          "explainZh": null,
+          "explainEn": null,
+          "fieldUnit": "bps",
+          "unitGroup": {
+            "name": "Network_TransmissionSpeed",
+            "label": {
+              "zh": "传输速率",
+              "en": "Transmission Rate",
+              "label": "传输速率"
+            },
+            "items": [
+              {
+                "name": "Network_TransmissionSpeed",
+                "origin": "bps",
+                "destination": "Kbps",
+                "multiplier": 1000.0
+              },
+              {
+                "name": "Network_TransmissionSpeed",
+                "origin": "Kbps",
+                "destination": "Mbps",
+                "multiplier": 1000.0
+              },
+              {
+                "name": "Network_TransmissionSpeed",
+                "origin": "Mbps",
+                "destination": "Gbps",
+                "multiplier": 1000.0
+              }
+            ],
+            "units": [
+              "bps",
+              "Kbps",
+              "Mbps",
+              "Gbps"
+            ],
+            "appname": "network"
+          },
+          "valueType": 0,
+          "conditionType": "EQ,GT,GE,LT,LE,CT,DC",
+          "optionalValue": null,
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 9,
+          "type": "network",
+          "unit": "interface",
+          "field": "rxPerSec",
+          "appname": "network",
+          "nameZh": "接口接收速率",
+          "nameEn": "Interface Rx Rate",
+          "explainZh": null,
+          "explainEn": null,
+          "fieldUnit": "bps",
+          "unitGroup": {
+            "name": "Network_TransmissionSpeed",
+            "label": {
+              "zh": "传输速率",
+              "en": "Transmission Rate",
+              "label": "传输速率"
+            },
+            "items": [
+              {
+                "name": "Network_TransmissionSpeed",
+                "origin": "bps",
+                "destination": "Kbps",
+                "multiplier": 1000.0
+              },
+              {
+                "name": "Network_TransmissionSpeed",
+                "origin": "Kbps",
+                "destination": "Mbps",
+                "multiplier": 1000.0
+              },
+              {
+                "name": "Network_TransmissionSpeed",
+                "origin": "Mbps",
+                "destination": "Gbps",
+                "multiplier": 1000.0
+              }
+            ],
+            "units": [
+              "bps",
+              "Kbps",
+              "Mbps",
+              "Gbps"
+            ],
+            "appname": "network"
+          },
+          "valueType": 0,
+          "conditionType": "EQ,GT,GE,LT,LE,CT,DC",
+          "optionalValue": null,
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 10,
+          "type": "network",
+          "unit": "interface",
+          "field": "txPerSec",
+          "appname": "network",
+          "nameZh": "接口发送速率",
+          "nameEn": "Interface Tx Rate",
+          "explainZh": null,
+          "explainEn": null,
+          "fieldUnit": "bps",
+          "unitGroup": {
+            "name": "Network_TransmissionSpeed",
+            "label": {
+              "zh": "传输速率",
+              "en": "Transmission Rate",
+              "label": "传输速率"
+            },
+            "items": [
+              {
+                "name": "Network_TransmissionSpeed",
+                "origin": "bps",
+                "destination": "Kbps",
+                "multiplier": 1000.0
+              },
+              {
+                "name": "Network_TransmissionSpeed",
+                "origin": "Kbps",
+                "destination": "Mbps",
+                "multiplier": 1000.0
+              },
+              {
+                "name": "Network_TransmissionSpeed",
+                "origin": "Mbps",
+                "destination": "Gbps",
+                "multiplier": 1000.0
+              }
+            ],
+            "units": [
+              "bps",
+              "Kbps",
+              "Mbps",
+              "Gbps"
+            ],
+            "appname": "network"
+          },
+          "valueType": 0,
+          "conditionType": "EQ,GT,GE,LT,LE,CT,DC",
+          "optionalValue": null,
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 11,
+          "type": "network",
+          "unit": "interface",
+          "field": "rxUtilization",
+          "appname": "network",
+          "nameZh": "接口输入带宽利用率",
+          "nameEn": "Interface Input Bandwidth Usage",
+          "explainZh": null,
+          "explainEn": null,
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "EQ,GT,GE,LT,LE,CT,DC",
+          "optionalValue": null,
+          "range": "[0,100]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 12,
+          "type": "network",
+          "unit": "interface",
+          "field": "txUtilization",
+          "appname": "network",
+          "nameZh": "接口输出带宽利用率",
+          "nameEn": "Interface Output Bandwidth Usage",
+          "explainZh": null,
+          "explainEn": null,
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "EQ,GT,GE,LT,LE,CT,DC",
+          "optionalValue": null,
+          "range": "[0,100]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "network",
+      "unit": "memory",
+      "nameZh": "内存",
+      "nameEn": "Memory",
+      "appname": "network",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "table",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 5,
+          "type": "network",
+          "unit": "memory",
+          "field": "memUtilization",
+          "appname": "network",
+          "nameZh": "内存利用率",
+          "nameEn": "Memory Usage",
+          "explainZh": null,
+          "explainEn": null,
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "EQ,GT,GE,LT,LE,CT,DC",
+          "optionalValue": null,
+          "range": "[0,100]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "network",
+      "unit": "powerStatus",
+      "nameZh": "电源状态",
+      "nameEn": "Power Supply Status",
+      "appname": "network",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "table",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 40,
+          "type": "network",
+          "unit": "powerStatus",
+          "field": "devPowerStatus",
+          "appname": "network",
+          "nameZh": "电源状态",
+          "nameEn": "Power Supply Status",
+          "explainZh": null,
+          "explainEn": null,
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "RULE,CHG",
+          "optionalValue": "[{\"name\":\"正常\",\"nameEn\":\"Normal\",\"nameAlias\":\"正常\"},{\"name\":\"异常\",\"nameEn\":\"Abnormal\",\"nameAlias\":\"异常\"}]",
+          "range": "[0,1]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    }
+  ]
+}

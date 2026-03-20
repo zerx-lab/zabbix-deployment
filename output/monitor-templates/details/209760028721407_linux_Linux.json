@@ -1,0 +1,2923 @@
+{
+  "nameEn": "Linux",
+  "thresholds": [
+    {
+      "id": 10000280,
+      "templateId": 209760028721407,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "Multistage",
+      "conditions": [
+        {
+          "id": 281,
+          "type": "linux",
+          "unit": "cpu",
+          "field": "CpuUtilization",
+          "valueType": 0,
+          "operator": "GE",
+          "threshold": [
+            {
+              "level": 1,
+              "value": "80",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 2,
+              "value": "90",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 3,
+              "value": "",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 4,
+              "value": "80",
+              "enable": true,
+              "trigger": 3
+            },
+            {
+              "level": 5,
+              "value": "90",
+              "enable": true,
+              "trigger": 3
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "%",
+          "range": "[0,#]"
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "4": {
+          "level": 4,
+          "value": {
+            "281": "80"
+          },
+          "trigger": 3
+        },
+        "5": {
+          "level": 5,
+          "value": {
+            "281": "90"
+          },
+          "trigger": 3
+        }
+      },
+      "regionId": 1761206917732
+    },
+    {
+      "id": 10000281,
+      "templateId": 209760028721407,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "Multistage",
+      "conditions": [
+        {
+          "id": 282,
+          "type": "linux",
+          "unit": "disk",
+          "field": "DiskUtilization",
+          "valueType": 0,
+          "operator": "GE",
+          "threshold": [
+            {
+              "level": 1,
+              "value": "80",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 2,
+              "value": "90",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 3,
+              "value": "",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 4,
+              "value": "80",
+              "enable": true,
+              "trigger": 3
+            },
+            {
+              "level": 5,
+              "value": "90",
+              "enable": true,
+              "trigger": 3
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "%",
+          "range": "[#,#]"
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "4": {
+          "level": 4,
+          "value": {
+            "282": "80"
+          },
+          "trigger": 3
+        },
+        "5": {
+          "level": 5,
+          "value": {
+            "282": "90"
+          },
+          "trigger": 3
+        }
+      },
+      "regionId": 1761206917732
+    },
+    {
+      "id": 10000282,
+      "templateId": 209760028721407,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "Multistage",
+      "conditions": [
+        {
+          "id": 283,
+          "type": "linux",
+          "unit": "inode",
+          "field": "iNodeUtilization",
+          "valueType": 0,
+          "operator": "GE",
+          "threshold": [
+            {
+              "level": 1,
+              "value": "85",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 2,
+              "value": "95",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 3,
+              "value": "",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 4,
+              "value": "85",
+              "enable": true,
+              "trigger": 3
+            },
+            {
+              "level": 5,
+              "value": "95",
+              "enable": true,
+              "trigger": 3
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "%",
+          "range": "[#,#]"
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "4": {
+          "level": 4,
+          "value": {
+            "283": "85"
+          },
+          "trigger": 3
+        },
+        "5": {
+          "level": 5,
+          "value": {
+            "283": "95"
+          },
+          "trigger": 3
+        }
+      },
+      "regionId": 1761206917732
+    },
+    {
+      "id": 10000283,
+      "templateId": 209760028721407,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "Multistage",
+      "conditions": [
+        {
+          "id": 284,
+          "type": "linux",
+          "unit": "interface",
+          "field": "ReceivedPersec",
+          "valueType": 0,
+          "operator": "GE",
+          "threshold": [
+            {
+              "level": 1,
+              "value": "314572800",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 2,
+              "value": "734003200",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 3,
+              "value": "",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 4,
+              "value": "",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 5,
+              "value": "",
+              "enable": false,
+              "trigger": 3
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "bps",
+          "range": "[0,#]"
+        }
+      ],
+      "desc": null,
+      "thresholds": {},
+      "regionId": 1761206917732
+    },
+    {
+      "id": 10000284,
+      "templateId": 209760028721407,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "Multistage",
+      "conditions": [
+        {
+          "id": 285,
+          "type": "linux",
+          "unit": "memory",
+          "field": "PhysicalMemoryUtilization",
+          "valueType": 0,
+          "operator": "GE",
+          "threshold": [
+            {
+              "level": 1,
+              "value": "70",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 2,
+              "value": "85",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 3,
+              "value": "",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 4,
+              "value": "70",
+              "enable": true,
+              "trigger": 3
+            },
+            {
+              "level": 5,
+              "value": "85",
+              "enable": true,
+              "trigger": 3
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "%",
+          "range": "[#,#]"
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "4": {
+          "level": 4,
+          "value": {
+            "285": "70"
+          },
+          "trigger": 3
+        },
+        "5": {
+          "level": 5,
+          "value": {
+            "285": "85"
+          },
+          "trigger": 3
+        }
+      },
+      "regionId": 1761206917732
+    },
+    {
+      "id": 10000285,
+      "templateId": 209760028721407,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "Multistage",
+      "conditions": [
+        {
+          "id": 286,
+          "type": "linux",
+          "unit": "memory",
+          "field": "VirtualMemoryUtilization",
+          "valueType": 0,
+          "operator": "GE",
+          "threshold": [
+            {
+              "level": 1,
+              "value": "30",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 2,
+              "value": "70",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 3,
+              "value": "",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 4,
+              "value": "",
+              "enable": false,
+              "trigger": 3
+            },
+            {
+              "level": 5,
+              "value": "",
+              "enable": false,
+              "trigger": 3
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "%",
+          "range": "[#,#]"
+        }
+      ],
+      "desc": null,
+      "thresholds": {},
+      "regionId": 1761206917732
+    },
+    {
+      "id": 10000286,
+      "templateId": 209760028721407,
+      "resId": null,
+      "instanceUnit": null,
+      "instanceId": null,
+      "rule": null,
+      "duration": [],
+      "type": "Simple",
+      "valueType": "SingleStage",
+      "conditions": [
+        {
+          "id": 287,
+          "type": "general",
+          "unit": "AvailableData",
+          "field": "AvailabilityData",
+          "valueType": 1,
+          "operator": "EQ",
+          "threshold": [
+            {
+              "level": 1,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 2,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 3,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 4,
+              "value": "无法连接",
+              "enable": false,
+              "trigger": 2
+            },
+            {
+              "level": 5,
+              "value": "无法连接",
+              "enable": true,
+              "trigger": 2
+            }
+          ],
+          "value": "[[threshold]]",
+          "symbol": "",
+          "range": ""
+        }
+      ],
+      "desc": null,
+      "thresholds": {
+        "5": {
+          "level": 5,
+          "value": {
+            "287": "无法连接"
+          },
+          "trigger": 2
+        }
+      },
+      "regionId": 1761206917732
+    }
+  ],
+  "def": true,
+  "tenantId": "abd2d9f6-36d9-45b8-b7e3-7a793b3a6f2c",
+  "uuid": 209760028721407,
+  "regionId": 1761206917732,
+  "regionPermission": true,
+  "version": 2,
+  "templateId": 209760028721407,
+  "name": "Linux",
+  "type": "linux",
+  "scene": "MONITOR",
+  "typeLabel": {
+    "zh": "Linux",
+    "en": "Linux",
+    "label": "Linux"
+  },
+  "describe": null,
+  "custom": false,
+  "operationIds": [
+    801,
+    802,
+    803,
+    804,
+    805,
+    806,
+    807,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    28402,
+    28403
+  ],
+  "resGroup": [],
+  "unitList": [
+    {
+      "selectedFields": [
+        "AvailabilityData"
+      ],
+      "allField": false,
+      "operations": null,
+      "enableDelete": false,
+      "type": "general",
+      "unit": "AvailableData",
+      "nameZh": "可用性",
+      "nameEn": "Availability",
+      "appname": "apm",
+      "collectTime": 60,
+      "scope": 3,
+      "defaultUsed": true,
+      "defaultCp": true,
+      "enableCollectTime": true,
+      "dataType": "",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 19916,
+          "type": "general",
+          "unit": "AvailableData",
+          "field": "AvailabilityData",
+          "appname": "apm",
+          "nameZh": "协议连接",
+          "nameEn": "Protocol Connection",
+          "explainZh": "测试IP对应资源的协议连接。",
+          "explainEn": "Test the protocol connections of the resource corresponding to an IP address.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "EQ",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "linux",
+      "unit": "cpu",
+      "nameZh": "CPU",
+      "nameEn": "CPU",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "row",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7369,
+          "type": "linux",
+          "unit": "cpu",
+          "field": "CpuUtilization",
+          "appname": "apm",
+          "nameZh": "CPU利用率",
+          "nameEn": "CPU Usage Ratio",
+          "explainZh": "指Linux服务器CPU的当前利用率(支持snmp采集)。",
+          "explainEn": "CPU usage of the Linux server.",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "linux",
+      "unit": "cpuinfo_stat",
+      "nameZh": "CPU性能",
+      "nameEn": "CPU Performance",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "table",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7379,
+          "type": "linux",
+          "unit": "cpuinfo_stat",
+          "field": "IdlePercentage",
+          "appname": "apm",
+          "nameZh": "闲置时间",
+          "nameEn": "Idle Percentage",
+          "explainZh": "指Linux服务器CPU空闲的时间占CPU总时间的百分比。",
+          "explainEn": "The percent of idle time.",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7380,
+          "type": "linux",
+          "unit": "cpuinfo_stat",
+          "field": "IOwaitPercentage",
+          "appname": "apm",
+          "nameZh": "硬盘等待时间",
+          "nameEn": "I/O Wait Percentage",
+          "explainZh": "指Linux服务器硬盘等待时间占CPU总时间的百分比。",
+          "explainEn": "The percent of I/O Wait time.",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7381,
+          "type": "linux",
+          "unit": "cpuinfo_stat",
+          "field": "LoadPercentage",
+          "appname": "apm",
+          "nameZh": "系统使用率",
+          "nameEn": "Load Percentage",
+          "explainZh": "指Linux服务器CPU的系统使用率。",
+          "explainEn": "The percent of load time.",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7382,
+          "type": "linux",
+          "unit": "cpuinfo_stat",
+          "field": "NiceCPU",
+          "appname": "apm",
+          "nameZh": "负进程的CPU时间",
+          "nameEn": "Nice CPU",
+          "explainZh": "Nice CPU。",
+          "explainEn": "Nice CPU.",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": -1,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7383,
+          "type": "linux",
+          "unit": "cpuinfo_stat",
+          "field": "processor",
+          "appname": "apm",
+          "nameZh": "CPU名称",
+          "nameEn": "CPU Name",
+          "explainZh": "指Linux服务器CPU核心的名称。",
+          "explainEn": "Name of core.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "IC,EC,NEQ,RULE,EQ",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7384,
+          "type": "linux",
+          "unit": "cpuinfo_stat",
+          "field": "SysPercentage",
+          "appname": "apm",
+          "nameZh": "内核态时间",
+          "nameEn": "System Percentage",
+          "explainZh": "指Linux服务器CPU处于内核态的时间占CPU总时间的百分比。",
+          "explainEn": "The percent of system time.",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7385,
+          "type": "linux",
+          "unit": "cpuinfo_stat",
+          "field": "UsrPercentage",
+          "appname": "apm",
+          "nameZh": "用户态时间",
+          "nameEn": "User Percentage",
+          "explainZh": "指Linux服务器CPU处于用户态的时间占CPU总时间的百分比。",
+          "explainEn": "The percent of user time.",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "linux",
+      "unit": "disk",
+      "nameZh": "文件系统",
+      "nameEn": "File System",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 3,
+      "defaultUsed": true,
+      "defaultCp": true,
+      "enableCollectTime": true,
+      "dataType": "table",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7397,
+          "type": "linux",
+          "unit": "disk",
+          "field": "DiskAddRatio",
+          "appname": "apm",
+          "nameZh": "使用增长率",
+          "nameEn": "Usage Growth Rate",
+          "explainZh": "使用增长率。",
+          "explainEn": "Usage growth rate.",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7398,
+          "type": "linux",
+          "unit": "disk",
+          "field": "DiskFreeSpace",
+          "appname": "apm",
+          "nameZh": "空闲空间",
+          "nameEn": "Free Space",
+          "explainZh": "指Linux服务器某个文件系统空闲空间大小(支持snmp采集)。",
+          "explainEn": "Free space of a file system on the Linux server.",
+          "fieldUnit": "KB",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": -1,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7399,
+          "type": "linux",
+          "unit": "disk",
+          "field": "DiskName",
+          "appname": "apm",
+          "nameZh": "名称",
+          "nameEn": "Name",
+          "explainZh": "指Linux服务器的某个文件系统的名称(支持snmp采集)。",
+          "explainEn": "Name of a file system on the Linux server.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "IC,EC,NEQ,RULE,EQ",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7400,
+          "type": "linux",
+          "unit": "disk",
+          "field": "DiskSize",
+          "appname": "apm",
+          "nameZh": "容量",
+          "nameEn": "Size",
+          "explainZh": "指Linux某个卷组的容量(支持snmp采集)。",
+          "explainEn": "Size of the file system.",
+          "fieldUnit": "KB",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7401,
+          "type": "linux",
+          "unit": "disk",
+          "field": "DiskUsed",
+          "appname": "apm",
+          "nameZh": "已用空间",
+          "nameEn": "In Use",
+          "explainZh": "指Linux服务器某个文件系统已用空间大小(支持snmp采集)。",
+          "explainEn": "Used space of a file system on the Linux server.",
+          "fieldUnit": "KB",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7402,
+          "type": "linux",
+          "unit": "disk",
+          "field": "DiskUtilization",
+          "appname": "apm",
+          "nameZh": "文件系统利用率",
+          "nameEn": "File System Usage Ratio",
+          "explainZh": "指Linux服务器某个文件系统的空间利用率(支持snmp采集)。",
+          "explainEn": "Ratio of the file system usage.",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7403,
+          "type": "linux",
+          "unit": "disk",
+          "field": "FileSysType",
+          "appname": "apm",
+          "nameZh": "文件系统类型",
+          "nameEn": "File System Type",
+          "explainZh": "指Linux服务器某个文件系统的类型。",
+          "explainEn": "The type of a file system on the Linux server.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "IC,EC,NEQ,RULE,EQ,CHG",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "linux",
+      "unit": "inode",
+      "nameZh": "Inode",
+      "nameEn": "Inode",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "table",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7420,
+          "type": "linux",
+          "unit": "inode",
+          "field": "iNodeAddRatio",
+          "appname": "apm",
+          "nameZh": "使用增长率",
+          "nameEn": "Usage Growth Rate",
+          "explainZh": "使用增长率。",
+          "explainEn": "Usage growth rate.",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7421,
+          "type": "linux",
+          "unit": "inode",
+          "field": "iNodeFree",
+          "appname": "apm",
+          "nameZh": "空闲数",
+          "nameEn": "Free",
+          "explainZh": "指Linux服务器某个文件系统的inode空闲数。",
+          "explainEn": "Free number of inode for the file system.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": -1,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7422,
+          "type": "linux",
+          "unit": "inode",
+          "field": "iNodeName",
+          "appname": "apm",
+          "nameZh": "文件系统",
+          "nameEn": "File System",
+          "explainZh": "指Linux服务器的某个文件系统。",
+          "explainEn": "Name of a file system on the Linux server.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "IC,EC,NEQ,RULE,EQ",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7423,
+          "type": "linux",
+          "unit": "inode",
+          "field": "iNodeTotal",
+          "appname": "apm",
+          "nameZh": "总数",
+          "nameEn": "Total",
+          "explainZh": "指Linux服务器某个文件系统的inode总数。",
+          "explainEn": "Total number of inode for the file system.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7424,
+          "type": "linux",
+          "unit": "inode",
+          "field": "iNodeUsed",
+          "appname": "apm",
+          "nameZh": "已使用数",
+          "nameEn": "In Use",
+          "explainZh": "指Linux服务器某个文件系统的inode已使用数。",
+          "explainEn": "Number of inode for the file system.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7425,
+          "type": "linux",
+          "unit": "inode",
+          "field": "iNodeUtilization",
+          "appname": "apm",
+          "nameZh": "inode使用率",
+          "nameEn": "Inode Usage Ratio",
+          "explainZh": "指Linux服务器某个文件系统的inode使用率。",
+          "explainEn": "Inode usage ratio for the file system.",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "linux",
+      "unit": "interface",
+      "nameZh": "接口",
+      "nameEn": "Network Interface",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "table",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": -1,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7426,
+          "type": "linux",
+          "unit": "interface",
+          "field": "InterfaceName",
+          "appname": "apm",
+          "nameZh": "接口名",
+          "nameEn": "Interface Name",
+          "explainZh": "指Linux服务器某个网卡的名称(支持snmp采集)。",
+          "explainEn": "Name of a specific NIC on the Linux server.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "IC,EC,NEQ,RULE,EQ",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7427,
+          "type": "linux",
+          "unit": "interface",
+          "field": "PacketsOutboundErrors",
+          "appname": "apm",
+          "nameZh": "输出错误包速率",
+          "nameEn": "Output Error Packet Rate",
+          "explainZh": "指Linux服务器某个网卡发送数据包丢失的速率(支持snmp采集)。",
+          "explainEn": "Output packet loss rate of a specific NIC on the Linux server.",
+          "fieldUnit": "pps",
+          "unitGroup": {
+            "name": "ThroughputRate",
+            "label": {
+              "zh": "吞吐量",
+              "en": "Throughput Rate",
+              "label": "吞吐量"
+            },
+            "items": [
+              {
+                "name": "ThroughputRate",
+                "origin": "pps",
+                "destination": "Kpps",
+                "multiplier": 1000.0
+              },
+              {
+                "name": "ThroughputRate",
+                "origin": "Kpps",
+                "destination": "Mpps",
+                "multiplier": 1000.0
+              },
+              {
+                "name": "ThroughputRate",
+                "origin": "Mpps",
+                "destination": "Gpps",
+                "multiplier": 1000.0
+              },
+              {
+                "name": "ThroughputRate",
+                "origin": "Gpps",
+                "destination": "Tpps",
+                "multiplier": 1000.0
+              }
+            ],
+            "units": [
+              "pps",
+              "Kpps",
+              "Mpps",
+              "Gpps",
+              "Tpps"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7428,
+          "type": "linux",
+          "unit": "interface",
+          "field": "PacketsReceivedErrors",
+          "appname": "apm",
+          "nameZh": "输入错误包速率",
+          "nameEn": "Input Error Packet Rate",
+          "explainZh": "指Linux服务器某个网卡接收数据包丢失的速率(支持snmp采集)。",
+          "explainEn": "Input packet loss rate of a specific NIC on the Linux server.",
+          "fieldUnit": "pps",
+          "unitGroup": {
+            "name": "ThroughputRate",
+            "label": {
+              "zh": "吞吐量",
+              "en": "Throughput Rate",
+              "label": "吞吐量"
+            },
+            "items": [
+              {
+                "name": "ThroughputRate",
+                "origin": "pps",
+                "destination": "Kpps",
+                "multiplier": 1000.0
+              },
+              {
+                "name": "ThroughputRate",
+                "origin": "Kpps",
+                "destination": "Mpps",
+                "multiplier": 1000.0
+              },
+              {
+                "name": "ThroughputRate",
+                "origin": "Mpps",
+                "destination": "Gpps",
+                "multiplier": 1000.0
+              },
+              {
+                "name": "ThroughputRate",
+                "origin": "Gpps",
+                "destination": "Tpps",
+                "multiplier": 1000.0
+              }
+            ],
+            "units": [
+              "pps",
+              "Kpps",
+              "Mpps",
+              "Gpps",
+              "Tpps"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7429,
+          "type": "linux",
+          "unit": "interface",
+          "field": "ReceivedPersec",
+          "appname": "apm",
+          "nameZh": "接口接收速率",
+          "nameEn": "Receive Rate",
+          "explainZh": "指Linux服务器某个网卡接收数据的速率(支持snmp采集)。",
+          "explainEn": "Data receiving rate of a specific NIC on the Linux server.",
+          "fieldUnit": "bps",
+          "unitGroup": {
+            "name": "TransmissionRate",
+            "label": {
+              "zh": "传输速率",
+              "en": "Transmission Rate",
+              "label": "传输速率"
+            },
+            "items": [
+              {
+                "name": "TransmissionRate",
+                "origin": "bps",
+                "destination": "Kbps",
+                "multiplier": 1000.0
+              },
+              {
+                "name": "TransmissionRate",
+                "origin": "Kbps",
+                "destination": "Mbps",
+                "multiplier": 1000.0
+              },
+              {
+                "name": "TransmissionRate",
+                "origin": "Mbps",
+                "destination": "Gbps",
+                "multiplier": 1000.0
+              },
+              {
+                "name": "TransmissionRate",
+                "origin": "Gbps",
+                "destination": "Tbps",
+                "multiplier": 1000.0
+              }
+            ],
+            "units": [
+              "bps",
+              "Kbps",
+              "Mbps",
+              "Gbps",
+              "Tbps"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7430,
+          "type": "linux",
+          "unit": "interface",
+          "field": "SentPersec",
+          "appname": "apm",
+          "nameZh": "接口发送速率",
+          "nameEn": "Send Rate",
+          "explainZh": "指Linux服务器某个网卡发送数据的速率(支持snmp采集)。",
+          "explainEn": "Data sending rate of a specific NIC on the Linux server.",
+          "fieldUnit": "bps",
+          "unitGroup": {
+            "name": "TransmissionRate",
+            "label": {
+              "zh": "传输速率",
+              "en": "Transmission Rate",
+              "label": "传输速率"
+            },
+            "items": [
+              {
+                "name": "TransmissionRate",
+                "origin": "bps",
+                "destination": "Kbps",
+                "multiplier": 1000.0
+              },
+              {
+                "name": "TransmissionRate",
+                "origin": "Kbps",
+                "destination": "Mbps",
+                "multiplier": 1000.0
+              },
+              {
+                "name": "TransmissionRate",
+                "origin": "Mbps",
+                "destination": "Gbps",
+                "multiplier": 1000.0
+              },
+              {
+                "name": "TransmissionRate",
+                "origin": "Gbps",
+                "destination": "Tbps",
+                "multiplier": 1000.0
+              }
+            ],
+            "units": [
+              "bps",
+              "Kbps",
+              "Mbps",
+              "Gbps",
+              "Tbps"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "linux",
+      "unit": "memory",
+      "nameZh": "内存",
+      "nameEn": "Memory",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 3,
+      "defaultUsed": true,
+      "defaultCp": true,
+      "enableCollectTime": true,
+      "dataType": "row",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7441,
+          "type": "linux",
+          "unit": "memory",
+          "field": "PhysicalMemoryBuffered",
+          "appname": "apm",
+          "nameZh": "物理内存缓存流",
+          "nameEn": "Physical Memory Buffered",
+          "explainZh": "物理内存缓存流。",
+          "explainEn": "Physical Memory Buffered.",
+          "fieldUnit": "MB",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7442,
+          "type": "linux",
+          "unit": "memory",
+          "field": "PhysicalMemoryCached",
+          "appname": "apm",
+          "nameZh": "物理内存缓存",
+          "nameEn": "Physical Memory Cached",
+          "explainZh": "指Linux服务器的物理内存信息，包括物理内存总数、已使用物理内存数和物理内存缓存(支持snmp采集)。",
+          "explainEn": "Physical Memory Cached.",
+          "fieldUnit": "MB",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7443,
+          "type": "linux",
+          "unit": "memory",
+          "field": "PhysicalMemoryFree",
+          "appname": "apm",
+          "nameZh": "空闲物理内存",
+          "nameEn": "Physical Memory Free",
+          "explainZh": "空闲物理内存。",
+          "explainEn": "Physical Memory Free.",
+          "fieldUnit": "MB",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7444,
+          "type": "linux",
+          "unit": "memory",
+          "field": "PhysicalMemoryTotal",
+          "appname": "apm",
+          "nameZh": "物理内存容量",
+          "nameEn": "Physical Memory Total",
+          "explainZh": "物理内存容量。",
+          "explainEn": "Physical Memory Total.",
+          "fieldUnit": "MB",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7445,
+          "type": "linux",
+          "unit": "memory",
+          "field": "PhysicalMemoryUsed",
+          "appname": "apm",
+          "nameZh": "已用物理内存",
+          "nameEn": "Physical Memory In Use",
+          "explainZh": "已用物理内存。",
+          "explainEn": "Physical Memory In Use.",
+          "fieldUnit": "MB",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7446,
+          "type": "linux",
+          "unit": "memory",
+          "field": "PhysicalMemoryUtilization",
+          "appname": "apm",
+          "nameZh": "物理内存利用率",
+          "nameEn": "Physical Memory Usage Ratio",
+          "explainZh": "物理内存利用率。",
+          "explainEn": "Physical Memory Usage Ratio.",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7447,
+          "type": "linux",
+          "unit": "memory",
+          "field": "VirtualMemoryBuffered",
+          "appname": "apm",
+          "nameZh": "交换内存缓存流",
+          "nameEn": "Virtual Memory Buffered",
+          "explainZh": "交换内存缓存流。",
+          "explainEn": "Virtual Memory Buffered.",
+          "fieldUnit": "MB",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7448,
+          "type": "linux",
+          "unit": "memory",
+          "field": "VirtualMemoryCached",
+          "appname": "apm",
+          "nameZh": "交换内存缓存",
+          "nameEn": "Virtual Memory Cached",
+          "explainZh": "交换内存缓存。",
+          "explainEn": "Virtual Memory Cached.",
+          "fieldUnit": "MB",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7449,
+          "type": "linux",
+          "unit": "memory",
+          "field": "VirtualMemoryFree",
+          "appname": "apm",
+          "nameZh": "空闲交换内存",
+          "nameEn": "Swap Free",
+          "explainZh": "空闲交换内存。",
+          "explainEn": "Swap Free.",
+          "fieldUnit": "MB",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7450,
+          "type": "linux",
+          "unit": "memory",
+          "field": "VirtualMemoryTotal",
+          "appname": "apm",
+          "nameZh": "交换内存容量",
+          "nameEn": "Swap Total",
+          "explainZh": "交换内存容量。",
+          "explainEn": "Swap Total.",
+          "fieldUnit": "MB",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7451,
+          "type": "linux",
+          "unit": "memory",
+          "field": "VirtualMemoryUsed",
+          "appname": "apm",
+          "nameZh": "已用交换内存",
+          "nameEn": "Swap In Use",
+          "explainZh": "已用交换内存。",
+          "explainEn": "Swap In Use.",
+          "fieldUnit": "MB",
+          "unitGroup": {
+            "name": "Capacity",
+            "label": {
+              "zh": "容量",
+              "en": "Capacity",
+              "label": "容量"
+            },
+            "items": [
+              {
+                "name": "Capacity",
+                "origin": "B",
+                "destination": "KB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "KB",
+                "destination": "MB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "MB",
+                "destination": "GB",
+                "multiplier": 1024.0
+              },
+              {
+                "name": "Capacity",
+                "origin": "GB",
+                "destination": "TB",
+                "multiplier": 1024.0
+              }
+            ],
+            "units": [
+              "B",
+              "KB",
+              "MB",
+              "GB",
+              "TB"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7452,
+          "type": "linux",
+          "unit": "memory",
+          "field": "VirtualMemoryUtilization",
+          "appname": "apm",
+          "nameZh": "交换内存利用率",
+          "nameEn": "Swap Usage Ratio",
+          "explainZh": "交换内存利用率。",
+          "explainEn": "Swap Usage Ratio.",
+          "fieldUnit": "%",
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "linux",
+      "unit": "ntpstat",
+      "nameZh": "NTP状态",
+      "nameEn": "NTP Status",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "row",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7493,
+          "type": "linux",
+          "unit": "ntpstat",
+          "field": "Intervel",
+          "appname": "apm",
+          "nameZh": "校准间隔",
+          "nameEn": "Intervel",
+          "explainZh": "指Linux服务器NTP状态的校准间隔。",
+          "explainEn": "Intervel of the NTP state on the Linux server.",
+          "fieldUnit": "s",
+          "unitGroup": {
+            "name": "Time",
+            "label": {
+              "zh": "时间",
+              "en": "Time",
+              "label": "时间"
+            },
+            "items": [
+              {
+                "name": "Time",
+                "origin": "ms",
+                "destination": "s",
+                "multiplier": 1000.0
+              }
+            ],
+            "units": [
+              "ms",
+              "s"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7494,
+          "type": "linux",
+          "unit": "ntpstat",
+          "field": "Stratum",
+          "appname": "apm",
+          "nameZh": "层级",
+          "nameEn": "Stratum",
+          "explainZh": "指Linux服务器NTP状态的层级。",
+          "explainEn": "Stratum of the NTP state on the Linux server.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7495,
+          "type": "linux",
+          "unit": "ntpstat",
+          "field": "Within",
+          "appname": "apm",
+          "nameZh": "偏差",
+          "nameEn": "Within",
+          "explainZh": "指Linux服务器NTP状态的偏差。",
+          "explainEn": "Within of the NTP state on the Linux server.",
+          "fieldUnit": "ms",
+          "unitGroup": {
+            "name": "Time",
+            "label": {
+              "zh": "时间",
+              "en": "Time",
+              "label": "时间"
+            },
+            "items": [
+              {
+                "name": "Time",
+                "origin": "ms",
+                "destination": "s",
+                "multiplier": 1000.0
+              }
+            ],
+            "units": [
+              "ms",
+              "s"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "linux",
+      "unit": "ping",
+      "nameZh": "Ping测试",
+      "nameEn": "Ping Test",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "row",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7505,
+          "type": "linux",
+          "unit": "ping",
+          "field": "connected",
+          "appname": "apm",
+          "nameZh": "连接",
+          "nameEn": "Connected",
+          "explainZh": "连接（不支持Agent采集）。",
+          "explainEn": "Connected(Collection via Agent is not supported).",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 1,
+          "conditionType": "IC,EC,NEQ,RULE,EQ,CHG",
+          "optionalValue": "",
+          "range": "",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7506,
+          "type": "linux",
+          "unit": "ping",
+          "field": "recvPackageNum",
+          "appname": "apm",
+          "nameZh": "接收包数",
+          "nameEn": "Packets Received",
+          "explainZh": "指Linux服务器进行Ping测试接收的包的数量（不支持Agent采集）。",
+          "explainEn": "Number of packets received during the ping test.(Collection via Agent is not supported.)",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7507,
+          "type": "linux",
+          "unit": "ping",
+          "field": "replytime",
+          "appname": "apm",
+          "nameZh": "响应时间",
+          "nameEn": "Response Time",
+          "explainZh": "指Linux服务器进行Ping测试的响应时间（不支持Agent采集）。",
+          "explainEn": "Response time of the ping test.(Collection via Agent is not supported.)",
+          "fieldUnit": "ms",
+          "unitGroup": {
+            "name": "Time",
+            "label": {
+              "zh": "时间",
+              "en": "Time",
+              "label": "时间"
+            },
+            "items": [
+              {
+                "name": "Time",
+                "origin": "ms",
+                "destination": "s",
+                "multiplier": 1000.0
+              }
+            ],
+            "units": [
+              "ms",
+              "s"
+            ],
+            "appname": "apm"
+          },
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[0,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7508,
+          "type": "linux",
+          "unit": "ping",
+          "field": "sendPackageNum",
+          "appname": "apm",
+          "nameZh": "发送包数",
+          "nameEn": "Packets Sent",
+          "explainZh": "指Linux服务器进行Ping测试发送的包的数量（不支持Agent采集）。",
+          "explainEn": "Number of packets sent during the ping test.(Collection via Agent is not supported.)",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    },
+    {
+      "selectedFields": null,
+      "allField": true,
+      "operations": null,
+      "enableDelete": false,
+      "type": "linux",
+      "unit": "sysload",
+      "nameZh": "系统负载",
+      "nameEn": "System Load",
+      "appname": "apm",
+      "collectTime": 300,
+      "scope": 1,
+      "defaultUsed": true,
+      "defaultCp": false,
+      "enableCollectTime": true,
+      "dataType": "row",
+      "mUrl": null,
+      "aUrl": null,
+      "typeAlias": null,
+      "fields": [
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7546,
+          "type": "linux",
+          "unit": "sysload",
+          "field": "FifteenMinuteLoad",
+          "appname": "apm",
+          "nameZh": "15分钟系统平均负载",
+          "nameEn": "System Loads/15 Min",
+          "explainZh": "指Linux服务器最近十五分钟运行的系统平均负载。",
+          "explainEn": "Number of processes running on the Linux server in the last 15 minutes.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7547,
+          "type": "linux",
+          "unit": "sysload",
+          "field": "FiveMinuteLoad",
+          "appname": "apm",
+          "nameZh": "5分钟系统平均负载",
+          "nameEn": "System Loads/5 Min",
+          "explainZh": "指Linux服务器最近十分钟运行的系统平均负载。",
+          "explainEn": "Number of processes running on the Linux server in the last five minutes.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        },
+        {
+          "alarmInst": 0,
+          "fieldTags": null,
+          "tags": null,
+          "operations": null,
+          "enableDelete": false,
+          "unitNameZh": null,
+          "unitNameEn": null,
+          "fieldShow": 1,
+          "id": 7548,
+          "type": "linux",
+          "unit": "sysload",
+          "field": "OneMinuteLoad",
+          "appname": "apm",
+          "nameZh": "1分钟系统平均负载",
+          "nameEn": "System Load/Min",
+          "explainZh": "指Linux服务器最近一分钟运行的系统平均负载。",
+          "explainEn": "Number of processes running on the Linux server in the last minute.",
+          "fieldUnit": null,
+          "unitGroup": null,
+          "valueType": 0,
+          "conditionType": "GT,GE,LT,LE,EQ,CT,DC",
+          "optionalValue": "",
+          "range": "[#,#]",
+          "enableThreshold": true,
+          "mUrl": null,
+          "defaultThreshold": null,
+          "levelType": 5
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+zabbix_export:
+  version: '7.0'
+  template_groups:
+    - uuid: 447617281b0a48f8b80532f48c7bb624
+      name: 'Templates/Network devices'
+  templates:
+    - uuid: 2a5c6d4027c74291977b5353bdfb2d4c
+      template: H3C_PINGCMD_by_SNMP
+      name: 'H3C 本地Ping探测 by SNMP'
+      description: |
+        华三监控模板转换（H3C → Zabbix 7.0 SNMP）
+        源模板名称 : 本地Ping探测
+        源模板 ID  : 209760028721235
+        华三类型   : pingcmd
+        转换时间   : 2026-03-20 13:24:56
+        生成工具   : convert_snmp_templates.py
+      groups:
+        - name: 'Templates/Network devices'
+      items:
+        - uuid: 9fd49a694aae46d9b021d6428636c656
+          name: 'ICMP ping'
+          type: SIMPLE
+          key: icmpping
+          delay: '60s'
+          description: 'ICMP ping 可达性检测。0=不可达，1=可达。'
+          valuemap:
+            name: 'Service state'
+          tags:
+            - tag: component
+              value: health
+            - tag: source
+              value: h3c-converted
+          triggers:
+            - uuid: 67887b7f2497441c9a0a3577cbbcd2c8
+              expression: 'max(/H3C_PINGCMD_by_SNMP/icmpping,#3)=0'
+              name: 'H3C 本地Ping探测 by SNMP: 设备 ICMP ping 不可达'
+              priority: HIGH
+              description: '连续 3 次 ICMP ping 超时。'
+              tags:
+                - tag: scope
+                  value: availability
+        - uuid: b6cd8b6657fd41b1999313eb37e5a22d
+          name: 'ICMP ping loss'
+          type: SIMPLE
+          key: icmppingloss
+          delay: '60s'
+          value_type: FLOAT
+          units: '%'
+          description: 'ICMP ping 丢包率（%）。'
+          tags:
+            - tag: component
+              value: health
+            - tag: source
+              value: h3c-converted
+        - uuid: 43e44b1c941e4ccfa2e926ea9c339213
+          name: 'ICMP response time'
+          type: SIMPLE
+          key: icmppingsec
+          delay: '60s'
+          value_type: FLOAT
+          units: s
+          description: 'ICMP ping 响应时间（秒）。'
+          tags:
+            - tag: component
+              value: health
+            - tag: source
+              value: h3c-converted
+      macros:
+        - macro: '{$SNMP_COMMUNITY}'
+          value: 'public'
+          description: 'SNMP community string'
+        - macro: '{$SNMP.TIMEOUT}'
+          value: '5m'
+          description: 'SNMP 连接超时时间'
+        - macro: '{$ICMP_LOSS_WARN}'
+          value: '20'
+          description: 'ICMP 丢包率告警阈值（%）'
+        - macro: '{$ICMP_RESPONSE_TIME_WARN}'
+          value: '0.15'
+          description: 'ICMP 响应时间告警阈值（秒）'
+      tags:
+        - tag: source
+          value: h3c-converted
+        - tag: h3c-type
+          value: pingcmd
+      valuemaps:
+        - uuid: 52e6503f1af34ecda9c7c5bfd2a53438
+          name: 'Service state'
+          mappings:
+            - value: '0'
+              newvalue: 'Down'
+            - value: '1'
+              newvalue: 'Up'
+        - uuid: de8abbe686b64c93af92675e146c3cb8
+          name: 'IF-MIB::ifOperStatus'
+          mappings:
+            - value: '1'
+              newvalue: 'up'
+            - value: '2'
+              newvalue: 'down'
+            - value: '3'
+              newvalue: 'testing'
+            - value: '4'
+              newvalue: 'unknown'
+            - value: '5'
+              newvalue: 'dormant'
+            - value: '6'
+              newvalue: 'notPresent'
+            - value: '7'
+              newvalue: 'lowerLayerDown'
+        - uuid: 59e57d9a289e4fa3a951e2f3aaea44f6
+          name: zabbix.host.available
+          mappings:
+            - value: '0'
+              newvalue: 'not available'
+            - value: '1'
+              newvalue: 'available'
+            - value: '2'
+              newvalue: 'unknown'
+        - uuid: 00bdb2a2f39744d28f30c24e74a4c32d
+          name: 'Brocade::swFCPortOpStatus'
+          mappings:
+            - value: '1'
+              newvalue: 'online'
+            - value: '2'
+              newvalue: 'offline'
+            - value: '3'
+              newvalue: 'testing'
+            - value: '4'
+              newvalue: 'faulty'

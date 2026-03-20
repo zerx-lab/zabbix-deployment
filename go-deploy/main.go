@@ -18,9 +18,10 @@ func main() {
 	if parsed.Command != nil {
 		fmt.Printf("Zabbix 离线部署工具 v%s\n\n", AppVersion)
 		ctx := CliContext{
-			AutoConfirm:   parsed.AutoConfirm,
-			DeployArgs:    parsed.DeployArgs,
-			HasDeployArgs: parsed.HasDeployArgs,
+			AutoConfirm:         parsed.AutoConfirm,
+			DeployArgs:          parsed.DeployArgs,
+			HasDeployArgs:       parsed.HasDeployArgs,
+			ImportTemplatesArgs: parsed.ImportTemplatesArgs,
 		}
 		runAction(*parsed.Command, ctx)
 		return

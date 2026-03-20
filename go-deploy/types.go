@@ -409,13 +409,32 @@ type PostInitResult struct {
 type Action string
 
 const (
-	ActionInstallDocker Action = "install-docker"
-	ActionDeploy        Action = "deploy"
-	ActionStatus        Action = "status"
-	ActionStop          Action = "stop"
-	ActionUninstall     Action = "uninstall"
-	ActionQuit          Action = "quit"
+	ActionInstallDocker   Action = "install-docker"
+	ActionDeploy          Action = "deploy"
+	ActionStatus          Action = "status"
+	ActionStop            Action = "stop"
+	ActionUninstall       Action = "uninstall"
+	ActionImportTemplates Action = "import-templates"
+	ActionListTemplates   Action = "list-templates"
+	ActionQuit            Action = "quit"
 )
+
+// ─── CLI ImportTemplatesArgs ───────────────────────────────
+
+// ImportTemplatesArgs 保存 import-templates 命令的 CLI 参数
+type ImportTemplatesArgs struct {
+	// APIURL 完整的 Zabbix API 地址，例如 http://192.168.1.10:8080/api_jsonrpc.php
+	// 若不指定则根据 --web-port 自动构建（默认指向 localhost）
+	APIURL string
+	// WebPort 当 APIURL 为空时使用（默认 8080）
+	WebPort int
+	// Username Zabbix 用户名（默认 Admin）
+	Username string
+	// Password Zabbix 密码（默认 zabbix）
+	Password string
+	// Force 强制覆盖已存在的模板（默认 false：已存在则跳过）
+	Force bool
+}
 
 // ─── CLI DeployArgs ────────────────────────────────────────
 
@@ -439,7 +458,8 @@ type ParsedArgs struct {
 	Help        bool
 	DeployArgs  DeployArgs
 	// HasDeployArgs 为 true 表示至少有一个 deploy 参数被显式传入（与 TS 的 Object.keys(deployArgs).length > 0 等价）
-	HasDeployArgs bool
+	HasDeployArgs       bool
+	ImportTemplatesArgs ImportTemplatesArgs
 }
 
 // ─── CliContext ────────────────────────────────────────────
@@ -448,7 +468,8 @@ type CliContext struct {
 	AutoConfirm bool
 	DeployArgs  DeployArgs
 	// HasDeployArgs 为 true 表示至少有一个 deploy 参数被显式传入
-	HasDeployArgs bool
+	HasDeployArgs       bool
+	ImportTemplatesArgs ImportTemplatesArgs
 }
 
 // ─── ComposeDownOptions ────────────────────────────────────
