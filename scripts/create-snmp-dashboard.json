@@ -1,0 +1,417 @@
+{
+  "jsonrpc": "2.0",
+  "method": "dashboard.create",
+  "params": {
+    "name": "网络设备带外管理监控",
+    "display_period": 30,
+    "auto_start": 1,
+    "pages": [
+      {
+        "name": "综合概览",
+        "widgets": [
+          {
+            "type": "hostavail",
+            "name": "设备可用性",
+            "x": 0,
+            "y": 0,
+            "width": 36,
+            "height": 4,
+            "fields": [
+              {"type": 2, "name": "groupids", "value": "22"}
+            ]
+          },
+          {
+            "type": "problems",
+            "name": "当前告警",
+            "x": 36,
+            "y": 0,
+            "width": 36,
+            "height": 4,
+            "fields": [
+              {"type": 2, "name": "groupids", "value": "22"},
+              {"type": 0, "name": "show_lines", "value": "10"}
+            ]
+          },
+          {
+            "type": "tophosts",
+            "name": "SNMP 设备概览（PING / SNMP / 运行时间）",
+            "x": 0,
+            "y": 4,
+            "width": 72,
+            "height": 6,
+            "fields": [
+              {"type": 2, "name": "groupids", "value": "22"},
+              {"type": 0, "name": "count", "value": "20"},
+
+              {"type": 1, "name": "columns.0.name", "value": "主机名"},
+              {"type": 0, "name": "columns.0.data", "value": "2"},
+              {"type": 0, "name": "columns.0.aggregate_function", "value": "0"},
+              {"type": 0, "name": "columns.0.decimal_places", "value": "2"},
+              {"type": 1, "name": "columns.0.base_color", "value": ""},
+
+              {"type": 1, "name": "columns.1.name", "value": "ICMP Ping"},
+              {"type": 0, "name": "columns.1.data", "value": "1"},
+              {"type": 1, "name": "columns.1.item", "value": "ICMP ping"},
+              {"type": 0, "name": "columns.1.aggregate_function", "value": "0"},
+              {"type": 0, "name": "columns.1.decimal_places", "value": "0"},
+              {"type": 0, "name": "columns.1.display", "value": "1"},
+              {"type": 0, "name": "columns.1.history", "value": "1"},
+              {"type": 1, "name": "columns.1.base_color", "value": "4CAF50"},
+              {"type": 1, "name": "columnsthresholds.1.color.0", "value": "FF0000"},
+              {"type": 1, "name": "columnsthresholds.1.threshold.0", "value": "0.5"},
+
+              {"type": 1, "name": "columns.2.name", "value": "丢包率(%)"},
+              {"type": 0, "name": "columns.2.data", "value": "1"},
+              {"type": 1, "name": "columns.2.item", "value": "ICMP ping loss"},
+              {"type": 0, "name": "columns.2.aggregate_function", "value": "0"},
+              {"type": 0, "name": "columns.2.decimal_places", "value": "1"},
+              {"type": 0, "name": "columns.2.display", "value": "3"},
+              {"type": 0, "name": "columns.2.history", "value": "1"},
+              {"type": 1, "name": "columns.2.base_color", "value": "4CAF50"},
+              {"type": 1, "name": "columnsthresholds.2.color.0", "value": "FF9800"},
+              {"type": 1, "name": "columnsthresholds.2.threshold.0", "value": "10"},
+              {"type": 1, "name": "columnsthresholds.2.color.1", "value": "F44336"},
+              {"type": 1, "name": "columnsthresholds.2.threshold.1", "value": "50"},
+
+              {"type": 1, "name": "columns.3.name", "value": "响应时间"},
+              {"type": 0, "name": "columns.3.data", "value": "1"},
+              {"type": 1, "name": "columns.3.item", "value": "ICMP response time"},
+              {"type": 0, "name": "columns.3.aggregate_function", "value": "0"},
+              {"type": 0, "name": "columns.3.decimal_places", "value": "4"},
+              {"type": 0, "name": "columns.3.display", "value": "1"},
+              {"type": 0, "name": "columns.3.history", "value": "1"},
+              {"type": 1, "name": "columns.3.base_color", "value": ""},
+
+              {"type": 1, "name": "columns.4.name", "value": "SNMP 状态"},
+              {"type": 0, "name": "columns.4.data", "value": "1"},
+              {"type": 1, "name": "columns.4.item", "value": "SNMP availability"},
+              {"type": 0, "name": "columns.4.aggregate_function", "value": "0"},
+              {"type": 0, "name": "columns.4.decimal_places", "value": "0"},
+              {"type": 0, "name": "columns.4.display", "value": "1"},
+              {"type": 0, "name": "columns.4.history", "value": "1"},
+              {"type": 1, "name": "columns.4.base_color", "value": "FF0000"},
+              {"type": 1, "name": "columnsthresholds.4.color.0", "value": "4CAF50"},
+              {"type": 1, "name": "columnsthresholds.4.threshold.0", "value": "1"},
+
+              {"type": 1, "name": "columns.5.name", "value": "设备名称"},
+              {"type": 0, "name": "columns.5.data", "value": "1"},
+              {"type": 1, "name": "columns.5.item", "value": "System name"},
+              {"type": 0, "name": "columns.5.aggregate_function", "value": "0"},
+              {"type": 0, "name": "columns.5.decimal_places", "value": "2"},
+              {"type": 0, "name": "columns.5.display", "value": "1"},
+              {"type": 0, "name": "columns.5.history", "value": "1"},
+              {"type": 1, "name": "columns.5.base_color", "value": ""},
+
+              {"type": 1, "name": "columns.6.name", "value": "位置"},
+              {"type": 0, "name": "columns.6.data", "value": "1"},
+              {"type": 1, "name": "columns.6.item", "value": "System location"},
+              {"type": 0, "name": "columns.6.aggregate_function", "value": "0"},
+              {"type": 0, "name": "columns.6.decimal_places", "value": "2"},
+              {"type": 0, "name": "columns.6.display", "value": "1"},
+              {"type": 0, "name": "columns.6.history", "value": "1"},
+              {"type": 1, "name": "columns.6.base_color", "value": ""},
+
+              {"type": 1, "name": "columns.7.name", "value": "网络运行时长"},
+              {"type": 0, "name": "columns.7.data", "value": "1"},
+              {"type": 1, "name": "columns.7.item", "value": "Uptime (network)"},
+              {"type": 0, "name": "columns.7.aggregate_function", "value": "0"},
+              {"type": 0, "name": "columns.7.decimal_places", "value": "0"},
+              {"type": 0, "name": "columns.7.display", "value": "1"},
+              {"type": 0, "name": "columns.7.history", "value": "1"},
+              {"type": 1, "name": "columns.7.base_color", "value": ""},
+
+              {"type": 1, "name": "columns.8.name", "value": "硬件运行时长"},
+              {"type": 0, "name": "columns.8.data", "value": "1"},
+              {"type": 1, "name": "columns.8.item", "value": "Uptime (hardware)"},
+              {"type": 0, "name": "columns.8.aggregate_function", "value": "0"},
+              {"type": 0, "name": "columns.8.decimal_places", "value": "0"},
+              {"type": 0, "name": "columns.8.display", "value": "1"},
+              {"type": 0, "name": "columns.8.history", "value": "1"},
+              {"type": 1, "name": "columns.8.base_color", "value": ""}
+            ]
+          }
+        ]
+      },
+      {
+        "name": "CPU & 内存 & 温度",
+        "widgets": [
+          {
+            "type": "tophosts",
+            "name": "H3C 实体 CPU 利用率",
+            "x": 0,
+            "y": 0,
+            "width": 72,
+            "height": 5,
+            "fields": [
+              {"type": 2, "name": "groupids", "value": "22"},
+              {"type": 0, "name": "count", "value": "20"},
+
+              {"type": 1, "name": "columns.0.name", "value": "主机名"},
+              {"type": 0, "name": "columns.0.data", "value": "2"},
+              {"type": 0, "name": "columns.0.aggregate_function", "value": "0"},
+              {"type": 0, "name": "columns.0.decimal_places", "value": "2"},
+              {"type": 1, "name": "columns.0.base_color", "value": ""},
+
+              {"type": 1, "name": "columns.1.name", "value": "CPU 利用率"},
+              {"type": 0, "name": "columns.1.data", "value": "1"},
+              {"type": 1, "name": "columns.1.item", "value": "CPU 利用率"},
+              {"type": 0, "name": "columns.1.aggregate_function", "value": "0"},
+              {"type": 0, "name": "columns.1.decimal_places", "value": "1"},
+              {"type": 0, "name": "columns.1.display", "value": "3"},
+              {"type": 0, "name": "columns.1.history", "value": "1"},
+              {"type": 1, "name": "columns.1.base_color", "value": "4CAF50"},
+              {"type": 1, "name": "columnsthresholds.1.color.0", "value": "FF9800"},
+              {"type": 1, "name": "columnsthresholds.1.threshold.0", "value": "70"},
+              {"type": 1, "name": "columnsthresholds.1.color.1", "value": "F44336"},
+              {"type": 1, "name": "columnsthresholds.1.threshold.1", "value": "90"},
+
+              {"type": 1, "name": "columns.2.name", "value": "内存利用率"},
+              {"type": 0, "name": "columns.2.data", "value": "1"},
+              {"type": 1, "name": "columns.2.item", "value": "内存利用率"},
+              {"type": 0, "name": "columns.2.aggregate_function", "value": "0"},
+              {"type": 0, "name": "columns.2.decimal_places", "value": "1"},
+              {"type": 0, "name": "columns.2.display", "value": "3"},
+              {"type": 0, "name": "columns.2.history", "value": "1"},
+              {"type": 1, "name": "columns.2.base_color", "value": "2196F3"},
+              {"type": 1, "name": "columnsthresholds.2.color.0", "value": "FF9800"},
+              {"type": 1, "name": "columnsthresholds.2.threshold.0", "value": "70"},
+              {"type": 1, "name": "columnsthresholds.2.color.1", "value": "F44336"},
+              {"type": 1, "name": "columnsthresholds.2.threshold.1", "value": "90"},
+
+              {"type": 1, "name": "columns.3.name", "value": "温度(°C)"},
+              {"type": 0, "name": "columns.3.data", "value": "1"},
+              {"type": 1, "name": "columns.3.item", "value": "温度"},
+              {"type": 0, "name": "columns.3.aggregate_function", "value": "0"},
+              {"type": 0, "name": "columns.3.decimal_places", "value": "0"},
+              {"type": 0, "name": "columns.3.display", "value": "3"},
+              {"type": 0, "name": "columns.3.history", "value": "1"},
+              {"type": 1, "name": "columns.3.base_color", "value": "4CAF50"},
+              {"type": 1, "name": "columnsthresholds.3.color.0", "value": "FF9800"},
+              {"type": 1, "name": "columnsthresholds.3.threshold.0", "value": "55"},
+              {"type": 1, "name": "columnsthresholds.3.color.1", "value": "F44336"},
+              {"type": 1, "name": "columnsthresholds.3.threshold.1", "value": "70"},
+
+              {"type": 1, "name": "columns.4.name", "value": "错误状态"},
+              {"type": 0, "name": "columns.4.data", "value": "1"},
+              {"type": 1, "name": "columns.4.item", "value": "错误状态"},
+              {"type": 0, "name": "columns.4.aggregate_function", "value": "0"},
+              {"type": 0, "name": "columns.4.decimal_places", "value": "0"},
+              {"type": 0, "name": "columns.4.display", "value": "1"},
+              {"type": 0, "name": "columns.4.history", "value": "1"},
+              {"type": 1, "name": "columns.4.base_color", "value": "4CAF50"},
+              {"type": 1, "name": "columnsthresholds.4.color.0", "value": "F44336"},
+              {"type": 1, "name": "columnsthresholds.4.threshold.0", "value": "1"},
+
+              {"type": 1, "name": "columns.5.name", "value": "SNMP"},
+              {"type": 0, "name": "columns.5.data", "value": "1"},
+              {"type": 1, "name": "columns.5.item", "value": "SNMP availability"},
+              {"type": 0, "name": "columns.5.aggregate_function", "value": "0"},
+              {"type": 0, "name": "columns.5.decimal_places", "value": "0"},
+              {"type": 0, "name": "columns.5.display", "value": "1"},
+              {"type": 0, "name": "columns.5.history", "value": "1"},
+              {"type": 1, "name": "columns.5.base_color", "value": "FF0000"},
+              {"type": 1, "name": "columnsthresholds.5.color.0", "value": "4CAF50"},
+              {"type": 1, "name": "columnsthresholds.5.threshold.0", "value": "1"}
+            ]
+          },
+          {
+            "type": "gauge",
+            "name": "Slot0/CPU0 — CPU(%)",
+            "x": 0,
+            "y": 5,
+            "width": 14,
+            "height": 5,
+            "fields": [
+              {"type": 4, "name": "itemid.0", "value": "51039"},
+              {"type": 0, "name": "min", "value": "0"},
+              {"type": 0, "name": "max", "value": "100"},
+              {"type": 1, "name": "thresholds.0.color", "value": "4CAF50"},
+              {"type": 1, "name": "thresholds.0.threshold", "value": "0"},
+              {"type": 1, "name": "thresholds.1.color", "value": "FF9800"},
+              {"type": 1, "name": "thresholds.1.threshold", "value": "70"},
+              {"type": 1, "name": "thresholds.2.color", "value": "F44336"},
+              {"type": 1, "name": "thresholds.2.threshold", "value": "90"}
+            ]
+          },
+          {
+            "type": "gauge",
+            "name": "Slot0/CPU0 — 内存(%)",
+            "x": 14,
+            "y": 5,
+            "width": 14,
+            "height": 5,
+            "fields": [
+              {"type": 4, "name": "itemid.0", "value": "51044"},
+              {"type": 0, "name": "min", "value": "0"},
+              {"type": 0, "name": "max", "value": "100"},
+              {"type": 1, "name": "thresholds.0.color", "value": "2196F3"},
+              {"type": 1, "name": "thresholds.0.threshold", "value": "0"},
+              {"type": 1, "name": "thresholds.1.color", "value": "FF9800"},
+              {"type": 1, "name": "thresholds.1.threshold", "value": "70"},
+              {"type": 1, "name": "thresholds.2.color", "value": "F44336"},
+              {"type": 1, "name": "thresholds.2.threshold", "value": "90"}
+            ]
+          },
+          {
+            "type": "gauge",
+            "name": "Slot0/CPU0 — 温度(°C)",
+            "x": 28,
+            "y": 5,
+            "width": 14,
+            "height": 5,
+            "fields": [
+              {"type": 4, "name": "itemid.0", "value": "51049"},
+              {"type": 0, "name": "min", "value": "0"},
+              {"type": 0, "name": "max", "value": "100"},
+              {"type": 1, "name": "thresholds.0.color", "value": "4CAF50"},
+              {"type": 1, "name": "thresholds.0.threshold", "value": "0"},
+              {"type": 1, "name": "thresholds.1.color", "value": "FF9800"},
+              {"type": 1, "name": "thresholds.1.threshold", "value": "55"},
+              {"type": 1, "name": "thresholds.2.color", "value": "F44336"},
+              {"type": 1, "name": "thresholds.2.threshold", "value": "70"}
+            ]
+          },
+          {
+            "type": "gauge",
+            "name": "Slot1/CPU0 — CPU(%)",
+            "x": 42,
+            "y": 5,
+            "width": 14,
+            "height": 5,
+            "fields": [
+              {"type": 4, "name": "itemid.0", "value": "51040"},
+              {"type": 0, "name": "min", "value": "0"},
+              {"type": 0, "name": "max", "value": "100"},
+              {"type": 1, "name": "thresholds.0.color", "value": "4CAF50"},
+              {"type": 1, "name": "thresholds.0.threshold", "value": "0"},
+              {"type": 1, "name": "thresholds.1.color", "value": "FF9800"},
+              {"type": 1, "name": "thresholds.1.threshold", "value": "70"},
+              {"type": 1, "name": "thresholds.2.color", "value": "F44336"},
+              {"type": 1, "name": "thresholds.2.threshold", "value": "90"}
+            ]
+          },
+          {
+            "type": "gauge",
+            "name": "Fan1 — 温度(°C)",
+            "x": 56,
+            "y": 5,
+            "width": 16,
+            "height": 5,
+            "fields": [
+              {"type": 4, "name": "itemid.0", "value": "51051"},
+              {"type": 0, "name": "min", "value": "0"},
+              {"type": 0, "name": "max", "value": "100"},
+              {"type": 1, "name": "thresholds.0.color", "value": "4CAF50"},
+              {"type": 1, "name": "thresholds.0.threshold", "value": "0"},
+              {"type": 1, "name": "thresholds.1.color", "value": "FF9800"},
+              {"type": 1, "name": "thresholds.1.threshold", "value": "55"},
+              {"type": 1, "name": "thresholds.2.color", "value": "F44336"},
+              {"type": 1, "name": "thresholds.2.threshold", "value": "70"}
+            ]
+          }
+        ]
+      },
+      {
+        "name": "设备信息 & 系统描述",
+        "widgets": [
+          {
+            "type": "tophosts",
+            "name": "设备详细信息",
+            "x": 0,
+            "y": 0,
+            "width": 72,
+            "height": 5,
+            "fields": [
+              {"type": 2, "name": "groupids", "value": "22"},
+              {"type": 0, "name": "count", "value": "20"},
+
+              {"type": 1, "name": "columns.0.name", "value": "主机名"},
+              {"type": 0, "name": "columns.0.data", "value": "2"},
+              {"type": 0, "name": "columns.0.aggregate_function", "value": "0"},
+              {"type": 0, "name": "columns.0.decimal_places", "value": "2"},
+              {"type": 1, "name": "columns.0.base_color", "value": ""},
+
+              {"type": 1, "name": "columns.1.name", "value": "设备名称"},
+              {"type": 0, "name": "columns.1.data", "value": "1"},
+              {"type": 1, "name": "columns.1.item", "value": "System name"},
+              {"type": 0, "name": "columns.1.aggregate_function", "value": "0"},
+              {"type": 0, "name": "columns.1.decimal_places", "value": "2"},
+              {"type": 0, "name": "columns.1.display", "value": "1"},
+              {"type": 0, "name": "columns.1.history", "value": "1"},
+              {"type": 1, "name": "columns.1.base_color", "value": ""},
+
+              {"type": 1, "name": "columns.2.name", "value": "系统描述"},
+              {"type": 0, "name": "columns.2.data", "value": "1"},
+              {"type": 1, "name": "columns.2.item", "value": "System description"},
+              {"type": 0, "name": "columns.2.aggregate_function", "value": "0"},
+              {"type": 0, "name": "columns.2.decimal_places", "value": "2"},
+              {"type": 0, "name": "columns.2.display", "value": "1"},
+              {"type": 0, "name": "columns.2.history", "value": "1"},
+              {"type": 1, "name": "columns.2.base_color", "value": ""},
+
+              {"type": 1, "name": "columns.3.name", "value": "位置"},
+              {"type": 0, "name": "columns.3.data", "value": "1"},
+              {"type": 1, "name": "columns.3.item", "value": "System location"},
+              {"type": 0, "name": "columns.3.aggregate_function", "value": "0"},
+              {"type": 0, "name": "columns.3.decimal_places", "value": "2"},
+              {"type": 0, "name": "columns.3.display", "value": "1"},
+              {"type": 0, "name": "columns.3.history", "value": "1"},
+              {"type": 1, "name": "columns.3.base_color", "value": ""},
+
+              {"type": 1, "name": "columns.4.name", "value": "联系人"},
+              {"type": 0, "name": "columns.4.data", "value": "1"},
+              {"type": 1, "name": "columns.4.item", "value": "System contact details"},
+              {"type": 0, "name": "columns.4.aggregate_function", "value": "0"},
+              {"type": 0, "name": "columns.4.decimal_places", "value": "2"},
+              {"type": 0, "name": "columns.4.display", "value": "1"},
+              {"type": 0, "name": "columns.4.history", "value": "1"},
+              {"type": 1, "name": "columns.4.base_color", "value": ""},
+
+              {"type": 1, "name": "columns.5.name", "value": "网络运行时长"},
+              {"type": 0, "name": "columns.5.data", "value": "1"},
+              {"type": 1, "name": "columns.5.item", "value": "Uptime (network)"},
+              {"type": 0, "name": "columns.5.aggregate_function", "value": "0"},
+              {"type": 0, "name": "columns.5.decimal_places", "value": "0"},
+              {"type": 0, "name": "columns.5.display", "value": "1"},
+              {"type": 0, "name": "columns.5.history", "value": "1"},
+              {"type": 1, "name": "columns.5.base_color", "value": ""},
+
+              {"type": 1, "name": "columns.6.name", "value": "硬件运行时长"},
+              {"type": 0, "name": "columns.6.data", "value": "1"},
+              {"type": 1, "name": "columns.6.item", "value": "Uptime (hardware)"},
+              {"type": 0, "name": "columns.6.aggregate_function", "value": "0"},
+              {"type": 0, "name": "columns.6.decimal_places", "value": "0"},
+              {"type": 0, "name": "columns.6.display", "value": "1"},
+              {"type": 0, "name": "columns.6.history", "value": "1"},
+              {"type": 1, "name": "columns.6.base_color", "value": ""}
+            ]
+          },
+          {
+            "type": "problemhosts",
+            "name": "存在问题的设备",
+            "x": 0,
+            "y": 5,
+            "width": 36,
+            "height": 5,
+            "fields": [
+              {"type": 2, "name": "groupids", "value": "22"}
+            ]
+          },
+          {
+            "type": "problemsbysv",
+            "name": "告警严重性分布",
+            "x": 36,
+            "y": 5,
+            "width": 36,
+            "height": 5,
+            "fields": [
+              {"type": 2, "name": "groupids", "value": "22"}
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "auth": "AUTH_TOKEN_PLACEHOLDER",
+  "id": 80
+}

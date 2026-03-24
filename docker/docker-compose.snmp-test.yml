@@ -1,0 +1,209 @@
+# =============================================================================
+# docker-compose.snmp-test.yml
+# =============================================================================
+# SNMP simulator containers for out-of-band management (OBM) testing.
+#
+# This compose file provides:
+#   1. snmp-simulator    — A simulated H3C network device with full MIB support
+#   2. snmp-test-client  — A client container with net-snmp tools for testing
+#
+# Usage:
+#
+#   # Start alongside the Zabbix stack
+#   docker compose -f docker/docker-compose.zabbix.yml \
+#                  -f docker/docker-compose.snmp-test.yml up -d
+#
+#   # Start standalone (for quick SNMP testing without Zabbix)
+#   docker compose -f docker/docker-compose.snmp-test.yml up -d
+#
+#   # Start with the dev container too
+#   docker compose -f docker/docker-compose.zabbix.yml \
+#                  -f docker/docker-compose.snmp-test.yml \
+#                  -f docker/docker-compose.dev.yml up -d
+#
+#   # Exec into the test client to run snmpwalk/snmpget
+#   docker exec -it snmp-test-client sh
+#
+#   # Quick test from host (if port 10161 is mapped)
+#   snmpwalk -v2c -c public localhost:10161 1.3.6.1.2.1.1
+#
+# Simulated OIDs:
+#   Standard MIB-II:
+#     - sysDescr, sysName, sysContact, sysLocation, sysUpTime
+#     - IF-MIB interface table (container's real interfaces)
+#     - HOST-RESOURCES-MIB (hrSystemUptime, hrStorage)
+#
+#   H3C / HH3C Entity Extension MIB (1.3.6.1.4.1.25506):
+#     - hh3cEntityExtCpuUsage       (.2.6.1.1.1.1.6.{idx})
+#     - hh3cEntityExtMemUsage       (.2.6.1.1.1.1.8.{idx})
+#     - hh3cEntityExtTemperature    (.2.6.1.1.1.1.12.{idx})
+#     - hh3cEntityExtErrorStatus    (.2.6.1.1.1.1.19.{idx})
+#
+#   Entity Physical MIB (1.3.6.1.2.1.47):
+#     - entPhysicalDescr, entPhysicalClass, entPhysicalName
+#     - entPhysicalSerialNum, entPhysicalModelName
+#
+#   NET-SNMP-EXTEND-MIB (1.3.6.1.4.1.8072.1.3.2):
+#     - cpu-usage, mem-usage, temperature, fan-speed, psu-status, hw-health
+# =============================================================================
+
+services:
+  # ---------------------------------------------------------------------------
+  # SNMP Simulator — Simulated H3C OBM Device
+  # ---------------------------------------------------------------------------
+  snmp-simulator:
+    build:
+      context: snmp-simulator
+      dockerfile: Dockerfile
+    container_name: snmp-simulator
+    hostname: h3c-obm-sim-01
+    restart: unless-stopped
+    environment:
+      # SNMPv2c community string (also used to patch snmpd.conf at startup)
+      COMMUNITY: "public"
+      # Log level: 0=emerg .. 7=debug (6=info is a good default)
+      SNMPD_LOG_LEVEL: "6"
+    ports:
+      # Map SNMP UDP to host port 10161 to avoid conflicts with any local snmpd
+      - "10161:161/udp"
+    networks:
+      snmp-net:
+        ipv4_address: 172.28.0.10
+        aliases:
+          - snmp-sim
+          - h3c-obm-sim
+      # Also attach to zabbix-net so Zabbix server can poll it directly
+      zabbix-net: {}
+    volumes:
+      # Allow live-editing of the extend script without rebuilding
+      - ./snmp-simulator/snmpd-extend.sh:/usr/local/bin/snmpd-extend.sh:ro
+      # Optionally mount custom snmpd.conf overrides
+      # - ./snmp-simulator/snmpd.conf:/etc/snmp/snmpd.conf:ro
+    healthcheck:
+      test: ["CMD", "snmpget", "-v2c", "-c", "public", "-t", "2", "-r", "1", "127.0.0.1", "1.3.6.1.2.1.1.5.0"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    deploy:
+      resources:
+        limits:
+          memory: 64M
+          cpus: "0.25"
+
+  # ---------------------------------------------------------------------------
+  # SNMP Simulator 2 — Second device for multi-host testing
+  # ---------------------------------------------------------------------------
+  snmp-simulator-2:
+    build:
+      context: snmp-simulator
+      dockerfile: Dockerfile
+    container_name: snmp-simulator-2
+    hostname: h3c-obm-sim-02
+    restart: unless-stopped
+    environment:
+      COMMUNITY: "public"
+      SNMPD_LOG_LEVEL: "5"
+    ports:
+      - "10162:161/udp"
+    networks:
+      snmp-net:
+        ipv4_address: 172.28.0.11
+        aliases:
+          - snmp-sim-2
+          - h3c-obm-sim-2
+      zabbix-net: {}
+    volumes:
+      - ./snmp-simulator/snmpd-extend.sh:/usr/local/bin/snmpd-extend.sh:ro
+    healthcheck:
+      test: ["CMD", "snmpget", "-v2c", "-c", "public", "-t", "2", "-r", "1", "127.0.0.1", "1.3.6.1.2.1.1.5.0"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    deploy:
+      resources:
+        limits:
+          memory: 64M
+          cpus: "0.25"
+    profiles:
+      - multi-device
+
+  # ---------------------------------------------------------------------------
+  # SNMP Test Client — Interactive container with net-snmp tools
+  # ---------------------------------------------------------------------------
+  snmp-test-client:
+    image: alpine:3.20
+    container_name: snmp-test-client
+    hostname: snmp-tester
+    stdin_open: true
+    tty: true
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        apk add --no-cache net-snmp-tools bash curl jq > /dev/null 2>&1
+        echo "========================================================"
+        echo "  SNMP Test Client Ready"
+        echo "========================================================"
+        echo ""
+        echo "  Target devices:"
+        echo "    snmp-simulator   → 172.28.0.10:161 (snmp-sim)"
+        echo "    snmp-simulator-2 → 172.28.0.11:161 (snmp-sim-2) [multi-device profile]"
+        echo ""
+        echo "  Quick-test commands:"
+        echo ""
+        echo "  # System info"
+        echo "  snmpget -v2c -c public snmp-sim 1.3.6.1.2.1.1.5.0"
+        echo "  snmpwalk -v2c -c public snmp-sim 1.3.6.1.2.1.1"
+        echo ""
+        echo "  # Network interfaces"
+        echo "  snmpwalk -v2c -c public snmp-sim 1.3.6.1.2.1.2.2"
+        echo "  snmpwalk -v2c -c public snmp-sim 1.3.6.1.2.1.31.1.1"
+        echo ""
+        echo "  # H3C entity CPU/Memory/Temperature (index 1-5)"
+        echo "  snmpwalk -v2c -c public snmp-sim 1.3.6.1.4.1.25506.2.6.1.1.1"
+        echo "  snmpget  -v2c -c public snmp-sim 1.3.6.1.4.1.25506.2.6.1.1.1.1.6.1   # CPU"
+        echo "  snmpget  -v2c -c public snmp-sim 1.3.6.1.4.1.25506.2.6.1.1.1.1.8.1   # Memory"
+        echo "  snmpget  -v2c -c public snmp-sim 1.3.6.1.4.1.25506.2.6.1.1.1.1.12.1  # Temperature"
+        echo "  snmpget  -v2c -c public snmp-sim 1.3.6.1.4.1.25506.2.6.1.1.1.1.19.1  # ErrorStatus"
+        echo ""
+        echo "  # Entity Physical table (for LLD discovery)"
+        echo "  snmpwalk -v2c -c public snmp-sim 1.3.6.1.2.1.47.1.1.1"
+        echo ""
+        echo "  # NET-SNMP extend data"
+        echo "  snmpwalk -v2c -c public snmp-sim 1.3.6.1.4.1.8072.1.3.2"
+        echo ""
+        echo "  # SNMPv3 authPriv"
+        echo "  snmpget -v3 -u zabbixuser -l authPriv -a SHA -A myauthpass -x AES -X myprivpass snmp-sim 1.3.6.1.2.1.1.5.0"
+        echo ""
+        echo "  # Full walk (verbose)"
+        echo "  snmpwalk -v2c -c public -Of snmp-sim .1 2>/dev/null | head -100"
+        echo ""
+        echo "========================================================"
+        echo ""
+        exec /bin/bash
+    networks:
+      snmp-net: {}
+      zabbix-net: {}
+    depends_on:
+      snmp-simulator:
+        condition: service_healthy
+
+# =============================================================================
+# Networks
+# =============================================================================
+networks:
+  # Dedicated SNMP testing subnet with fixed IPs for predictable addressing
+  snmp-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/24
+          gateway: 172.28.0.1
+
+  # Reference the Zabbix network created by docker-compose.zabbix.yml
+  # Using 'external: false' so this file can be used standalone too.
+  # When used together with docker-compose.zabbix.yml, Docker Compose
+  # merges the network definitions automatically.
+  zabbix-net:
+    driver: bridge
